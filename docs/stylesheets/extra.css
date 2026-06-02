@@ -1,0 +1,82 @@
+/* ============================================================
+   ELAN E-learning - huisstijl (LUMC kleurpalet)
+   LUMC donkerblauw = PMS 280 ~ #003070
+   ============================================================ */
+
+:root {
+  --lumc-donkerblauw: #003070;
+  --lumc-blauw: #2E5A9C;
+  --lumc-lichtblauw: #DEEBF7;
+  --lumc-petrol: #00778B;
+  --lumc-grijs: #F2F2F2;
+
+  /* Material 'custom' palette koppelen aan LUMC-kleuren */
+  --md-primary-fg-color: var(--lumc-donkerblauw);
+  --md-primary-fg-color--light: var(--lumc-blauw);
+  --md-primary-fg-color--dark: #00204D;
+  --md-accent-fg-color: var(--lumc-petrol);
+  --md-typeset-a-color: var(--lumc-donkerblauw);
+}
+
+/* Logo in de header iets meer ruimte geven */
+.md-header__button.md-logo img {
+  height: 2.1rem;
+}
+
+/* Koppen in LUMC-donkerblauw */
+.md-typeset h1,
+.md-typeset h2 {
+  color: var(--lumc-donkerblauw);
+  font-weight: 700;
+}
+.md-typeset h3 {
+  color: var(--lumc-blauw);
+  font-weight: 700;
+}
+
+/* Tabellen: donkerblauwe headerbalk */
+.md-typeset table:not([class]) th {
+  background-color: var(--lumc-donkerblauw);
+  color: #ffffff;
+}
+
+/* 'Fase-voortgang' balk bovenaan elke module (zie modulepagina's) */
+.fase-balk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 1.2em 0;
+  font-size: 0.72rem;
+}
+.fase-balk span {
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--lumc-grijs);
+  color: #555;
+  white-space: nowrap;
+}
+.fase-balk span.actief {
+  background: var(--lumc-donkerblauw);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 'nog aan te vullen' markering — duidelijk zichtbaar voor de beheerder */
+.md-typeset .todo > .admonition-title,
+.md-typeset .todo > summary {
+  background-color: #FFF2CC;
+  color: #7B5E00;
+}
+.md-typeset .todo {
+  border-color: #E0B000;
+}
+
+/* Naslag-blok onderaan elke module */
+.naslag {
+  border-left: 4px solid var(--lumc-petrol);
+  background: var(--lumc-grijs);
+  padding: 0.6em 1em;
+  margin-top: 1.5em;
+  border-radius: 3px;
+}
+.naslag strong { color: var(--lumc-petrol); }
