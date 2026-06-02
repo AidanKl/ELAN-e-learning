@@ -9,7 +9,7 @@ site_description: Leer stap voor stap werken met ELAN-data, geordend per onderzo
 site_author: Aidan Kloots
 
 # Pas dit aan naar de uiteindelijke GitHub Pages URL:
-site_url: https//elan-elearning.io
+site_url: https://elan-elearning.io
 
 theme:
   name: material
