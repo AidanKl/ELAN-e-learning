@@ -1,0 +1,77 @@
+# ============================================================
+#  ELAN E-learning - configuratie
+#  Aanpassen menu? Pas de 'nav:' sectie onderaan aan.
+#  Een nieuwe module toevoegen? Zie README.md.
+# ============================================================
+
+site_name: ELAN E-learning voor onderzoekers
+site_description: Leer stap voor stap werken met ELAN-data, geordend per onderzoeksfase.
+site_author: ELAN / LUMC - Health Campus Den Haag
+
+# Pas dit aan naar de uiteindelijke GitHub Pages URL:
+site_url: https://elan-dcc.github.io/elan-elearning/
+
+theme:
+  name: material
+  language: nl
+  logo: assets/logo-elan.png
+  favicon: assets/favicon.png
+  font:
+    text: Arial
+  palette:
+    # LUMC donkerblauw (PMS 280) als primaire kleur
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Schakel naar donkere modus
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Schakel naar lichte modus
+  features:
+    - navigation.footer      # 'Vorige / Volgende fase' knoppen onderaan elke pagina
+    - navigation.top         # 'terug naar boven' knop
+    - navigation.tracking
+    - toc.integrate          # inhoudsopgave links naast de tekst
+    - content.code.copy      # kopieerknop bij codeblokken
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition               # maakt de !!! tip / !!! warning blokken
+  - pymdownx.details         # inklapbare blokken (??? )
+  - pymdownx.superfences     # nette codeblokken
+  - pymdownx.highlight
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+# ============================================================
+#  MENU (lineaire volgorde van de e-learning)
+#  De titel links is wat in het menu verschijnt.
+#  Het bestand rechts staat in de map docs/.
+# ============================================================
+nav:
+  - 'Welkom': index.md
+  - 'Fase 1 — Oriëntatie & idee': 01-orientatie.md
+  - 'Fase 2 — Ontwikkeling': 02-ontwikkeling.md
+  - 'Fase 3 — Voorbereiding & toegang': 03-voorbereiding.md
+  - 'Fase 4 — Start & datalevering': 04-startfase.md
+  - 'Fase 5 — Uitvoering & voorbewerking': 05-uitvoering.md
+  - 'Fase 6 — Analyse': 06-analyse.md
+  - 'Fase 7 — Afronding': 07-afronding.md
+  - 'Fase 8 — Disseminatie': 08-disseminatie.md
+  - 'Naslag (alle modules)':
+      - 'Contactpersonen': bijlagen/contactpersonen.md
+      - 'Veelgestelde vragen': bijlagen/faq.md
+      - 'Checklists per fase': bijlagen/checklists.md
+      - 'Scriptoverzicht': bijlagen/scripts.md
