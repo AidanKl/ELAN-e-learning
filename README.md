@@ -9,15 +9,7 @@ gepubliceerd via GitHub Pages.
 
 ---
 
-## 1. Eenmalige setup op GitHub
-
-1. Maak een repository aan (bijv. `elan-elearning`) en upload alle bestanden.
-2. Ga naar **Settings → Pages** en zet **Source** op **GitHub Actions**.
-3. Na de eerste push draait `.github/workflows/deploy.yml` automatisch en
-   verschijnt de site op `https://<organisatie>.github.io/elan-elearning/`.
-4. Pas in `mkdocs.yml` de regel `site_url:` aan naar de definitieve URL.
-
-## 2. Inhoud bijwerken
+## 1. Inhoud bijwerken
 
 Alle inhoud staat als Markdown in de map `docs/`. Eén bestand = één fase.
 
@@ -45,19 +37,19 @@ pip install mkdocs-material
 mkdocs serve     # open daarna http://127.0.0.1:8000
 ```
 
-## 3. Een nieuwe module toevoegen
+## 2. Een nieuwe module toevoegen
 
 1. Maak een nieuw bestand in `docs/`, bijv. `09-nieuwe-fase.md`.
 2. Voeg het toe aan de `nav:` in `mkdocs.yml` op de gewenste plek.
 3. Kopieer de opbouw van een bestaande module (zie hieronder).
 
-## 4. Onderdelen die nog moeten worden ingevuld
+## 3. Onderdelen die nog moeten worden ingevuld
 
 Door de hele e-learning staan blokken met de markering **"Nog aan te vullen"**
 (geel kader). Dit zijn plekken waar de inhoud nog niet definitief is. Zoek in
 de `.md`-bestanden op `NOG-AAN-TE-VULLEN` om ze allemaal te vinden.
 
-## 5. Vaste opbouw van een modulepagina
+## 4. Vaste opbouw van een modulepagina
 
 Elke fase volgt dezelfde structuur:
 
@@ -69,7 +61,7 @@ Elke fase volgt dezelfde structuur:
 6. **Naslag bij deze fase** (klein blok met bronnen en contact)
 7. Link naar de volgende fase
 
-## 6. Iconen / blokken (Markdown-syntax)
+## 5. Iconen / blokken (Markdown-syntax)
 
 ```markdown
 !!! tip "Tip"
