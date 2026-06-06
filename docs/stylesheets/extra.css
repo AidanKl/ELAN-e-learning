@@ -80,3 +80,59 @@
   border-radius: 3px;
 }
 .naslag strong { color: var(--lumc-petrol); }
+
+/* ============================================================
+   Checklist-poort (verschijnt onderaan elke module)
+   ============================================================ */
+.checklist-kaart {
+  border: 2px solid var(--lumc-donkerblauw);
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  margin: 2em 0 1em 0;
+  background: var(--lumc-lichtblauw);
+}
+.checklist-kaart h3 {
+  margin-top: 0;
+  color: var(--lumc-donkerblauw);
+}
+.checklist-items { margin: 0.6em 0; }
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  padding: 0.35em 0;
+  cursor: pointer;
+}
+.checklist-item input { margin-top: 0.25em; transform: scale(1.2); }
+
+/* Vergrendelde 'volgende' knop */
+a.md-button.knop-vergrendeld {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(60%);
+}
+
+/* Korte schud-animatie als je op een vergrendelde knop klikt */
+@keyframes schud {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.checklist-kaart.schud { animation: schud 0.4s; }
+
+/* Custom 'todo' admonition (Nog aan te vullen) */
+.md-typeset .admonition.todo,
+.md-typeset details.todo {
+  border-color: #E0B000;
+}
+.md-typeset .todo > .admonition-title,
+.md-typeset .todo > summary {
+  background-color: #FFF7E0;
+  color: #7B5E00;
+}
+.md-typeset .todo > .admonition-title::before,
+.md-typeset .todo > summary::before {
+  background-color: #E0B000;
+  -webkit-mask-image: var(--md-admonition-icon--note);
+  mask-image: var(--md-admonition-icon--note);
+}

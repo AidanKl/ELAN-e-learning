@@ -18,48 +18,43 @@ Je vertaalt je onderzoeksvraag naar een concreet dataprotocol: welke variabelen,
 
 ## Wat heb je nodig?
 
-- De beschikbare databronnen (ELAN, CBS) en hun inhoud
-- Coderingen: ICPC (huisartsdiagnoses) en ATC (medicatie)
-- Definities: hoe wordt een diagnose of uitkomst eigenlijk vastgesteld?
+- De beschikbare databronnen en hun inhoud
+- Coderingen: ICPC (diagnoses) en ATC (medicatie)
+- Definities: hoe wordt een diagnose of uitkomst vastgesteld?
 - De mogelijkheden en beperkingen van de koppeling ELAN–CBS
-- Operationalisatie: inclusie- en exclusiecriteria, tijdsvensters
-- Een eerste idee van de datakwaliteit en bekende beperkingen
+- Operationalisatie: inclusie-/exclusiecriteria, tijdsvensters
 
 ## Hoe is de huisartsendata opgebouwd?
 
-Huisartsen leggen gegevens vast in een Huisarts Informatie Systeem (HIS) volgens de **SOEP**-structuur (Subjectief, Objectief, Evaluatie, Plan). De E-regel wordt gecodeerd met **ICPC**. Via *episodegericht registreren* worden losse contacten gekoppeld aan zorgepisodes, waardoor het beloop van één gezondheidsprobleem zichtbaar wordt.
+Huisartsen leggen gegevens vast in een HIS volgens de **SOEP**-structuur. De E-regel wordt gecodeerd met **ICPC**. Via episodegericht registreren worden contacten gekoppeld aan zorgepisodes.
 
-De ELAN-huisartsendata wordt door de Trusted Third Party **STIZON** uit het EPD gehaald. De bestanden bevatten variabelen die rechtstreeks uit het EPD komen én bewerkte 'derived' variabelen (herkenbaar aan de **d-prefix**, bv. `dDatum`, `dEpisodeICPC`).
+De data wordt door de TTP **STIZON** uit het EPD gehaald en bevat ook bewerkte 'derived' variabelen (herkenbaar aan de **d-prefix**).
 
 ## Het ICPC-codeersysteem
 
 | Cijferreeks | Betekenis |
 | --- | --- |
 | 01–29 | Symptomen / klachten |
-| 30–69 | Verrichtingen (niet bedoeld voor episodes) |
+| 30–69 | Verrichtingen |
 | 70–99 | Diagnoses |
 
-Voorbeeld: `P03` = down/depressief gevoel (symptoom), `P76` = depressie (diagnose), `P76.01` = postpartumdepressie (subtitel).
-
 !!! warning "ICPC is geen harde diagnose"
-    Huisartsen coderen "niet hoger dan ze waar kunnen maken". Buikpijn met verdenking appendicitis wordt vaak `D01` (buikpijn), en pas later `D88` (appendicitis) — als de diagnose zeker is. Houd hier rekening mee bij het operationaliseren van uitkomsten.
+    Huisartsen coderen 'niet hoger dan ze waar kunnen maken'. Een symptoomcode wordt pas later een diagnosecode — als die zeker is.
 
 !!! tip "Gebruik de ICPC-viewer"
-    Codes opzoeken kan via de NHG ICPC-viewer: viewers.nhg.org/icpcviewer
-
-!!! danger "Documentatie kan technisch zijn"
-    De centrale data-documentatie (GitHub/DCC) vereist soms voorkennis. Loop je vast bij het vertalen van variabelen naar onderzoeksvariabelen? Stem dit af met de DCC of datamanager in plaats van zelf te puzzelen.
+    viewers.nhg.org/icpcviewer
 
 !!! todo "Nog aan te vullen"
-    NOG-AAN-TE-VULLEN: concrete voorbeelden van operationalisatie (van ruwe variabele naar onderzoeksvariabele/uitkomstmaat). Dit is een bekend hiaat en wordt later aangevuld.
+    NOG-AAN-TE-VULLEN: concrete voorbeelden van operationalisatie (van ruwe variabele naar uitkomstmaat).
 
 <div class="naslag" markdown>
 **Naslag bij deze fase**
 
-- **Centrale GP-data documentatie** — elan-dcc.github.io/researchers/internal/gp_data/
-- **Codeboek ELAN** — github.com/elan-dcc/org/tree/main/codebooks (let op de d-prefix voor derived variabelen)
-- **ICPC-viewer** — viewers.nhg.org/icpcviewer
-- **Contact** — datamanager / DCC: F.H.Ardesch@lumc.nl, elan.dcc@lumc.nl
+- **GP-data documentatie** — elan-dcc.github.io/researchers/internal/gp_data/
+- **Codeboek** — github.com/elan-dcc/org/tree/main/codebooks
+- **Contact** — F.H.Ardesch@lumc.nl, elan.dcc@lumc.nl
 </div>
 
-[← Fase 1](01-orientatie.md){ .md-button } [Volgende: Fase 3 — Voorbereiding & toegang →](03-voorbereiding.md){ .md-button .md-button--primary }
+<div class="checklist-poort" data-volgorde="02"></div>
+
+[← Vorige](01-orientatie.md){ .md-button } [Volgende fase →](03-voorbereiding.md){ .md-button .md-button--primary }

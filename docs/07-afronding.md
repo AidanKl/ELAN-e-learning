@@ -25,21 +25,22 @@ Je sluit het datagebruik formeel af: archivering, eigenaarschap en het netjes be
 
 ## Toegang beëindigen
 
-- **Definitief stoppen:** meld dit bij de datamanager. Je bestanden worden gezipt en naar een opslagproject overgezet. Vanwege wettelijke verplichtingen wordt je data **15 jaar** bewaard.
-- **Tijdelijk stoppen:** je toegang wordt geblokkeerd, je betaalt geen actieve userkosten meer, maar je behoudt je token. Tijdelijk stoppen is altijd voor meerdere maanden — niet per maand schakelen.
+- **Definitief stoppen:** meld dit bij de datamanager. Bestanden worden gezipt en gearchiveerd. Data wordt **15 jaar** bewaard.
+- **Tijdelijk stoppen:** toegang geblokkeerd, geen userkosten, maar je behoudt je token. Altijd voor meerdere maanden.
 
 !!! warning "Kosten lopen door per kwartaal"
-    Actieve userkosten worden per kwartaal doorbelast. Meld tijdig bij de datamanager als je (tijdelijk) stopt, zodat de kosten stoppen.
+    Meld tijdig bij de datamanager als je (tijdelijk) stopt, zodat de kosten stoppen.
 
 !!! todo "Nog aan te vullen"
-    NOG-AAN-TE-VULLEN: een praktische afsluitchecklist en heldere uitleg over data-eigenaarschap en hergebruik (wie mag wat, onder welke voorwaarden). De governance beschrijft de regels, maar de praktische vertaling ontbreekt nog.
+    NOG-AAN-TE-VULLEN: praktische afsluitchecklist en uitleg over data-eigenaarschap en hergebruik.
 
 <div class="naslag" markdown>
 **Naslag bij deze fase**
 
-- **ELAN Data Governance** — elan-data-governance (PDF op lumc.nl): eigenaarschap, hergebruik, archivering
-- **CBS-outputcontrole** — via de CBS-RA exportmap
-- **Contact** — datamanager (elan.dcc@lumc.nl); Hoofd ELAN: D. Mook (d.o.mook@lumc.nl), J. Struijs (j.n.struijs@lumc.nl)
+- **ELAN Data Governance** — eigenaarschap, hergebruik, archivering
+- **Contact** — elan.dcc@lumc.nl; D. Mook (d.o.mook@lumc.nl), J. Struijs (j.n.struijs@lumc.nl)
 </div>
 
-[← Fase 6](06-analyse.md){ .md-button } [Volgende: Fase 8 — Disseminatie →](08-disseminatie.md){ .md-button .md-button--primary }
+<div class="checklist-poort" data-volgorde="07"></div>
+
+[← Vorige](06-analyse.md){ .md-button } [Volgende fase →](08-disseminatie.md){ .md-button .md-button--primary }

@@ -26,47 +26,45 @@ Je maakt de dataset begrijpelijk en analyseklaar. Dit is de fase waarin de meest
 ## Kritieke bijzonderheden in de data
 
 !!! danger "Concludeer nooit afwezigheid uit ontbrekende data"
-    Een HIS wordt bijgehouden voor de zorg, niet voor onderzoek. Er is grote variatie tussen huisartsen in registratie. Een lege registratie betekent **niet** dat een aandoening afwezig is.
+    Een HIS wordt bijgehouden voor de zorg, niet voor onderzoek. Een lege registratie betekent niet dat een aandoening afwezig is.
 
 !!! warning "Transitie van diagnose"
-    Een diagnose kan in de loop van een episode worden bijgesteld (bv. 'hoofdpijn' → 'hersentumor'). Dat gebeurt niet altijd, en bij herdefiniëring worden niet alle historische diagnoses bewaard. De tabel JRN bevat daarom twee ICPC-kolommen (journaalregel én gekoppelde episode).
+    Een diagnose kan worden bijgesteld; dat gebeurt niet altijd. JRN bevat daarom twee ICPC-kolommen.
 
 !!! warning "Verschillen tussen HIS-systemen en omgevingen"
-    Variabelen zijn net iets anders gevuld per HIS (Medicom, Microhis, Promedico). En: op de I-schijf zijn INS en PAT gescheiden, in de CBS-RA samengevoegd. Variabelenamen kunnen afwijken van het codeboek — controleer op de wáárden, niet alleen op de naam.
+    Variabelen zijn net iets anders gevuld per HIS. INS/PAT gescheiden op I-schijf, samengevoegd in CBS-RA. Controleer op wáárden, niet alleen op naam.
 
 ??? note "Meer bijzonderheden (klik om uit te klappen)"
-    - **Probleemlijst vs. episodelijst:** belangrijke (chronische) aandoeningen worden gelabeld als 'probleem'. De meeste HIS'en labelen bepaalde ICPC-codes automatisch.
-    - **Handmatig ingevoerde voorgeschiedenis:** bij praktijkovergang werd de voorgeschiedenis vaak handmatig ingevoerd — let op veel diagnoses op één begindatum.
-    - **Verwijzingen:** ZorgDomein-verwijzingen zitten NIET in de COR-tabel, maar in JRN_Zorgdomein. Combineer beide bronnen.
+    - **Probleemlijst vs. episodelijst:** chronische aandoeningen worden gelabeld als 'probleem'.
+    - **Handmatige voorgeschiedenis:** let op veel diagnoses op één begindatum.
+    - **Verwijzingen:** ZorgDomein-verwijzingen zitten in JRN_Zorgdomein, niet in COR.
 
-## Validatie vóór analyse — doe dit altijd
+## Validatie vóór analyse
 
-1. Controleer de mappen: kreeg je de tabellen die je verwachtte?
+1. Controleer de mappen.
 2. Controleer variabelenamen tegen het codeboek.
-3. Controleer de populatiegrootte (klopt N globaal?).
+3. Controleer de populatiegrootte.
 4. Controleer het tijdsvenster.
 5. Controleer missende waarden.
 
 ## Change tracking & ontdubbelen
 
-STIZON haalt de data op in 'snapshots' en voegt een change record toe via `StartDate` en `EndDate`. Hierdoor staan er mogelijk dubbele records in tabellen als EPS en COR.
+STIZON haalt data op in 'snapshots' en voegt `StartDate`/`EndDate` toe. Hierdoor staan er mogelijk dubbele records in tabellen als EPS en COR.
 
 !!! danger "Ontdubbelen is bijna altijd nodig"
-    Verwijder records met een `EndDate` (verouderde versies) en ontdubbel op de sleutelvariabelen. Zie het [Scriptoverzicht](bijlagen/scripts.md) voor een herbruikbaar ontdubbel-script.
-
-!!! tip "Stem aannames af met een expert"
-    Een expliciet advies uit de ELAN-documentatie: toets je interpretatie- en validatiestrategie bij iemand die de registratiewerkwijze van huisartsen kent.
+    Verwijder records met een `EndDate` en ontdubbel op de sleutelvariabelen. Zie het Scriptoverzicht.
 
 !!! todo "Nog aan te vullen"
-    NOG-AAN-TE-VULLEN: een centrale lijst met bekende datakwaliteitsproblemen per databron, en standaard data-cleaning workflows. Veel van deze kennis zit nu impliciet bij data-analisten.
+    NOG-AAN-TE-VULLEN: centrale lijst met bekende datakwaliteitsproblemen per databron en standaard cleaning-workflows.
 
 <div class="naslag" markdown>
 **Naslag bij deze fase**
 
-- **Codeboek ELAN** — github.com/elan-dcc/org/tree/main/codebooks
-- **Cleaning-scripts** — github.com/elan-dcc
-- **Validatie & ontdubbelen** — zie [Scriptoverzicht](bijlagen/scripts.md)
-- **Contact** — datamanager / DCC / ervaringsdeskundigen: F.H.Ardesch@lumc.nl, elan.dcc@lumc.nl
+- **Codeboek** — github.com/elan-dcc/org/tree/main/codebooks
+- **Validatie & ontdubbelen** — zie Scriptoverzicht
+- **Contact** — F.H.Ardesch@lumc.nl, elan.dcc@lumc.nl
 </div>
 
-[← Fase 4](04-startfase.md){ .md-button } [Volgende: Fase 6 — Analyse →](06-analyse.md){ .md-button .md-button--primary }
+<div class="checklist-poort" data-volgorde="05"></div>
+
+[← Vorige](04-startfase.md){ .md-button } [Volgende fase →](06-analyse.md){ .md-button .md-button--primary }
