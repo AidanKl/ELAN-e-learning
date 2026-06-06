@@ -18,18 +18,16 @@ Je voert de statistische analyses uit op ELAN- en/of CBS-data, met aandacht voor
 
 ## Wat heb je nodig?
 
-- De analytische mogelijkheden binnen je omgeving (R, Python, STATA) en de restricties
+- De analytische mogelijkheden (R, Python, STATA) en restricties
 - Methodologische aandachtspunten: confounding, bias, clustering op praktijkniveau
 - De CBS-beperkingen: disclosure control en outputcontrole
 - Inzicht in de koppelkwaliteit van gecombineerde ELAN–CBS-data
 
 ## Reproduceerbaar werken
 
-- **Versiebeheer:** gebruik Git of datumstempels in bestandsnamen.
-- **Gescheiden scripts:** houd inladen, bewerken, analyseren en output apart.
+- **Versiebeheer:** Git of datumstempels in bestandsnamen.
+- **Gescheiden scripts:** inladen, bewerken, analyseren, output apart.
 - **Documenteer je data-ontvangst:** datum, versie en data-manager.
-
-Aanbevolen scriptstructuur:
 
 ```text
 1_data_inladen      -> inladen + validatiechecks, schone basisset opslaan
@@ -41,35 +39,34 @@ Aanbevolen scriptstructuur:
 ## Veelgemaakte analysefouten
 
 !!! danger "De grootste valkuilen"
-    - ICPC-codes als diagnose gebruiken zonder validatiestrategie (zie Fase 5).
-    - Geen rekening houden met praktijkvariatie in registratievolledigheid.
-    - Populatiefilter vergeten (ELAN bevat ook kort-ingeschreven personen).
-    - Time-to-event analyses zonder te checken of de follow-up volledig is.
+    - ICPC-codes als diagnose zonder validatiestrategie.
+    - Geen rekening houden met praktijkvariatie in registratie.
+    - Populatiefilter vergeten.
+    - Time-to-event zonder volledige follow-up te checken.
 
 ## Veelgebruikte samengestelde variabelen
 
 | Variabele | Aandachtspunt |
 | --- | --- |
-| SES / etniciteit | Kies huishoud- vs. persoonlijk inkomen bewust. **Let op:** in het sterftejaar is inkomen veel te laag — koppel het jaar vóór baseline. |
-| Polyfarmacie | Kies bron (CBS = ATC-4/jaar; ELAN-huisarts = ATC-7 incl. dosering). |
+| SES / etniciteit | In het sterftejaar is inkomen veel te laag — koppel het jaar vóór baseline. |
+| Polyfarmacie | CBS = ATC-4/jaar; ELAN-huisarts = ATC-7 incl. dosering. |
 | Multimorbiditeit | Leidraad: van Oostrom et al., BMC Public Health 2012. |
-| Kwetsbaarheid (frailty) | Frailty Index kan met ELAN-huisartsendata (>60 jr); SPSS-syntax via datamanager. |
-
-## CBS-outputcontrole
+| Kwetsbaarheid | Frailty Index via ELAN-huisartsendata (>60 jr); SPSS-syntax via datamanager. |
 
 !!! warning "Output kost tijd én geld"
-    CBS heeft officieel 3 werkdagen voor de outputcontrole; reken op een week bij een deadline. Het aanbieden van figuren/tabellen kost geld (circa €250 per keer); je syntax aanbieden is gratis. Zorg dat output voldoet aan de celgrootte-eisen.
+    CBS heeft officieel 3 werkdagen; reken op een week bij een deadline. Figuren/tabellen kosten ±€250; syntax aanbieden is gratis.
 
 !!! todo "Nog aan te vullen"
-    NOG-AAN-TE-VULLEN: een gecombineerd analysekader voor gekoppelde ELAN–CBS-data en concrete methodologische richtlijnen voor clustering en bias in routinezorgdata.
+    NOG-AAN-TE-VULLEN: gecombineerd analysekader voor gekoppelde ELAN–CBS-data en richtlijnen voor clustering en bias.
 
 <div class="naslag" markdown>
 **Naslag bij deze fase**
 
-- **Scriptoverzicht** — zie [Scriptoverzicht](bijlagen/scripts.md)
-- **CBS-gedragsregels** — bijlage 1 van het Guidance Document
-- **K-schijf metadata** — referentietabellen (o.a. LANDAKTUEEL voor herkomst)
-- **Contact** — statistici / methodologen / DCC: elan.dcc@lumc.nl
+- **Scriptoverzicht** — zie Naslag
+- **CBS-gedragsregels** — bijlage 1 Guidance Document
+- **Contact** — elan.dcc@lumc.nl
 </div>
 
-[← Fase 5](05-uitvoering.md){ .md-button } [Volgende: Fase 7 — Afronding →](07-afronding.md){ .md-button .md-button--primary }
+<div class="checklist-poort" data-volgorde="06"></div>
+
+[← Vorige](05-uitvoering.md){ .md-button } [Volgende fase →](07-afronding.md){ .md-button .md-button--primary }

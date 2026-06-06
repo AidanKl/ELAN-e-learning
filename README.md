@@ -2,82 +2,121 @@
 
 Een lineaire e-learning die startende onderzoekers stap voor stap door de
 acht fasen van werken met ELAN-data leidt. Gebouwd met
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) en
-gepubliceerd via GitHub Pages.
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), met een
+**ingebouwde beheeromgeving (Decap CMS)** zodat de inhoud zonder code en
+zonder GitHub-kennis kan worden uitgebreid.
 
 > Deze README is **voor beheerders** en verschijnt niet op de website.
 
 ---
 
-## 1. Inhoud bijwerken
+## Hoe het werkt (in het kort)
 
-Alle inhoud staat als Markdown in de map `docs/`. Eén bestand = één fase.
+```
+content/            <- HIER staat de bewerkbare inhoud (door de CMS beheerd)
+  modules/          <- de 8 fasen + welkom, elk als 1 bestand
+  naslag/           <- FAQ, contactpersonen, checklists, scripts
+        |
+        |  scripts/build_content.py  (draait automatisch bij publicatie)
+        v
+docs/               <- AUTOMATISCH gegenereerd; NIET met de hand bewerken
+        |
+        |  mkdocs build
+        v
+website (GitHub Pages)
+```
 
-| Bestand | Verschijnt in menu als |
-| --- | --- |
-| `docs/index.md` | Welkom |
-| `docs/01-orientatie.md` | Fase 1 — Oriëntatie & idee |
-| `docs/02-ontwikkeling.md` | Fase 2 — Ontwikkeling |
-| `docs/03-voorbereiding.md` | Fase 3 — Voorbereiding & toegang |
-| `docs/04-startfase.md` | Fase 4 — Start & datalevering |
-| `docs/05-uitvoering.md` | Fase 5 — Uitvoering & voorbewerking |
-| `docs/06-analyse.md` | Fase 6 — Analyse |
-| `docs/07-afronding.md` | Fase 7 — Afronding |
-| `docs/08-disseminatie.md` | Fase 8 — Disseminatie |
-| `docs/bijlagen/*.md` | Naslag |
+Je bewerkt dus **nooit** de bestanden in `docs/` met de hand — die worden
+telkens opnieuw gegenereerd uit `content/`. Bewerken doe je via de
+beheeromgeving op `/admin/` (of rechtstreeks in `content/`).
 
-**Bewerken via de website:** open een `.md`-bestand op GitHub, klik op het
-potlood-icoon, pas aan en klik **Commit changes**. De site werkt zichzelf
-binnen enkele minuten bij.
+---
 
-**Lokaal bewerken (voorbeeld zien vóór publicatie):**
+## 1. De beheeromgeving (`/admin/`)
+
+Op `https://<organisatie>.github.io/elan-elearning/admin/` staat een
+grafische editor (Decap CMS). Wie inlogt kan:
+
+- **Modules** bewerken: titel, intro, "wat heb je nodig", subhoofdstukken.
+- Per subhoofdstuk **blokken** toevoegen en herordenen (slepen):
+  Tekst · Tip · Let op · Valkuil · Nog-aan-te-vullen · Codeblok ·
+  Inklapbaar blok · Tabel.
+- **Naslagpagina's** (FAQ, contactpersonen, scripts, checklists) bewerken.
+
+Wijzigingen komen binnen via de **conceptmodus** (editorial workflow):
+*Concept → Ter review → Klaar*. Pas bij "Klaar" wordt het gepubliceerd.
+Zo houd jij de regie over wat live gaat.
+
+## 2. Wie mag bewerken? (toegang beheren)
+
+Toegang loopt via **GitHub-login**: iedereen gebruikt zijn eigen
+GitHub-account. Iemand mag bewerken zodra die **lid is van de repository**
+(of van de organisatie). Toevoegen/verwijderen = lid toevoegen/verwijderen
+in **Settings → Collaborators** (of via het team in de organisatie).
+
+Voordeel: je ziet in de historie wie wat wijzigde, en er is geen gedeeld
+wachtwoord dat kan uitlekken.
+
+### Eenmalig: de auth-helper instellen
+
+Decap heeft een kleine dienst nodig die de GitHub-login afhandelt. Dit is
+gratis te hosten (bijv. via een kant-en-klare "Decap/Netlify OAuth"-helper).
+Stappen:
+
+1. Registreer een **GitHub OAuth App** (Settings → Developer settings →
+   OAuth Apps). Vul als callback-URL de URL van je auth-helper in.
+2. Zet de auth-helper online (bijv. op Render/Cloudflare Workers; er zijn
+   gratis 1-klik-templates voor "decap-cms github oauth").
+3. Vul in `docs/admin/config.yml` bij `base_url:` de URL van je helper in,
+   en bij `repo:` jouw `organisatie/repo`.
+
+> Tot de auth-helper er is, werkt de site gewoon; alleen `/admin/` kan dan
+> nog niet inloggen. De rest van de e-learning is volledig functioneel.
+
+## 3. Eerste publicatie op GitHub
+
+1. Maak een repository aan (bijv. `elan-elearning`) en upload alle bestanden.
+2. **Settings → Pages → Source = GitHub Actions**.
+3. Pas in `mkdocs.yml` de regel `site_url:` aan en in `docs/admin/config.yml`
+   de regels `repo:` en `base_url:`.
+4. Na de eerste push draait `.github/workflows/deploy.yml`: die zet de
+   CMS-content om én bouwt de site. Klaar.
+
+## 4. Inhoud bijwerken zonder de CMS (alternatief)
+
+Je kunt ook rechtstreeks de bestanden in `content/` bewerken op GitHub
+(potlood-icoon → Commit). Het format staat in elk bestand voorgedaan.
+
+Lokaal voorbeeld bekijken:
 
 ```bash
-pip install mkdocs-material
-mkdocs serve     # open daarna http://127.0.0.1:8000
+pip install mkdocs-material pyyaml
+python scripts/build_content.py   # zet content/ om naar docs/
+mkdocs serve                      # open http://127.0.0.1:8000
 ```
 
-## 2. Een nieuwe module toevoegen
+## 5. De checklist-poort
 
-1. Maak een nieuw bestand in `docs/`, bijv. `09-nieuwe-fase.md`.
-2. Voeg het toe aan de `nav:` in `mkdocs.yml` op de gewenste plek.
-3. Kopieer de opbouw van een bestaande module (zie hieronder).
+Onderaan elke fase staat een checklist. De knop **"Volgende fase"** wordt
+pas actief als alle vakjes zijn afgevinkt. De voortgang wordt onthouden in
+de browser van de gebruiker (geen centrale registratie — dat zou een
+leerplatform/LMS vereisen).
 
-## 3. Onderdelen die nog moeten worden ingevuld
+De afvinkpunten staan in `docs/javascripts/checklist-data.js`. Pas die lijst
+aan om punten te wijzigen, of laat een module weg om daar geen poort te tonen.
 
-Door de hele e-learning staan blokken met de markering **"Nog aan te vullen"**
-(geel kader). Dit zijn plekken waar de inhoud nog niet definitief is. Zoek in
-de `.md`-bestanden op `NOG-AAN-TE-VULLEN` om ze allemaal te vinden.
+## 6. Een nieuwe module / fase toevoegen
 
-## 4. Vaste opbouw van een modulepagina
+Via `/admin/`: klik op **Modules → New Module**, vul "volgorde" in (bv. `09`)
+en de velden. Het menu en de volgorde regelen zich automatisch op basis van
+het volgorde-nummer. Wil je er een checklist bij? Voeg een blok toe in
+`checklist-data.js` met dezelfde volgorde als sleutel.
 
-Elke fase volgt dezelfde structuur:
+## 7. Onderdelen die nog moeten worden ingevuld
 
-1. Fase-voortgangsbalk (toont waar je bent in de 8 fasen)
-2. **Wat gebeurt er in deze fase?**
-3. **Wat heb je nodig?**
-4. Inhoud / stappen
-5. Tips & valkuilen (`!!! tip`, `!!! warning`, `!!! danger`)
-6. **Naslag bij deze fase** (klein blok met bronnen en contact)
-7. Link naar de volgende fase
+Door de hele e-learning staan **"Nog aan te vullen"**-blokken (geel). Zoek in
+`content/` op `NOG-AAN-TE-VULLEN` om ze allemaal te vinden.
 
-## 5. Iconen / blokken (Markdown-syntax)
-
-```markdown
-!!! tip "Tip"
-    Praktische tip.
-
-!!! warning "Let op"
-    Iets om op te letten.
-
-!!! danger "Valkuil"
-    Veelgemaakte fout.
-
-!!! todo "Nog aan te vullen"
-    NOG-AAN-TE-VULLEN: beschrijf hier wat er nog moet komen.
-
-??? note "Klik om uit te klappen"
-    Verborgen tekst.
-```
+---
 
 Beheer: Aidan Kloots · a.kloots@lumc.nl

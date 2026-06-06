@@ -1,5 +1,6 @@
 # Veelgestelde vragen
 
+
 Naslag bij alle fasen.
 
 ??? question "Hoe weet ik of mijn ticket is goedgekeurd?"

@@ -19,38 +19,39 @@ Je bepaalt of jouw onderzoeksvraag te beantwoorden is met ELAN-data (en/of met C
 ## Wat heb je nodig?
 
 - Welke databronnen beschikbaar zijn
-- Een globaal beeld van de inhoud van de datasets: type variabelen, dekking en populatie
+- Een globaal beeld van de inhoud van de datasets: variabelen, dekking en populatie
 - De toegangsvoorwaarden: wie krijgt onder welke condities toegang
-- Een indicatie van geschiktheid: globale populatiegrootte en de aanwezigheid van sleutelvariabelen
+- Een indicatie van geschiktheid: populatiegrootte en aanwezigheid van sleutelvariabelen
 - De belangrijkste restricties: privacybeperkingen en beperkingen in koppelingen
 
 ## Wat is mogelijk met ELAN-data?
 
 | Geschiktheid | Voorbeelden |
 | --- | --- |
-| **Sterk** | Prevalentiestudies, risicofactoronderzoek, populatiebeschrijvingen, verwijzingstrajecten, longitudinale analyses bij voldoende follow-up |
-| **Beperkt mogelijk** | Time-to-event analyses — bespreek vooraf met de data-manager of jouw vraag haalbaar is |
-| **Moeilijk / niet** | Analyses die diagnosezekerheid op basis van ICPC-codes alleen vereisen (zie Fase 2 en 5) |
+| **Sterk** | Prevalentie, risicofactoren, populatiebeschrijvingen, verwijzingstrajecten, longitudinale analyses bij voldoende follow-up |
+| **Beperkt** | Time-to-event analyses — bespreek vooraf met de data-manager |
+| **Moeilijk / niet** | Analyses die diagnosezekerheid op basis van ICPC-codes alleen vereisen |
 
 !!! tip "Begin hier"
-    Oriënteer je eerst op de ELAN-DCC documentatie (elan-dcc.github.io/researchers) en lees de beschrijving van de databronnen, zodat je weet wat er beschikbaar is voordat je een ticket indient.
+    Oriënteer je eerst op de ELAN-DCC documentatie (elan-dcc.github.io/researchers) voordat je een ticket indient.
 
 !!! tip "Vraag een oriëntatiegesprek aan"
-    Bij twijfel over haalbaarheid: vraag vroeg een gesprek aan met de data-manager. Dit bespaart later meerdere iteratieronden.
+    Bij twijfel over haalbaarheid: vraag vroeg een gesprek aan met de data-manager. Dit bespaart later iteratieronden.
 
 !!! warning "Twee gescheiden omgevingen"
-    ELAN kent twee data-omgevingen: de **I-schijf** (interne LUMC-omgeving) en de **CBS-RA**-omgeving. Niet alle data zit in beide. Houd hier vanaf het begin rekening mee — je leert er meer over in Fase 4.
+    ELAN kent twee omgevingen: de **I-schijf** en de **CBS-RA**-omgeving. Niet alle data zit in beide.
 
 !!! todo "Nog aan te vullen"
-    NOG-AAN-TE-VULLEN: een laagdrempelig "data discovery"-overzicht (welke variabelen zitten er feitelijk in, per databron). Dit is een bekend hiaat uit de gap-analyse en wordt later toegevoegd.
+    NOG-AAN-TE-VULLEN: een laagdrempelig 'data discovery'-overzicht (welke variabelen zitten er feitelijk in, per databron).
 
 <div class="naslag" markdown>
 **Naslag bij deze fase**
 
-- **ELAN-DCC** — beschrijving databronnen en omgevingen: elan-dcc.github.io/researchers en elan-dcc.github.io/nl/about_data/
-- **Health Campus Den Haag** — context data-infrastructuur: healthcampusdenhaag.nl
+- **ELAN-DCC** — elan-dcc.github.io/researchers
 - **Infrastructuurpapers** — Kist et al., Int J Epidemiol 2024; Ardesch et al., Health Policy 2023
-- **Contact** — datamanager F. Ardesch (F.H.Ardesch@lumc.nl) voor een eerste haalbaarheidsinschatting
+- **Contact** — datamanager F. Ardesch (F.H.Ardesch@lumc.nl)
 </div>
 
-[← Welkom](index.md){ .md-button } [Volgende: Fase 2 — Ontwikkeling →](02-ontwikkeling.md){ .md-button .md-button--primary }
+<div class="checklist-poort" data-volgorde="01"></div>
+
+[← Vorige](index.md){ .md-button } [Volgende fase →](02-ontwikkeling.md){ .md-button .md-button--primary }
