@@ -9,7 +9,7 @@ site_description: Leer stap voor stap werken met ELAN-data, geordend per onderzo
 site_author: ELAN / LUMC - Health Campus Den Haag
 
 # Pas dit aan naar de uiteindelijke GitHub Pages URL:
-site_url: https://elan-dcc.github.io/elan-elearning/
+site_url: https://e-learning-ELAN.github.io
 
 theme:
   name: material
