@@ -1,0 +1,138 @@
+/* ============================================================
+   ELAN E-learning - huisstijl (LUMC kleurpalet)
+   LUMC donkerblauw = PMS 280 ~ #003070
+   ============================================================ */
+
+:root {
+  --lumc-donkerblauw: #003070;
+  --lumc-blauw: #2E5A9C;
+  --lumc-lichtblauw: #DEEBF7;
+  --lumc-petrol: #00778B;
+  --lumc-grijs: #F2F2F2;
+
+  /* Material 'custom' palette koppelen aan LUMC-kleuren */
+  --md-primary-fg-color: var(--lumc-donkerblauw);
+  --md-primary-fg-color--light: var(--lumc-blauw);
+  --md-primary-fg-color--dark: #00204D;
+  --md-accent-fg-color: var(--lumc-petrol);
+  --md-typeset-a-color: var(--lumc-donkerblauw);
+}
+
+/* Logo in de header iets meer ruimte geven */
+.md-header__button.md-logo img {
+  height: 2.1rem;
+}
+
+/* Koppen in LUMC-donkerblauw */
+.md-typeset h1,
+.md-typeset h2 {
+  color: var(--lumc-donkerblauw);
+  font-weight: 700;
+}
+.md-typeset h3 {
+  color: var(--lumc-blauw);
+  font-weight: 700;
+}
+
+/* Tabellen: donkerblauwe headerbalk */
+.md-typeset table:not([class]) th {
+  background-color: var(--lumc-donkerblauw);
+  color: #ffffff;
+}
+
+/* 'Fase-voortgang' balk bovenaan elke module (zie modulepagina's) */
+.fase-balk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 1.2em 0;
+  font-size: 0.72rem;
+}
+.fase-balk span {
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--lumc-grijs);
+  color: #555;
+  white-space: nowrap;
+}
+.fase-balk span.actief {
+  background: var(--lumc-donkerblauw);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 'nog aan te vullen' markering — duidelijk zichtbaar voor de beheerder */
+.md-typeset .todo > .admonition-title,
+.md-typeset .todo > summary {
+  background-color: #FFF2CC;
+  color: #7B5E00;
+}
+.md-typeset .todo {
+  border-color: #E0B000;
+}
+
+/* Naslag-blok onderaan elke module */
+.naslag {
+  border-left: 4px solid var(--lumc-petrol);
+  background: var(--lumc-grijs);
+  padding: 0.6em 1em;
+  margin-top: 1.5em;
+  border-radius: 3px;
+}
+.naslag strong { color: var(--lumc-petrol); }
+
+/* ============================================================
+   Checklist-poort (verschijnt onderaan elke module)
+   ============================================================ */
+.checklist-kaart {
+  border: 2px solid var(--lumc-donkerblauw);
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  margin: 2em 0 1em 0;
+  background: var(--lumc-lichtblauw);
+}
+.checklist-kaart h3 {
+  margin-top: 0;
+  color: var(--lumc-donkerblauw);
+}
+.checklist-items { margin: 0.6em 0; }
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  padding: 0.35em 0;
+  cursor: pointer;
+}
+.checklist-item input { margin-top: 0.25em; transform: scale(1.2); }
+
+/* Vergrendelde 'volgende' knop */
+a.md-button.knop-vergrendeld {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(60%);
+}
+
+/* Korte schud-animatie als je op een vergrendelde knop klikt */
+@keyframes schud {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.checklist-kaart.schud { animation: schud 0.4s; }
+
+/* Custom 'todo' admonition (Nog aan te vullen) */
+.md-typeset .admonition.todo,
+.md-typeset details.todo {
+  border-color: #E0B000;
+}
+.md-typeset .todo > .admonition-title,
+.md-typeset .todo > summary {
+  background-color: #FFF7E0;
+  color: #7B5E00;
+}
+.md-typeset .todo > .admonition-title::before,
+.md-typeset .todo > summary::before {
+  background-color: #E0B000;
+  -webkit-mask-image: var(--md-admonition-icon--note);
+  mask-image: var(--md-admonition-icon--note);
+}
