@@ -3,12 +3,18 @@
 #  Hiermee bewerken invullers de inhoud via /admin/ zonder code.
 # ============================================================
 
+# ------------------------------------------------------------
+# OPSLAG-KOPPELING (nog te activeren — zie README, stap "Later:
+# publiceren vanuit de admin activeren").
+# Tot die tijd: de editor opent (achter het wachtwoord) maar
+# publiceren vanuit de admin werkt nog niet. Content bewerken kan
+# ondertussen rechtstreeks in de map content/ op GitHub.
+# ------------------------------------------------------------
 backend:
   name: github
-  repo: ELAN-DCC/elan-elearning      # <-- AANPASSEN naar jouw organisatie/repo
+  repo: ORGANISATIE/elan-elearning   # <-- AANPASSEN: jouw organisatie/repo
   branch: main
-  # Auth-helper (eenmalig instellen, zie README). Houdt alles binnen GitHub.
-  base_url: https://elan-decap-auth.onrender.com   # <-- AANPASSEN naar jouw auth-helper URL
+  base_url: NOG-IN-TE-STELLEN        # <-- AANPASSEN: URL van de auth-helper (zie README)
 
 # Conceptmodus: wijzigingen komen eerst als 'concept' / 'ter review' /
 # 'klaar', zodat jij regie houdt voordat iets live gaat.
