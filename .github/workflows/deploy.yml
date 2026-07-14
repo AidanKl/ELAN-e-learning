@@ -1,0 +1,42 @@
+# Publiceert de e-learning automatisch naar GitHub Pages
+# bij elke wijziging op de 'main' branch.
+name: Publiceer e-learning
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:   # maakt handmatig publiceren mogelijk
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Installeer MkDocs + Material thema
+        run: pip install mkdocs-material pyyaml
+      - name: Zet CMS-content om naar pagina's
+        run: python scripts/build_content.py
+      - name: Bouw de site
+        run: mkdocs build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
