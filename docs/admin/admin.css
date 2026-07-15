@@ -1,0 +1,105 @@
+/* ELAN beheeromgeving — LUMC-huisstijl */
+:root { --lumc:#003070; --lumc-donker:#00204D; --licht:#DEEBF7;
+        --grijs:#F2F2F2; --rand:#C7D3E4; --groen:#2F7D33; --rood:#B00020; }
+* { box-sizing: border-box; }
+body { margin:0; font-family:Arial,sans-serif; background:var(--licht); color:#1a1a1a; }
+
+/* ---- wachtwoordscherm ---- */
+#poort { position:fixed; inset:0; display:flex; align-items:center;
+  justify-content:center; background:var(--licht); z-index:9999; }
+.kaart { background:#fff; border-radius:10px; box-shadow:0 6px 24px rgba(0,48,112,.18);
+  padding:2.2em 2.4em; width:320px; text-align:center; }
+.kaart img { height:56px; margin-bottom:1em; }
+.kaart h1 { font-size:1.1rem; color:var(--lumc); margin:0 0 .4em; }
+.kaart p { font-size:.85rem; color:#555; margin:0 0 1.2em; }
+.kaart input[type=password]{ width:100%; padding:.65em .8em; font-size:1rem;
+  border:2px solid var(--lumc); border-radius:6px; margin-bottom:.9em; text-align:center; }
+.kaart button{ width:100%; padding:.65em; font-size:1rem; background:var(--lumc);
+  color:#fff; border:0; border-radius:6px; cursor:pointer; font-weight:700; }
+.kaart button:hover{ background:var(--lumc-donker); }
+.fout{ color:var(--rood); font-size:.82rem; min-height:1.2em; margin-top:.6em; }
+.schud{ animation:schud .35s; }
+@keyframes schud{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* ---- app-indeling ---- */
+#balk{ display:flex; align-items:center; gap:.8em; background:var(--lumc);
+  color:#fff; padding:.5em 1em; position:sticky; top:0; z-index:10; }
+#balk img{ height:34px; }
+#balk .titel{ font-weight:700; }
+#balk .spacer{ flex:1; }
+.klein{ font-size:.8rem; padding:.35em .7em; border-radius:5px; border:1px solid #fff;
+  background:transparent; color:#fff; cursor:pointer; text-decoration:none; }
+.klein:hover{ background:rgba(255,255,255,.15); }
+.knopachtig{ display:inline-block; }
+
+#indeling{ display:flex; min-height:calc(100vh - 54px); }
+#lijst{ width:270px; background:#fff; border-right:1px solid var(--rand); padding:.8em; }
+.lijst-kop{ font-size:.72rem; text-transform:uppercase; letter-spacing:.05em;
+  color:#666; margin:.9em .2em .3em; }
+.lijst-items button{ display:block; width:100%; text-align:left; padding:.5em .6em;
+  margin:.15em 0; border:1px solid transparent; background:transparent;
+  border-radius:6px; cursor:pointer; font-size:.88rem; }
+.lijst-items button:hover{ background:var(--licht); }
+.lijst-items button.actief{ background:var(--lumc); color:#fff; font-weight:700; }
+.breed{ width:100%; margin-top:1em; padding:.55em; background:#fff;
+  border:2px dashed var(--lumc); color:var(--lumc); border-radius:6px;
+  cursor:pointer; font-weight:700; }
+.breed:hover{ background:var(--licht); }
+
+#paneel{ flex:1; padding:1.4em 2em; max-width:980px; }
+#paneel h2{ color:var(--lumc); margin-top:0; }
+
+/* ---- formulieren ---- */
+.veld{ margin-bottom:1em; }
+.veld label{ display:block; font-size:.8rem; font-weight:700; color:var(--lumc); margin-bottom:.25em; }
+.veld input[type=text], .veld textarea, .veld select{
+  width:100%; padding:.5em .6em; border:1px solid var(--rand); border-radius:6px;
+  font-size:.9rem; font-family:inherit; background:#fff; }
+.veld textarea{ min-height:90px; resize:vertical; }
+.veld textarea.code{ font-family:Consolas,monospace; }
+.veld .hint{ font-size:.75rem; color:#777; margin-top:.2em; }
+.rij{ display:flex; gap:1em; }
+.rij .veld{ flex:1; }
+
+.sub-kaart{ border:1px solid var(--rand); border-left:5px solid var(--lumc);
+  border-radius:8px; background:#fff; padding:1em; margin-bottom:1.2em; }
+.blok-kaart{ border:1px solid var(--rand); border-radius:6px; background:var(--grijs);
+  padding:.7em .8em; margin:.6em 0; }
+.blok-kaart.type-tip{ border-left:5px solid var(--groen); }
+.blok-kaart.type-letop{ border-left:5px solid #E0B000; }
+.blok-kaart.type-valkuil{ border-left:5px solid var(--rood); }
+.blok-kaart.type-todo{ border-left:5px solid #E07800; }
+.blok-kaart.type-code{ border-left:5px solid #3D1A6E; }
+.blok-kop{ display:flex; align-items:center; gap:.5em; margin-bottom:.5em; }
+.blok-kop select{ font-size:.82rem; padding:.25em; }
+.blok-kop .spacer{ flex:1; }
+.icoonknop{ border:1px solid var(--rand); background:#fff; border-radius:5px;
+  cursor:pointer; padding:.2em .55em; font-size:.85rem; }
+.icoonknop:hover{ background:var(--licht); }
+.icoonknop.rood{ color:var(--rood); border-color:var(--rood); }
+
+.lijstveld-item{ display:flex; gap:.4em; margin:.3em 0; }
+.lijstveld-item input{ flex:1; }
+
+.actiebalk{ position:sticky; bottom:0; background:#fff; border-top:2px solid var(--lumc);
+  margin:1.5em -2em 0; padding:.9em 2em; display:flex; gap:.8em; align-items:center; }
+.primair{ background:var(--lumc); color:#fff; border:0; border-radius:6px;
+  padding:.65em 1.6em; font-size:1rem; font-weight:700; cursor:pointer; }
+.primair:hover{ background:var(--lumc-donker); }
+.primair:disabled{ opacity:.5; cursor:wait; }
+.secundair{ background:#fff; color:var(--lumc); border:1px solid var(--lumc);
+  border-radius:6px; padding:.6em 1.2em; cursor:pointer; }
+
+#melding{ position:fixed; bottom:1.2em; right:1.2em; max-width:380px; z-index:99; }
+.toast{ padding:.8em 1.1em; border-radius:8px; margin-top:.5em; color:#fff;
+  font-size:.9rem; box-shadow:0 4px 14px rgba(0,0,0,.25); }
+.toast.ok{ background:var(--groen); }
+.toast.fout{ background:var(--rood); }
+.toast.info{ background:var(--lumc); }
+
+@media (max-width:760px){
+  #indeling{ flex-direction:column; }
+  #lijst{ width:auto; border-right:0; border-bottom:1px solid var(--rand); }
+  #paneel{ padding:1em; }
+  .actiebalk{ margin:1.5em -1em 0; padding:.9em 1em; }
+}

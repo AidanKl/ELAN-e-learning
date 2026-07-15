@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>ELAN E-learning — Beheer</title>
+  <link rel="icon" href="../assets/favicon.png" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ============ WACHTWOORDSCHERM ============
+       Wachtwoord wijzigen? Vervang de HASH hieronder door de
+       SHA-256-hash van je nieuwe wachtwoord (zie README).
+       Dit is een drempel, geen zware beveiliging; opslaan vereist
+       daarnaast altijd de beheersleutel (GitHub-token). -->
+  <div id="poort">
+    <div class="kaart" id="kaart">
+      <img src="../assets/logo-elan.png" alt="ELAN" />
+      <h1>Beheeromgeving</h1>
+      <p>Voer het beheerwachtwoord in om de editor te openen.</p>
+      <form id="vorm">
+        <input type="password" id="ww" placeholder="Wachtwoord" autofocus autocomplete="off" />
+        <button type="submit">Openen</button>
+        <div class="fout" id="fout"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ DE EDITOR (verschijnt na wachtwoord) ============ -->
+  <div id="app" style="display:none">
+    <header id="balk">
+      <img src="../assets/logo-elan.png" alt="ELAN" />
+      <span class="titel">E-learning beheer</span>
+      <span class="spacer"></span>
+      <button id="btn-sleutel" class="klein">Beheersleutel…</button>
+      <a href="../" class="klein knopachtig">Bekijk site</a>
+    </header>
+
+    <div id="indeling">
+      <nav id="lijst">
+        <div class="lijst-kop">Modules</div>
+        <div id="lijst-modules" class="lijst-items"></div>
+        <div class="lijst-kop">Naslagpagina's</div>
+        <div id="lijst-naslag" class="lijst-items"></div>
+        <button id="btn-nieuw" class="breed">+ Nieuwe module</button>
+      </nav>
+      <main id="paneel">
+        <div id="welkom-paneel">
+          <h2>Welkom in de beheeromgeving</h2>
+          <p>Kies links een module of naslagpagina om te bewerken.</p>
+          <p>Wijzigingen worden opgeslagen in GitHub; de site herbouwt
+             zichzelf daarna automatisch (1–2 minuten).</p>
+          <p id="sleutel-status"></p>
+        </div>
+        <div id="editor-paneel" style="display:none"></div>
+      </main>
+    </div>
+
+    <div id="melding"></div>
+  </div>
+
+  <!-- js-yaml voor het lezen/schrijven van de contentbestanden -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script>
+    // ---- Wachtwoordpoort ----
+    var HASH = "20bda7edd61859bd84b5010fec847059e47bb67b569eefafe322a9cd89f13c88"; // "ELAN"
+    async function sha256(t){var d=new TextEncoder().encode(t);
+      var b=await crypto.subtle.digest("SHA-256",d);
+      return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,"0")).join("");}
+    function open_app(){
+      document.getElementById("poort").style.display="none";
+      document.getElementById("app").style.display="block";
+      var s=document.createElement("script"); s.src="app.js"; document.body.appendChild(s);
+    }
+    if (sessionStorage.getItem("elan-admin")==="ok") open_app();
+    document.getElementById("vorm").addEventListener("submit", async function(e){
+      e.preventDefault();
+      if (await sha256(document.getElementById("ww").value)===HASH){
+        sessionStorage.setItem("elan-admin","ok"); open_app();
+      } else {
+        var k=document.getElementById("kaart");
+        document.getElementById("fout").textContent="Onjuist wachtwoord.";
+        k.classList.add("schud"); setTimeout(()=>k.classList.remove("schud"),400);
+        document.getElementById("ww").value=""; document.getElementById("ww").focus();
+      }
+    });
+  </script>
+</body>
+</html>
