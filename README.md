@@ -3,7 +3,7 @@
 Een lineaire e-learning die startende onderzoekers stap voor stap door de
 acht fasen van werken met ELAN-data leidt. Gebouwd met
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), met een
-ingebouwde beheeromgeving (Decap CMS) achter een eenvoudig wachtwoordscherm.
+eigen ingebouwde beheeromgeving achter een wachtwoordscherm.
 
 > Deze README is **voor beheerders** en verschijnt niet op de website.
 
@@ -41,33 +41,50 @@ telkens opnieuw gegenereerd uit `content/`.
 ## 2. De beheeromgeving (`/admin/`) en het wachtwoord
 
 Op `https://<organisatie>.github.io/elan-elearning/admin/` staat de
-beheeromgeving. Er verschijnt eerst een **wachtwoordscherm**.
+beheeromgeving: een eigen editor in ELAN-stijl (geen externe diensten,
+geen GitHub-loginscherm).
 
-- Het huidige wachtwoord is: **ELAN**
-- Wachtwoord wijzigen: open `docs/admin/index.html`, maak een SHA-256-hash
-  van het nieuwe wachtwoord (bijv. via een online SHA-256 generator) en
-  vervang de `HASH`-waarde. De uitleg staat als commentaar in het bestand.
+- **Wachtwoord:** ELAN (wijzigen: zie commentaar in `docs/admin/index.html`
+  — vervang de SHA-256-hash).
+- Na het wachtwoord zie je links alle **modules** en **naslagpagina's**.
+  Klik erop en bewerk: titels, intro, benodigdheden, subhoofdstukken en
+  losse blokken (tekst / tip / let op / valkuil / nog-aan-te-vullen /
+  code / inklapbaar / tabel). Blokken en subhoofdstukken kun je
+  toevoegen, verwijderen en met ↑↓ herordenen.
+- **+ Nieuwe module** maakt een nieuwe fase aan; het menu ordent zich
+  automatisch op het volgorde-nummer.
 
-> **Eerlijke kanttekening:** dit wachtwoordscherm is een drempel om
-> nieuwsgierigen buiten de editor te houden, geen zware beveiliging (de
-> site is statisch, dus technisch onderlegde bezoekers kunnen eromheen).
-> Er kan echter **niets gepubliceerd of kapotgemaakt worden** zolang de
-> opslag-koppeling (stap 4) niet is geactiveerd — en daarna vereist
-> publiceren alsnog GitHub-rechten.
+### Opslaan: de beheersleutel (eenmalig)
 
-## 3. Inhoud bijwerken (huidige werkwijze)
+Opslaan schrijft naar GitHub, en GitHub eist daarvoor een sleutel — een
+wachtwoord alleen is voor GitHub niet genoeg. Daarom vraagt de editor bij
+de **eerste keer opslaan** eenmalig om een "beheersleutel". Die maak je
+zo (2 minuten):
 
-Zolang de opslag-koppeling nog niet actief is, werk je de inhoud bij door
-de bestanden in **`content/`** te bewerken, rechtstreeks op GitHub:
+1. GitHub → **Settings → Developer settings → Personal access tokens →
+   Fine-grained tokens → Generate new token**.
+2. Bij *Repository access*: kies **alleen deze repo**.
+3. Bij *Permissions → Repository permissions*: zet **Contents** op
+   **Read and write**. Verder niets.
+4. Genereer, kopieer, en plak de sleutel in het venster dat de editor toont.
 
-1. Open het bestand (bijv. `content/modules/03-voorbereiding.md`).
-2. Klik op het potlood-icoon, pas aan, klik **Commit changes**.
-3. De site bouwt zichzelf binnen enkele minuten opnieuw.
+De sleutel wordt alleen in de browser van die beheerder bewaard (knop
+"Beheersleutel…" rechtsboven om hem te vervangen of te verwijderen).
+Zonder sleutel kan iedereen met het wachtwoord alles **bekijken** in de
+editor, maar niets opslaan.
 
-Het format wijst zich vanzelf: elk bestand bevat de titel, intro,
-benodigdheden, subhoofdstukken en blokken (type: tekst / tip / letop /
-valkuil / todo / code / inklap / tabel). Kopieer een bestaand blok om een
-nieuw blok toe te voegen.
+> **Kanttekening:** het wachtwoordscherm is een drempel, geen zware
+> beveiliging. Er kan echter niets worden gewijzigd zonder geldige
+> beheersleutel — de echte schrijfbeveiliging ligt dus bij GitHub.
+
+## 3. Inhoud bijwerken — twee manieren
+
+**Via de beheeromgeving (aanbevolen):** `/admin/` → wachtwoord → module
+kiezen → bewerken → *Opslaan & publiceren*. De site herbouwt zichzelf in
+1–2 minuten.
+
+**Rechtstreeks op GitHub (alternatief):** bewerk de bestanden in
+`content/` (potlood-icoon → Commit). Zelfde resultaat.
 
 **Lokaal een voorbeeld bekijken:**
 
@@ -77,24 +94,7 @@ python scripts/build_content.py   # zet content/ om naar docs/
 mkdocs serve                      # open http://127.0.0.1:8000
 ```
 
-## 4. Later: publiceren vanuit de admin activeren
-
-De editor op `/admin/` toont nu alles, maar kan nog niet opslaan naar
-GitHub. Dat activeer je later (eventueel samen met ICT of bij de overstap
-naar de communale Git) in drie stappen:
-
-1. Registreer een **GitHub OAuth App** (GitHub → Settings → Developer
-   settings → OAuth Apps).
-2. Zet een kleine gratis **auth-helper** online (zoek op
-   "decap-cms github oauth provider" — er zijn 1-klik-templates voor
-   o.a. Cloudflare Workers en Render).
-3. Vul in `docs/admin/config.yml` de regels `repo:` en `base_url:` in.
-
-Daarna kunnen redacteuren via `/admin/` visueel bewerken en publiceren,
-met de conceptmodus (*Concept → Ter review → Klaar*) zodat de beheerder
-de regie houdt.
-
-## 5. De checklist-poort
+## 4. De checklist-poort
 
 Onderaan elke fase staat een checklist; de knop **"Volgende fase"** wordt
 pas actief als alle vakjes zijn afgevinkt. Voortgang wordt onthouden in de
@@ -103,7 +103,7 @@ browser van de gebruiker (geen centrale registratie).
 De afvinkpunten staan in `docs/javascripts/checklist-data.js`. Pas die
 lijst aan om punten te wijzigen; laat een module weg om geen poort te tonen.
 
-## 6. Een nieuwe module / fase toevoegen
+## 5. Een nieuwe module / fase toevoegen
 
 1. Maak in `content/modules/` een nieuw bestand, bijv. `09-nieuwe-fase.md`
    (kopieer een bestaande module als startpunt).
@@ -112,7 +112,7 @@ lijst aan om punten te wijzigen; laat een module weg om geen poort te tonen.
 3. Optioneel: voeg checklist-items toe in `checklist-data.js` onder
    dezelfde sleutel (`"09"`).
 
-## 7. Onderdelen die nog moeten worden ingevuld
+## 6. Onderdelen die nog moeten worden ingevuld
 
 Door de hele e-learning staan **"Nog aan te vullen"**-blokken (geel).
 Zoek in `content/` op `NOG-AAN-TE-VULLEN` om ze allemaal te vinden.
