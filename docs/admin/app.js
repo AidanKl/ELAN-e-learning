@@ -163,7 +163,8 @@
   var BLOKTYPES = [
     ["tekst", "Tekst"], ["tip", "Tip (groen)"], ["letop", "Let op (geel)"],
     ["valkuil", "Valkuil (rood)"], ["todo", "Nog aan te vullen"],
-    ["code", "Codeblok"], ["inklap", "Inklapbaar"], ["tabel", "Tabel"]
+    ["code", "Codeblok"], ["inklap", "Inklapbaar"], ["tabel", "Tabel"],
+    ["diagram", "Diagram / visual (SVG)"]
   ];
 
   function veld(labelTekst, invoerEl, hint) {
@@ -227,6 +228,25 @@
           if (l === blok.taal) o.selected = true; sel.appendChild(o);
         });
         velden.appendChild(veld("Taal", kaart._taal = sel));
+      }
+      if (t === "diagram") {
+        var svgVak = tekstVak(blok.inhoud, true);
+        svgVak.rows = 10;
+        var preview = el("div", { class: "diagram-preview" });
+        function ververs() {
+          var code = svgVak.value.trim();
+          preview.innerHTML = code.indexOf("<svg") === 0 || code.indexOf("<svg") > -1
+            ? code : "<p class='hint'>Plak hierboven SVG-code (begint met &lt;svg ...&gt;) om een voorbeeld te zien.</p>";
+        }
+        svgVak.addEventListener("input", ververs);
+        velden.appendChild(veld("SVG-code", kaart._inhoud = svgVak,
+          "Plak hier de volledige <svg>...</svg> code. Gebruik bij voorkeur de klassen " +
+          "ebox/et/ets/earr uit de sitehuisstijl (zie README) zodat het diagram in lichte en " +
+          "donkere modus goed leesbaar blijft."));
+        velden.appendChild(el("div", { class: "veld" },
+          [el("label", { text: "Voorbeeld" }), preview]));
+        ververs();
+        return; // 'Inhoud'-veld hieronder overslaan; is al toegevoegd als svgVak
       }
       var mono = (t === "code" || t === "tabel");
       velden.appendChild(veld(t === "tabel" ? "Tabel (Markdown: | kolom | kolom |)" : "Inhoud",

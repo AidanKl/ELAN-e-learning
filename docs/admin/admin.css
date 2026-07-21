@@ -70,6 +70,10 @@ body { margin:0; font-family:Arial,sans-serif; background:var(--licht); color:#1
 .blok-kaart.type-valkuil{ border-left:5px solid var(--rood); }
 .blok-kaart.type-todo{ border-left:5px solid #E07800; }
 .blok-kaart.type-code{ border-left:5px solid #3D1A6E; }
+.blok-kaart.type-diagram{ border-left:5px solid var(--lumc); }
+.diagram-preview{ background:#fff; border:1px dashed var(--rand); border-radius:6px;
+  padding:.8em; overflow:auto; max-height:420px; }
+.diagram-preview svg{ max-width:100%; height:auto; display:block; }
 .blok-kop{ display:flex; align-items:center; gap:.5em; margin-bottom:.5em; }
 .blok-kop select{ font-size:.82rem; padding:.25em; }
 .blok-kop .spacer{ flex:1; }
