@@ -62,8 +62,47 @@ subhoofdstukken:
   - type: valkuil
     kop: Schijf F is geen werkschijf
     inhoud: Werk altijd op schijf **H** (in je eigen naammap). Dit is een van de meest gemaakte beginnersfouten.
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): schijvenindeling van de CBS-RA-omgeving.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schijvenindeling
+      in de CBS-RA-omgeving: F, G, H en K">
+
+      <rect class="ebox-accent" x="20" y="16" width="600" height="228" rx="14"/>
+
+      <text class="et" x="320" y="42" text-anchor="middle">CBS-RA-omgeving</text>
+
+      <rect class="ebox-rood" x="44" y="66" width="270" height="76" rx="8"/>
+
+      <text class="et" x="179" y="90" text-anchor="middle">Schijf F — geen werkschijf!</text>
+
+      <text class="ets" x="179" y="110" text-anchor="middle">lijkt persoonlijk, is het niet</text>
+
+      <text class="ets" x="179" y="128" text-anchor="middle">alleen de exportmap</text>
+
+      <rect class="ebox" x="326" y="66" width="270" height="76" rx="8"/>
+
+      <text class="et" x="461" y="90" text-anchor="middle">Schijf G</text>
+
+      <text class="ets" x="461" y="110" text-anchor="middle">CBS-microdata</text>
+
+      <text class="ets" x="461" y="128" text-anchor="middle">alleen aangevraagde bestanden</text>
+
+      <rect class="ebox-groen" x="44" y="156" width="270" height="76" rx="8"/>
+
+      <text class="et" x="179" y="180" text-anchor="middle">Schijf H — hier werk je</text>
+
+      <text class="ets" x="179" y="200" text-anchor="middle">shared workspace</text>
+
+      <text class="ets" x="179" y="218" text-anchor="middle">eigen naammap gebruiken</text>
+
+      <rect class="ebox" x="326" y="156" width="270" height="76" rx="8"/>
+
+      <text class="et" x="461" y="180" text-anchor="middle">Schijf K</text>
+
+      <text class="ets" x="461" y="200" text-anchor="middle">metadata</text>
+
+      <text class="ets" x="461" y="218" text-anchor="middle">lees dit vóór gebruik</text>
+
+      </svg>'
 - subtitel: CBS awareness test
   blokken:
   - type: letop
