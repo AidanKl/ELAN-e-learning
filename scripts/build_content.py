@@ -71,6 +71,14 @@ def render_blok(blok):
         return f'??? note "{kop}"\n{inhoud}\n'
     if t == "tabel":
         return blok.get("inhoud", "").strip() + "\n"
+    if t == "diagram":
+        # Ruwe SVG wordt als losstaand HTML-blok doorgegeven (md_in_html
+        # in mkdocs.yml zorgt dat dit correct wordt gerenderd). Wikkel in
+        # een div met class 'edia' voor de sitehuisstijl (zie extra.css).
+        svg = blok.get("inhoud", "").strip()
+        if not svg:
+            return ""
+        return f'<div class="edia" markdown="0">\n{svg}\n</div>\n'
     return ""
 
 def indent(text, spaces=4):
