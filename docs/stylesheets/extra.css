@@ -136,3 +136,27 @@ a.md-button.knop-vergrendeld {
   -webkit-mask-image: var(--md-admonition-icon--note);
   mask-image: var(--md-admonition-icon--note);
 }
+
+/* ============================================================
+   Diagram-huisstijl (SVG-blokken via het diagram-bloktype)
+   Gebruik deze klassen in geplakte SVG-code zodat diagrammen
+   automatisch meekleuren met lichte/donkere modus.
+   ============================================================ */
+.edia { margin: 1.2em 0; }
+.edia svg { width: 100%; height: auto; display: block; }
+.edia .ebox { fill: var(--lumc-lichtblauw); stroke: var(--lumc-donkerblauw); stroke-width: 1; }
+.edia .ebox-accent { fill: var(--lumc-donkerblauw); stroke: var(--lumc-donkerblauw); stroke-width: 1; }
+.edia .ebox-groen { fill: #E2EFDA; stroke: #276228; stroke-width: 1; }
+.edia .ebox-geel { fill: #FFF2CC; stroke: #7B5E00; stroke-width: 1; }
+.edia .ebox-rood { fill: #FCE4D6; stroke: #8B2000; stroke-width: 1; }
+.edia .ebox-neutraal { fill: var(--lumc-grijs); stroke: #888680; stroke-width: 1; }
+.edia text { fill: currentColor; font-family: Arial, sans-serif; }
+.edia .et { font-size: 13px; font-weight: 700; }
+.edia .ets { font-size: 11px; }
+.edia .ebox-accent text, .edia .ebox-accent .et, .edia .ebox-accent .ets { fill: #ffffff; }
+.edia .earr { stroke: var(--lumc-blauw); stroke-width: 1.5; fill: none; }
+[data-md-color-scheme="slate"] .edia .ebox { fill: #0A2A4D; }
+[data-md-color-scheme="slate"] .edia .ebox-groen { fill: #1E3A20; }
+[data-md-color-scheme="slate"] .edia .ebox-geel { fill: #3D3417; }
+[data-md-color-scheme="slate"] .edia .ebox-rood { fill: #3E1F16; }
+[data-md-color-scheme="slate"] .edia .ebox-neutraal { fill: #2A2A28; }
