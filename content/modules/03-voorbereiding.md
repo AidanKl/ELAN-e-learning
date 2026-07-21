@@ -45,8 +45,62 @@ subhoofdstukken:
       - meerdere onderzoeken in één ticket proppen (**één ticket = één protocol**);
 
       - te weinig afstemmen met mensen die de data kennen — goed vooroverleg met de DCC voorkomt herwerk.'
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): de 6 stappen als processchema in vogelvlucht.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Het
+      aanvraagproces in zes stappen: instellingseis, protocol, ticket, ethische toetsing, externe bronnen,
+      CBS-toegang">
+
+      <defs><marker id="arrow-d6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+      orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5"/></marker></defs>
+
+      <line x1="212" y1="60" x2="228" y2="60" class="earr" marker-end="url(#arrow-d6)" stroke="#2E5A9C"/>
+
+      <line x1="412" y1="60" x2="428" y2="60" class="earr" marker-end="url(#arrow-d6)" stroke="#2E5A9C"/>
+
+      <path d="M540 88 L540 130 L100 130 L100 168" fill="none" class="earr" marker-end="url(#arrow-d6)"
+      stroke="#2E5A9C"/>
+
+      <line x1="212" y1="200" x2="228" y2="200" class="earr" marker-end="url(#arrow-d6)" stroke="#2E5A9C"/>
+
+      <line x1="412" y1="200" x2="428" y2="200" class="earr" marker-end="url(#arrow-d6)" stroke="#2E5A9C"/>
+
+      <rect class="ebox" x="12" y="34" width="200" height="52" rx="8"/>
+
+      <text class="et" x="112" y="56" text-anchor="middle">1. Instellingseis</text>
+
+      <text class="ets" x="112" y="74" text-anchor="middle">CBS-overeenkomst</text>
+
+      <rect class="ebox" x="228" y="34" width="200" height="52" rx="8"/>
+
+      <text class="et" x="328" y="56" text-anchor="middle">2. Protocol</text>
+
+      <text class="ets" x="328" y="74" text-anchor="middle">ELAN-nWMO-template</text>
+
+      <rect class="ebox" x="440" y="34" width="200" height="52" rx="8"/>
+
+      <text class="et" x="540" y="56" text-anchor="middle">3. Ticket</text>
+
+      <text class="ets" x="540" y="74" text-anchor="middle">indienen via elanresearch.nl</text>
+
+      <rect class="ebox" x="12" y="174" width="200" height="52" rx="8"/>
+
+      <text class="et" x="112" y="196" text-anchor="middle">4. Ethische toetsing</text>
+
+      <text class="ets" x="112" y="214" text-anchor="middle">METC of niet-WMO</text>
+
+      <rect class="ebox" x="228" y="174" width="200" height="52" rx="8"/>
+
+      <text class="et" x="328" y="196" text-anchor="middle">5. Externe bronnen</text>
+
+      <text class="ets" x="328" y="214" text-anchor="middle">indien van toepassing</text>
+
+      <rect class="ebox-accent" x="440" y="174" width="200" height="52" rx="8"/>
+
+      <text class="et" x="540" y="196" text-anchor="middle">6. CBS-toegang</text>
+
+      <text class="ets" x="540" y="214" text-anchor="middle">datamanager regelt aanmelding</text>
+
+      </svg>'
 - subtitel: De zes stappen uitgewerkt
   blokken:
   - type: tekst
@@ -111,8 +165,50 @@ subhoofdstukken:
   - type: tekst
     inhoud: Je aanvraag wordt beoordeeld door het **kernteam** (relevantie, haalbaarheid), de **wetenschapscommissie/stuurgroep**
       (wetenschappelijke kwaliteit) en de **nWMO-commissie (METC-LDD)** (ethische toetsing).
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): overzicht van de commissies en hun rol in de beoordelingsvolgorde.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wie
+      beoordeelt je aanvraag: kernteam, wetenschapscommissie en nWMO-commissie">
+
+      <defs><marker id="arrow-d7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+      orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5"/></marker></defs>
+
+      <line x1="220" y1="60" x2="130" y2="118" class="earr" marker-end="url(#arrow-d7)" stroke="#2E5A9C"/>
+
+      <line x1="320" y1="60" x2="320" y2="118" class="earr" marker-end="url(#arrow-d7)" stroke="#2E5A9C"/>
+
+      <line x1="420" y1="60" x2="510" y2="118" class="earr" marker-end="url(#arrow-d7)" stroke="#2E5A9C"/>
+
+      <rect class="ebox-accent" x="200" y="8" width="240" height="52" rx="8"/>
+
+      <text class="et" x="320" y="30" text-anchor="middle">Jouw aanvraag</text>
+
+      <text class="ets" x="320" y="48" text-anchor="middle">ticket + protocol</text>
+
+      <rect class="ebox" x="10" y="118" width="220" height="66" rx="8"/>
+
+      <text class="et" x="120" y="140" text-anchor="middle">Kernteam</text>
+
+      <text class="ets" x="120" y="158" text-anchor="middle">relevantie en</text>
+
+      <text class="ets" x="120" y="174" text-anchor="middle">haalbaarheid</text>
+
+      <rect class="ebox" x="210" y="118" width="220" height="66" rx="8"/>
+
+      <text class="et" x="320" y="140" text-anchor="middle">Wetenschapscommissie</text>
+
+      <text class="ets" x="320" y="158" text-anchor="middle">/ stuurgroep:</text>
+
+      <text class="ets" x="320" y="174" text-anchor="middle">wetenschappelijke kwaliteit</text>
+
+      <rect class="ebox" x="410" y="118" width="220" height="66" rx="8"/>
+
+      <text class="et" x="520" y="140" text-anchor="middle">nWMO-commissie</text>
+
+      <text class="ets" x="520" y="158" text-anchor="middle">(METC-LDD):</text>
+
+      <text class="ets" x="520" y="174" text-anchor="middle">ethische toetsing</text>
+
+      </svg>'
 naslag:
 - '**Aanvraagportaal** — elanresearch.nl (ticket indienen, statusopvolging)'
 - '**ELAN-nWMO-template** — op te vragen bij de ELAN-contactpersoon'
