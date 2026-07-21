@@ -37,9 +37,60 @@ subhoofdstukken:
     kop: Kosten en aanvraagtraject
     inhoud: Aan datagebruik zijn kosten en een aanvraagtraject verbonden. Reken op een doorlooptijd van
       weken tot maanden. De details staan in fase 3.
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): datalandschap-diagram — databronnen die samenkomen in ELAN en
-      de twee omgevingen. Nu tekstueel beschreven hierboven.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ELAN
+      datalandschap: databronnen komen samen in ELAN en stromen naar twee omgevingen">
+
+      <defs><marker id="arrow-d1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+      orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5"/></marker></defs>
+
+      <line x1="130" y1="90" x2="320" y2="150" class="earr" marker-end="url(#arrow-d1)" stroke="#2E5A9C"/>
+
+      <line x1="320" y1="90" x2="320" y2="150" class="earr" marker-end="url(#arrow-d1)" stroke="#2E5A9C"/>
+
+      <line x1="510" y1="90" x2="320" y2="150" class="earr" marker-end="url(#arrow-d1)" stroke="#2E5A9C"/>
+
+      <line x1="320" y1="206" x2="180" y2="266" class="earr" marker-end="url(#arrow-d1)" stroke="#2E5A9C"/>
+
+      <line x1="320" y1="206" x2="460" y2="266" class="earr" marker-end="url(#arrow-d1)" stroke="#2E5A9C"/>
+
+      <rect class="ebox" x="30" y="38" width="200" height="52" rx="8"/>
+
+      <text class="et" x="130" y="60" text-anchor="middle">Huisartsdata</text>
+
+      <text class="ets" x="130" y="76" text-anchor="middle">Diagnoses, recepten</text>
+
+      <rect class="ebox" x="245" y="38" width="150" height="52" rx="8"/>
+
+      <text class="et" x="320" y="60" text-anchor="middle">Zorginstellingen</text>
+
+      <text class="ets" x="320" y="76" text-anchor="middle">Ziekenhuis, GGZ e.a.</text>
+
+      <rect class="ebox" x="410" y="38" width="200" height="52" rx="8"/>
+
+      <text class="et" x="510" y="60" text-anchor="middle">CBS-microdata</text>
+
+      <text class="ets" x="510" y="76" text-anchor="middle">Inkomen, wonen, SES</text>
+
+      <rect class="ebox-accent" x="200" y="150" width="240" height="56" rx="8"/>
+
+      <text class="et" x="320" y="172" text-anchor="middle">ELAN</text>
+
+      <text class="ets" x="320" y="190" text-anchor="middle">Gekoppeld en geanonimiseerd</text>
+
+      <rect class="ebox" x="50" y="266" width="260" height="56" rx="8"/>
+
+      <text class="et" x="180" y="288" text-anchor="middle">I-schijf</text>
+
+      <text class="ets" x="180" y="306" text-anchor="middle">LUMC-interne omgeving</text>
+
+      <rect class="ebox" x="330" y="266" width="260" height="56" rx="8"/>
+
+      <text class="et" x="460" y="288" text-anchor="middle">CBS-RA</text>
+
+      <text class="ets" x="460" y="306" text-anchor="middle">Beveiligde CBS-omgeving</text>
+
+      </svg>'
 - subtitel: Waar begin ik?
   blokken:
   - type: tip
@@ -65,8 +116,49 @@ subhoofdstukken:
   - type: todo
     inhoud: 'NOG-AAN-TE-VULLEN: concrete voorbeeldpapers per categorie toevoegen (recente publicaties
       met ELAN-data), zodat onderzoekers zien wat er in de praktijk mogelijk is.'
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): geschiktheid als scanbare iconen-weergave in plaats van tabel.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wat
+      is mogelijk met ELAN-data: sterk, beperkt en moeilijk geschikte onderzoekstypen">
+
+      <rect class="ebox-groen" x="20" y="20" width="190" height="180" rx="10"/>
+
+      <text class="et" x="115" y="46" text-anchor="middle">Sterk geschikt</text>
+
+      <text class="ets" x="115" y="74" text-anchor="middle">Prevalentie</text>
+
+      <text class="ets" x="115" y="94" text-anchor="middle">Risicofactoren</text>
+
+      <text class="ets" x="115" y="114" text-anchor="middle">Populatiebeschrijving</text>
+
+      <text class="ets" x="115" y="134" text-anchor="middle">Verwijzingstrajecten</text>
+
+      <text class="ets" x="115" y="154" text-anchor="middle">Longitudinale analyses</text>
+
+      <rect class="ebox-geel" x="225" y="20" width="190" height="180" rx="10"/>
+
+      <text class="et" x="320" y="46" text-anchor="middle">Beperkt geschikt</text>
+
+      <text class="ets" x="320" y="80" text-anchor="middle">Time-to-event</text>
+
+      <text class="ets" x="320" y="100" text-anchor="middle">analyses</text>
+
+      <text class="ets" x="320" y="130" text-anchor="middle">(altijd vooraf overleg</text>
+
+      <text class="ets" x="320" y="148" text-anchor="middle">met de DCC)</text>
+
+      <rect class="ebox-rood" x="430" y="20" width="190" height="180" rx="10"/>
+
+      <text class="et" x="525" y="46" text-anchor="middle">Moeilijk / niet</text>
+
+      <text class="ets" x="525" y="80" text-anchor="middle">Harde diagnosezekerheid</text>
+
+      <text class="ets" x="525" y="100" text-anchor="middle">op basis van ICPC</text>
+
+      <text class="ets" x="525" y="130" text-anchor="middle">Real-time / actuele</text>
+
+      <text class="ets" x="525" y="148" text-anchor="middle">klinische data</text>
+
+      </svg>'
 - subtitel: Is mijn vraag kansrijk?
   blokken:
   - type: tekst
@@ -81,8 +173,45 @@ subhoofdstukken:
     kop: Twijfel je?
     inhoud: Heb je een concreet onderzoek in gedachten, neem dan contact op met de DCC. Zij denken met
       je mee over de haalbaarheid op dataniveau.
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): de kansrijk-checklist als visuele beslishulp.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Checklist:
+      is mijn onderzoeksvraag kansrijk voor ELAN">
+
+      <rect class="ebox" x="20" y="16" width="600" height="52" rx="8"/>
+
+      <circle cx="52" cy="42" r="14" fill="#276228"/>
+
+      <path d="M45 42l5 5l10 -11" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+      <text class="et" x="78" y="38" text-anchor="start">Is er een duidelijk afgebakende populatie?</text>
+
+      <text class="ets" x="78" y="55" text-anchor="start">bv. patiënten van huisartsen in de regio Den
+      Haag/Leiden</text>
+
+      <rect class="ebox" x="20" y="76" width="600" height="52" rx="8"/>
+
+      <circle cx="52" cy="102" r="14" fill="#276228"/>
+
+      <path d="M45 102l5 5l10 -11" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+      <text class="et" x="78" y="98" text-anchor="start">Zijn de sleutelvariabelen aanwezig?</text>
+
+      <text class="ets" x="78" y="115" text-anchor="start">check het codeboek voordat je verder gaat</text>
+
+      <rect class="ebox" x="20" y="136" width="600" height="52" rx="8"/>
+
+      <circle cx="52" cy="162" r="14" fill="#276228"/>
+
+      <path d="M45 162l5 5l10 -11" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+      <text class="et" x="78" y="158" text-anchor="start">Is de tijdsperiode van je onderzoek gedekt?</text>
+
+      <text class="ets" x="78" y="175" text-anchor="start">ELAN-data is niet voor elke periode even compleet</text>
+
+      </svg>'
 - subtitel: Aansluiten als organisatie of beleidspartner
   blokken:
   - type: tekst
