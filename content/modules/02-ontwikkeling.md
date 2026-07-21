@@ -32,9 +32,52 @@ subhoofdstukken:
   - type: tekst
     inhoud: '*Voor beleidslezers: hierna volgt het formele aanvraagtraject (fase 3). De rest van deze
       pagina is technische verdieping voor onderzoekers.*'
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): data-vertaaldiagram — van patiëntcontact via HIS-registratie
-      en episode naar onderzoeksvariabele.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Van
+      patiëntcontact naar onderzoeksvariabele: het vertaalproces van routinezorgdata">
+
+      <defs><marker id="arrow-d4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+      orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5"/></marker></defs>
+
+      <line x1="320" y1="60" x2="320" y2="88" class="earr" marker-end="url(#arrow-d4)" stroke="#2E5A9C"/>
+
+      <line x1="320" y1="140" x2="320" y2="168" class="earr" marker-end="url(#arrow-d4)" stroke="#2E5A9C"/>
+
+      <line x1="320" y1="220" x2="320" y2="248" class="earr" marker-end="url(#arrow-d4)" stroke="#2E5A9C"/>
+
+      <line x1="320" y1="300" x2="320" y2="328" class="earr" marker-end="url(#arrow-d4)" stroke="#2E5A9C"/>
+
+      <rect class="ebox-neutraal" x="140" y="8" width="360" height="52" rx="8"/>
+
+      <text class="et" x="320" y="30" text-anchor="middle">Patiëntcontact</text>
+
+      <text class="ets" x="320" y="48" text-anchor="middle">de feitelijke gebeurtenis bij de huisarts</text>
+
+      <rect class="ebox" x="140" y="88" width="360" height="52" rx="8"/>
+
+      <text class="et" x="320" y="110" text-anchor="middle">HIS-registratie (SOEP)</text>
+
+      <text class="ets" x="320" y="128" text-anchor="middle">vastgelegd door de huisarts, met ICPC-code</text>
+
+      <rect class="ebox" x="140" y="168" width="360" height="52" rx="8"/>
+
+      <text class="et" x="320" y="190" text-anchor="middle">Episode (tabel EPS)</text>
+
+      <text class="ets" x="320" y="208" text-anchor="middle">contacten gekoppeld tot één zorgepisode</text>
+
+      <rect class="ebox" x="140" y="248" width="360" height="52" rx="8"/>
+
+      <text class="et" x="320" y="270" text-anchor="middle">Extractie door STIZON</text>
+
+      <text class="ets" x="320" y="288" text-anchor="middle">ruwe + ''derived'' (d-prefix) variabelen</text>
+
+      <rect class="ebox-accent" x="140" y="328" width="360" height="52" rx="8"/>
+
+      <text class="et" x="320" y="350" text-anchor="middle">Onderzoeksvariabele</text>
+
+      <text class="ets" x="320" y="368" text-anchor="middle">pas na jouw interpretatie en operationalisatie</text>
+
+      </svg>'
 - subtitel: De huisartsendata begrijpen
   blokken:
   - type: tekst
@@ -67,9 +110,45 @@ subhoofdstukken:
   - type: tip
     kop: Gebruik de ICPC-viewer
     inhoud: 'Codes opzoeken kan via de NHG ICPC-viewer: viewers.nhg.org/icpcviewer'
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): anatomie van een ICPC-code (letter-as tractus, cijfer-as) met
-      voorbeeld.'
+  - type: diagram
+    inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomie
+      van een ICPC-code: letter-as en cijfer-as, met voorbeeld L76.5">
+
+      <rect class="ebox-accent" x="240" y="90" width="160" height="60" rx="8"/>
+
+      <text x="320" y="130" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">L76.5</text>
+
+      <line x1="270" y1="90" x2="150" y2="40" stroke="#2E5A9C" stroke-width="1"/>
+
+      <circle cx="270" cy="90" r="3" fill="#2E5A9C"/>
+
+      <rect class="ebox" x="20" y="10" width="230" height="52" rx="8"/>
+
+      <text class="et" x="135" y="32" text-anchor="middle">Letter L = tractus</text>
+
+      <text class="ets" x="135" y="50" text-anchor="middle">L = bewegingsapparaat</text>
+
+      <line x1="330" y1="90" x2="470" y2="40" stroke="#2E5A9C" stroke-width="1"/>
+
+      <circle cx="330" cy="90" r="3" fill="#2E5A9C"/>
+
+      <rect class="ebox" x="390" y="10" width="230" height="52" rx="8"/>
+
+      <text class="et" x="505" y="32" text-anchor="middle">Cijfer 76 = component</text>
+
+      <text class="ets" x="505" y="50" text-anchor="middle">70–99 = diagnose-range</text>
+
+      <line x1="320" y1="150" x2="320" y2="188" stroke="#2E5A9C" stroke-width="1"/>
+
+      <circle cx="320" cy="150" r="3" fill="#2E5A9C"/>
+
+      <rect class="ebox" x="205" y="188" width="230" height="52" rx="8"/>
+
+      <text class="et" x="320" y="210" text-anchor="middle">.5 = subtitel</text>
+
+      <text class="ets" x="320" y="228" text-anchor="middle">L76.5 = fractuur rib</text>
+
+      </svg>'
 - subtitel: Ziekenhuis- en specialismedata (waaronder GGZ)
   blokken:
   - type: tekst
