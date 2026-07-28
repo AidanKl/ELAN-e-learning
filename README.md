@@ -1,122 +1,111 @@
 # ELAN E-learning voor onderzoekers
 
-Een lineaire e-learning die startende onderzoekers stap voor stap door de
-acht fasen van werken met ELAN-data leidt. Gebouwd met
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), met een
-eigen ingebouwde beheeromgeving achter een wachtwoordscherm.
+Lineaire e-learning voor startende onderzoekers. Leidt stap voor stap
+door acht fasen van werken met ELAN-data. Gebouwd met
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+Beheeromgeving ingebouwd, achter wachtwoordscherm.
 
-> Deze README is **voor beheerders** en verschijnt niet op de website.
+> Deze README is voor beheerders. Verschijnt niet op de website.
 
----
-
-## Hoe het werkt (in het kort)
-
-```
-content/            <- HIER staat de bewerkbare inhoud
-  modules/          <- de 8 fasen + welkom, elk als 1 bestand
-  naslag/           <- FAQ, contactpersonen, checklists, scripts
-        |
-        |  scripts/build_content.py  (draait automatisch bij publicatie)
-        v
-docs/               <- AUTOMATISCH gegenereerd; NIET met de hand bewerken
-        |
-        |  mkdocs build
-        v
-website (GitHub Pages)  +  /admin/ (beheeromgeving achter wachtwoord)
-```
-
-Je bewerkt dus **nooit** de bestanden in `docs/` met de hand — die worden
-telkens opnieuw gegenereerd uit `content/`.
+Live: https://aidankl.github.io/ELAN-e-learning/
+Repo: https://github.com/AidanKl/ELAN-e-learning
 
 ---
 
-## 1. Eerste publicatie op GitHub (eenmalig)
+## 1. Opbouw van de repository
+```
+content/
+modules/ 8 fasen + welkomstpagina, elk 1 bestand
+naslag/ FAQ, contactpersonen, checklists, scripts
+scripts/
+build_content.py zet content/ om naar docs/ (draait automatisch bij push)
+docs/ GEGENEREERD — nooit handmatig bewerken
+admin/ beheeromgeving (wachtwoord + editor)
+javascripts/
+checklist.js logica checklist-poort
+checklist-data.js afvinkpunten per fase
+mkdocs.yml site-config + menu (nav)
+.github/workflows/
+deploy.yml bouwt + publiceert bij push naar main
+```
 
-1. Maak een repository aan (bijv. `elan-elearning`) en upload alle bestanden.
-2. **Settings → Pages → Source = GitHub Actions**.
-3. Pas in `mkdocs.yml` de regel `site_url:` aan naar de definitieve URL.
-4. Na de eerste push draait `.github/workflows/deploy.yml`: die zet de
-   CMS-content om én bouwt de site. Na enkele minuten staat alles live.
+Regel: **content/ bewerken, nooit docs/**. docs/ wordt bij elke build
+overschreven.
 
-## 2. De beheeromgeving (`/admin/`) en het wachtwoord
+## 2. Inhoud bijwerken — twee manieren
 
-Op `https://<organisatie>.github.io/elan-elearning/admin/` staat de
-beheeromgeving: een eigen editor in ELAN-stijl (geen externe diensten,
-geen GitHub-loginscherm).
+**A. Via beheeromgeving (aanbevolen)**
+`https://aidankl.github.io/ELAN-e-learning/admin/`
+→ wachtwoord → module kiezen → bewerken → *Opslaan & publiceren*.
+Site herbouwt zichzelf in 1–2 minuten.
 
-- **Wachtwoord:** ELAN (wijzigen: zie commentaar in `docs/admin/index.html`
-  — vervang de SHA-256-hash).
-- Na het wachtwoord zie je links alle **modules** en **naslagpagina's**.
-  Klik erop en bewerk: titels, intro, benodigdheden, subhoofdstukken en
-  losse blokken (tekst / tip / let op / valkuil / nog-aan-te-vullen /
-  code / inklapbaar / tabel). Blokken en subhoofdstukken kun je
-  toevoegen, verwijderen en met ↑↓ herordenen.
-- **+ Nieuwe module** maakt een nieuwe fase aan; het menu ordent zich
-  automatisch op het volgorde-nummer.
+Wachtwoord: `ELAN`
+Wijzigen: hash in `docs/admin/index.html` vervangen (SHA-256, zie
+commentaar in bestand).
 
-### Opslaan: de beheersleutel (eenmalig)
+**Opslaan werkt pas na beheersleutel (eenmalig per beheerder):**
+1. GitHub → Settings → Developer settings → Personal access tokens →
+   Fine-grained tokens → Generate new token.
+2. Repository access: alleen deze repo.
+3. Permissions → Contents: **Read and write**.
+4. Sleutel genereren, plakken in editor bij eerste keer opslaan.
 
-Opslaan schrijft naar GitHub, en GitHub eist daarvoor een sleutel — een
-wachtwoord alleen is voor GitHub niet genoeg. Daarom vraagt de editor bij
-de **eerste keer opslaan** eenmalig om een "beheersleutel". Die maak je
-zo (2 minuten):
+Sleutel blijft lokaal in de browser (knop "Beheersleutel…" rechtsboven
+om te wijzigen/verwijderen). Zonder sleutel: alles zichtbaar, niets
+opslaan.
 
-1. GitHub → **Settings → Developer settings → Personal access tokens →
-   Fine-grained tokens → Generate new token**.
-2. Bij *Repository access*: kies **alleen deze repo**.
-3. Bij *Permissions → Repository permissions*: zet **Contents** op
-   **Read and write**. Verder niets.
-4. Genereer, kopieer, en plak de sleutel in het venster dat de editor toont.
+> Wachtwoord = drempel, geen beveiliging. Echte schrijfbeveiliging zit
+> bij de beheersleutel (GitHub-rechten).
 
-De sleutel wordt alleen in de browser van die beheerder bewaard (knop
-"Beheersleutel…" rechtsboven om hem te vervangen of te verwijderen).
-Zonder sleutel kan iedereen met het wachtwoord alles **bekijken** in de
-editor, maar niets opslaan.
+**B. Rechtstreeks op GitHub (alternatief)**
+Bestand in `content/` openen → potlood-icoon → wijzigen → Commit changes.
+Zelfde resultaat, geen editor nodig.
 
-> **Kanttekening:** het wachtwoordscherm is een drempel, geen zware
-> beveiliging. Er kan echter niets worden gewijzigd zonder geldige
-> beheersleutel — de echte schrijfbeveiliging ligt dus bij GitHub.
+## 3. Lokaal werken met GitHub Desktop (aanbevolen bij grotere wijzigingen)
 
-## 3. Inhoud bijwerken — twee manieren
+1. GitHub Desktop openen → **File → Clone repository**.
+2. Repo kiezen: `AidanKl/ELAN-e-learning` → lokale map kiezen → Clone.
+3. Bestanden in `content/` bewerken met eigen editor (bv. VS Code,
+   Notepad).
+4. Terug in GitHub Desktop: wijzigingen verschijnen automatisch links.
+5. Onderaan: commit-bericht typen → **Commit to main**.
+6. **Push origin** rechtsboven.
+7. GitHub Action bouwt en publiceert automatisch (1–2 min).
 
-**Via de beheeromgeving (aanbevolen):** `/admin/` → wachtwoord → module
-kiezen → bewerken → *Opslaan & publiceren*. De site herbouwt zichzelf in
-1–2 minuten.
-
-**Rechtstreeks op GitHub (alternatief):** bewerk de bestanden in
-`content/` (potlood-icoon → Commit). Zelfde resultaat.
-
-**Lokaal een voorbeeld bekijken:**
-
-```bash
+Preview vooraf lokaal bekijken (optioneel, vereist Python):
+open map in terminal via GitHub Desktop (**Repository → Open in
+Command Prompt/Terminal**), dan:
+```
 pip install mkdocs-material pyyaml
-python scripts/build_content.py   # zet content/ om naar docs/
-mkdocs serve                      # open http://127.0.0.1:8000
+python scripts/build_content.py
+mkdocs serve
 ```
 
-## 4. De checklist-poort
+Browser naar `http://127.0.0.1:8000`.
 
-Onderaan elke fase staat een checklist; de knop **"Volgende fase"** wordt
-pas actief als alle vakjes zijn afgevinkt. Voortgang wordt onthouden in de
-browser van de gebruiker (geen centrale registratie).
+## 4. Checklist-poort
 
-De afvinkpunten staan in `docs/javascripts/checklist-data.js`. Pas die
-lijst aan om punten te wijzigen; laat een module weg om geen poort te tonen.
+Onderaan elke fase: checklist. Knop "Volgende fase" pas actief als alles
+afgevinkt is. Voortgang opgeslagen in browser gebruiker (geen centrale
+registratie).
 
-## 5. Een nieuwe module / fase toevoegen
+Afvinkpunten aanpassen: `docs/javascripts/checklist-data.js`.
+Module weglaten uit dat bestand = geen poort tonen.
 
-1. Maak in `content/modules/` een nieuw bestand, bijv. `09-nieuwe-fase.md`
-   (kopieer een bestaande module als startpunt).
-2. Geef het een uniek `volgorde`-nummer (bv. `"09"`). Het menu en de
-   navigatieknoppen regelen zich automatisch.
-3. Optioneel: voeg checklist-items toe in `checklist-data.js` onder
-   dezelfde sleutel (`"09"`).
+## 5. Nieuwe module toevoegen
 
-## 6. Onderdelen die nog moeten worden ingevuld
+1. Nieuw bestand in `content/modules/`, bijv. `09-nieuwe-fase.md`
+   (kopieer bestaande module als start).
+2. Uniek `volgorde`-nummer geven (bv. `"09"`). Menu regelt zich
+   automatisch.
+3. Optioneel: checklist-items toevoegen in `checklist-data.js` onder
+   zelfde sleutel (`"09"`).
 
-Door de hele e-learning staan **"Nog aan te vullen"**-blokken (geel).
-Zoek in `content/` op `NOG-AAN-TE-VULLEN` om ze allemaal te vinden.
+## 6. Nog openstaand
+
+Zoek in `content/` op `NOG-AAN-TE-VULLEN` voor onderdelen die nog
+ingevuld moeten worden.
 
 ---
 
-Beheer: Aidan Kloots · a.kloots@lumc.nl
+Beheer: Aidan Kloots · a.a.m.kloots@lumc.nl
