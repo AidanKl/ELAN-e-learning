@@ -221,6 +221,20 @@
         velden.appendChild(veld("Kop", kaart._kop = tekstInvoer(blok.kop ||
           { tip: "Tip", letop: "Let op", valkuil: "Valkuil", inklap: "" }[t])));
       }
+      if (t === "inklap") {
+        var stijlSel = el("select", {});
+        [["note", "Neutraal"], ["info", "Info"], ["example", "Voorbeeld"],
+         ["warning", "Let op"]].forEach(function (s) {
+          var o = el("option", { value: s[0], text: s[1] });
+          if (s[0] === (blok.stijl || "note")) o.selected = true;
+          stijlSel.appendChild(o);
+        });
+        velden.appendChild(veld("Stijl", kaart._stijl = stijlSel));
+        var openIn = el("input", { type: "checkbox" });
+        openIn.checked = !!blok.open;
+        velden.appendChild(veld("Standaard open", kaart._open = openIn,
+          "Aangevinkt: blok staat open bij het laden van de pagina."));
+      }
       if (t === "code") {
         var sel = el("select", {});
         ["text","r","python","sql","bash"].forEach(function (l) {
@@ -273,6 +287,10 @@
       var uit = { type: t, inhoud: kaart._inhoud.value };
       if (kaart._kop) uit.kop = kaart._kop.value;
       if (t === "code") uit.taal = kaart._taal.value;
+      if (t === "inklap" && kaart._stijl) {
+        uit.stijl = kaart._stijl.value;
+        uit.open = kaart._open.checked;
+      }
       return uit;
     };
     return kaart;
