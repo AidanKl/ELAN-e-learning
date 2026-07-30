@@ -1,39 +1,37 @@
 ---
 volgorde: '00'
 menutitel: Welkom
-titel: Welkom bij de ELAN E-learning
+titel: Welkom bij de ELAN e-learning
 toon_balk: false
-intro: 'Deze e-learning leidt je stap voor stap door het werken met **ELAN-data** — van het eerste idee
-  tot de publicatie van je resultaten. De cursus is bedoeld voor **startende onderzoekers** die voor het
-  eerst (of na een pauze) met ELAN aan de slag gaan.
-
-
-  ELAN (Extramuraal LUMC Academisch Netwerk) is een geïntegreerde data- en kennisinfrastructuur met geanonimiseerde
-  zorgdata van ruim een miljoen inwoners in de regio Den Haag en Leiden.'
+intro: 'Deze e-learning leidt je door het werken met ELAN-data, van eerste idee tot publicatie.
+  Bedoeld voor iedereen die met ELAN-data aan de slag gaat of wil weten wat ermee kan.'
 benodigdheden: []
 subhoofdstukken:
-- subtitel: Hoe deze e-learning werkt
+- subtitel: Hoe gebruik je deze e-learning?
   blokken:
   - type: tekst
-    inhoud: De cursus volgt de **acht fasen** van een onderzoekstraject. Je doorloopt ze het beste op
-      volgorde. Onderaan elke module vink je af wat je hebt gelezen; daarna komt de knop naar de volgende
-      fase vrij.
-  - type: tip
-    kop: Tip
-    inhoud: Gebruik het menu links om snel naar een fase te springen waar je naar wilt teruggrijpen.
-- subtitel: De iconen die je tegenkomt
-  blokken:
-  - type: tip
-    kop: Tip
-    inhoud: Een praktische tip die je tijd bespaart.
-  - type: letop
-    kop: Let op
-    inhoud: Iets waar je extra op moet letten.
-  - type: valkuil
-    kop: Valkuil
-    inhoud: Een veelgemaakte fout waar anderen al tegenaan liepen.
-  - type: todo
-    inhoud: Een onderdeel dat nog niet definitief is; deze e-learning groeit mee.
+    inhoud: 'De inhoud volgt de acht fasen van een onderzoekstraject. Er zijn twee manieren om
+      te lezen:
+
+
+      - **Van begin tot eind** — werk de fasen op volgorde door. Onderaan elke fase vink je af
+      wat je hebt gelezen; daarna komt de knop naar de volgende fase vrij.
+
+      - **Als naslag** — loop je ergens tegenaan, zoek dan op trefwoord of spring via het menu
+      naar de fase waar je bent. Ook ingeklapte tekst wordt doorzocht.'
+  - type: inklap
+    stijl: info
+    open: false
+    kop: Welke blokken kom je tegen?
+    inhoud: '- **Tip** — praktische aanwijzing die tijd bespaart.
+
+      - **Let op** — punt waar je extra op moet letten.
+
+      - **Valkuil** — veelgemaakte fout waar anderen al tegenaan liepen.
+
+      - **Uitklapbaar blok** — achtergrond en details. Niet nodig om verder te kunnen.
+
+      - **Nog aan te vullen** — onderdeel dat nog niet definitief is; deze e-learning groeit mee.'
 naslag:
 - 'Beheer & vragen: Aidan Kloots (a.kloots@lumc.nl)'
 ---
