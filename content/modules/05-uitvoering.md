@@ -26,23 +26,19 @@ subhoofdstukken:
       in CBS-RA. Controleer op wáárden, niet alleen op naam.
   - type: inklap
     kop: Meer bijzonderheden (klik om uit te klappen)
-    inhoud: '- **Probleemlijst vs. episodelijst:** chronische aandoeningen worden gelabeld als ''probleem''.
-
+    inhoud: |-
+      - **Probleemlijst vs. episodelijst:** chronische aandoeningen worden gelabeld als 'probleem'.
       - **Handmatige voorgeschiedenis:** let op veel diagnoses op één begindatum.
-
-      - **Verwijzingen:** ZorgDomein-verwijzingen zitten in JRN_Zorgdomein, niet in COR.'
+      - **Verwijzingen:** ZorgDomein-verwijzingen zitten in JRN_Zorgdomein, niet in COR.
 - subtitel: Validatie vóór analyse
   blokken:
   - type: tekst
-    inhoud: '1. Controleer de mappen.
-
+    inhoud: |-
+      1. Controleer de mappen.
       2. Controleer variabelenamen tegen het codeboek.
-
       3. Controleer de populatiegrootte.
-
       4. Controleer het tijdsvenster.
-
-      5. Controleer missende waarden.'
+      5. Controleer missende waarden.
 - subtitel: Change tracking & ontdubbelen
   blokken:
   - type: tekst
