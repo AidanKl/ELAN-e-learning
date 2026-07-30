@@ -65,10 +65,12 @@ def render_blok(blok):
     if t == "code":
         taal = blok.get("taal", "text")
         return f'```{taal}\n{blok.get("inhoud","").rstrip()}\n```\n'
-    if t == "inklap":
+if t == "inklap":
         kop = blok.get("kop", "")
+        stijl = blok.get("stijl", "note")
+        prefix = "???+" if blok.get("open") else "???"
         inhoud = indent(blok.get("inhoud", ""))
-        return f'??? note "{kop}"\n{inhoud}\n'
+        return f'{prefix} {stijl} "{kop}"\n{inhoud}\n'
     if t == "tabel":
         return blok.get("inhoud", "").strip() + "\n"
     if t == "diagram":
