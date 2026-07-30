@@ -1,5 +1,5 @@
 ---
-volgorde: 08
+volgorde: '08'
 menutitel: Fase 8 — Disseminatie
 titel: 'Fase 8 — Disseminatie: rapportage & bronvermelding'
 toon_balk: true
@@ -13,24 +13,21 @@ subhoofdstukken:
 - subtitel: Vóór submission delen
   blokken:
   - type: tekst
-    inhoud: 'Deel je manuscript **minimaal 2 weken vóór submission** met:
+    inhoud: |-
+      Deel je manuscript **minimaal 2 weken vóór submission** met:
 
       1. De PI van het werkpakket;
-
       2. Hoofd ELAN: D. Mook (d.o.mook@lumc.nl) en J. Struijs (j.n.struijs@lumc.nl);
-
       3. Het algemene ELAN-mailadres (elan@lumc.nl).
-
-
-      De scientific board controleert; de PI geeft binnen één week terugkoppeling.'
+  - type: tekst
+    inhoud: De scientific board controleert; de PI geeft binnen één week terugkoppeling.
 - subtitel: Na publicatie informeren
   blokken:
   - type: tekst
-    inhoud: '- De datamanager (elan.dcc@lumc.nl) — met syntaxen én eindpublicatie;
-
+    inhoud: |-
+      - De datamanager (elan.dcc@lumc.nl) — met syntaxen én eindpublicatie;
       - CBS (bij CBS-data) — binnen 4 weken;
-
-      - Converis (alleen voor PhD-studenten).'
+      - Converis (alleen voor PhD-studenten).
   - type: tip
     kop: Verwijs naar de infrastructuurpapers
     inhoud: Kist et al. (Int J Epidemiol 2024) en Ardesch et al. (Health Policy 2023).
