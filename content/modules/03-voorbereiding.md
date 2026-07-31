@@ -1,50 +1,39 @@
 ---
 volgorde: '03'
-menutitel: Fase 3 — Voorbereiding & toegang
-titel: 'Fase 3 — Voorbereidingsfase: toegang & governance'
+menutitel: Fase 3 — Voorbereiding
+titel: 'Fase 3 — Voorbereidingsfase: toestemming en toegang'
 toon_balk: true
-intro: 'Je regelt de formele toestemming en toegang: je dient een ticket in, stelt een protocol op, laat
-  het langs de juiste commissies gaan en vraagt eventueel externe databronnen aan.
+intro: 'Je regelt de formele toestemming en toegang: aanstelling, protocol, ticket, ethische toetsing,
+  externe bronnen en toegang tot de omgeving.
 
 
-  *Vanaf hier is de e-learning bedoeld voor onderzoekers.*'
+  Belangrijkste principe van deze fase: de sporen lopen parallel, niet achter elkaar. Wie wacht tot het
+  ene traject klaar is voordat hij het volgende start, verliest maanden.'
 benodigdheden:
-- 'De ELAN-aanvraagprocedure: stappen en formats'
-- De CBS-microdata-aanvraag en het koppelingstraject
-- 'Het juridisch kader: AVG, grondslag, dataminimalisatie'
-- 'De governance: welke commissies beslissen, en in welke volgorde'
-- Indicaties van doorlooptijden en kosten
+- 'Het dataverzoek uit fase 2: vraag, populatie, periode, variabelen'
+- Het ELAN-nWMO-protocoltemplate
+- Een LUMC-aanstelling, of zicht op de route daarnaartoe
+- Een betrokken LUMC-onderzoeker en het bijpassende werkpakket
+- Budget voor de datakosten
 subhoofdstukken:
-- subtitel: 'In het kort: het aanvraagproces'
+- subtitel: In 30 seconden
   blokken:
   - type: tekst
-    inhoud: 'In deze fase regel je formele toestemming en toegang. Het proces bestaat uit zes stappen:
+    inhoud: '- Vier trajecten lopen naast elkaar: **aanstelling**, **protocol**, **ticket** en **toestemming
+      per externe bron**. Start ze zoveel mogelijk tegelijk.
 
+      - Het ticket dien je in via elanresearch.nl. Het ELAN-kernteam vergadert ongeveer twee keer per
+      maand; de wetenschapscommissie behandelt je ticket gelijktijdig.
 
-      1. **Instellingseis** — je instelling moet een CBS-overeenkomst hebben.
+      - Gebruik uitsluitend het ELAN-nWMO-template. Een generiek template kost je een ronde extra.
 
-      2. **Protocol** — stel een onderzoeksprotocol op met het ELAN-nWMO-template.
+      - De huisartsendata wordt automatisch aangevraagd zodra je een ticket indient. Voor elke andere
+      externe bron regel je zelf toestemming bij de bronhouder.
 
-      3. **Ticket** — dien je dataverzoek in via elanresearch.nl.
+      - Informeel is de doorlooptijd ongeveer een maand; in de praktijk kan die oplopen tot meer dan drie
+      maanden.
 
-      4. **Ethische toetsing** — via METC of de niet-WMO-commissie.
-
-      5. **Externe bronnen** — vraag eventueel externe databronnen aan.
-
-      6. **CBS-toegang** — de datamanager regelt je CBS-RA-aanmelding.'
-  - type: letop
-    kop: Reken op tijd en kosten
-    inhoud: Houd rekening met een doorlooptijd van weken tot maanden, en met kosten die aan datagebruik
-      verbonden zijn (details verderop en in fase 4).
-  - type: valkuil
-    kop: Wat vertraging veroorzaakt
-    inhoud: 'Drie dingen die je traject onnodig verlengen:
-
-      - het verkeerde template gebruiken (gebruik het **ELAN-nWMO-template**);
-
-      - meerdere onderzoeken in één ticket proppen (**één ticket = één protocol**);
-
-      - te weinig afstemmen met mensen die de data kennen — goed vooroverleg met de DCC voorkomt herwerk.'
+      - Data kan er eerder zijn dan alle goedkeuringen. Begin pas met analyseren als alles rond is.'
   - type: diagram
     inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Het
       aanvraagproces in zes stappen: instellingseis, protocol, ticket, ethische toetsing, externe bronnen,
@@ -66,105 +55,376 @@ subhoofdstukken:
 
       <rect class="ebox" x="12" y="34" width="200" height="52" rx="8"/>
 
-      <text class="et" x="112" y="56" text-anchor="middle">1. Instellingseis</text>
+      <text class="et" x="112" y="56" text-anchor="middle">Instellingseis</text>
 
       <text class="ets" x="112" y="74" text-anchor="middle">CBS-overeenkomst</text>
 
       <rect class="ebox" x="228" y="34" width="200" height="52" rx="8"/>
 
-      <text class="et" x="328" y="56" text-anchor="middle">2. Protocol</text>
+      <text class="et" x="328" y="56" text-anchor="middle">Protocol</text>
 
       <text class="ets" x="328" y="74" text-anchor="middle">ELAN-nWMO-template</text>
 
       <rect class="ebox" x="440" y="34" width="200" height="52" rx="8"/>
 
-      <text class="et" x="540" y="56" text-anchor="middle">3. Ticket</text>
+      <text class="et" x="540" y="56" text-anchor="middle">Ticket</text>
 
       <text class="ets" x="540" y="74" text-anchor="middle">indienen via elanresearch.nl</text>
 
       <rect class="ebox" x="12" y="174" width="200" height="52" rx="8"/>
 
-      <text class="et" x="112" y="196" text-anchor="middle">4. Ethische toetsing</text>
+      <text class="et" x="112" y="196" text-anchor="middle">Ethische toetsing</text>
 
       <text class="ets" x="112" y="214" text-anchor="middle">METC of niet-WMO</text>
 
       <rect class="ebox" x="228" y="174" width="200" height="52" rx="8"/>
 
-      <text class="et" x="328" y="196" text-anchor="middle">5. Externe bronnen</text>
+      <text class="et" x="328" y="196" text-anchor="middle">Externe bronnen</text>
 
       <text class="ets" x="328" y="214" text-anchor="middle">indien van toepassing</text>
 
       <rect class="ebox-accent" x="440" y="174" width="200" height="52" rx="8"/>
 
-      <text class="et" x="540" y="196" text-anchor="middle">6. CBS-toegang</text>
+      <text class="et" x="540" y="196" text-anchor="middle">CBS-toegang</text>
 
       <text class="ets" x="540" y="214" text-anchor="middle">datamanager regelt aanmelding</text>
 
       </svg>'
-- subtitel: De zes stappen uitgewerkt
+- subtitel: Stap 1 — Regel je aanstelling en je LUMC-verankering
   blokken:
   - type: tekst
-    inhoud: '**1. Instellingseis** — je instelling moet een CBS-overeenkomst hebben. LUMC-onderzoekers
-      hebben sowieso toegang; externen kunnen zich via een 0-uren- of stagecontract aan het LUMC verbinden.
-      Bij elk onderzoek is een LUMC-onderzoeker betrokken.'
+    inhoud: 'Voor ELAN-onderzoek is een formele aanstelling bij het LUMC of een aangesloten instelling
+      vereist, en bij elk onderzoek moet een LUMC-onderzoeker betrokken zijn. Ben je dat zelf niet, dan
+      is een betrokken senior-onderzoeker vanuit het LUMC nodig.
+
+
+      Een aanstelling regelen kan weken tot maanden duren. Start dit dus meteen, parallel aan je ticketaanvraag
+      — niet erna.'
+  - type: inklap
+    stijl: note
+    kop: Ik kom van een andere instelling — welke route geldt voor mij?
+    inhoud: 'Onderzoekers van instellingen zonder CBS-overeenkomst kunnen zich aan het LUMC verbinden,
+      bijvoorbeeld via een 0-uren- of stagecontract. Een overzicht van instellingen die wél een overeenkomst
+      met het CBS hebben, staat op de CBS-website onder ''instellingen en projecten''.
+
+
+      Voor externe partijen zoals GGZ-instellingen of andere UMC''s gelden volgens de Startersgids andere
+      procedures dan voor LUMC-interne onderzoekers. Vraag bij je ELAN-contactpersoon na welke route voor
+      jou geldt voordat je iets in gang zet.'
+- subtitel: Stap 2 — Schrijf je onderzoeksprotocol
+  blokken:
   - type: tekst
-    inhoud: '**2. Onderzoeksprotocol** — gebruik het verplichte ELAN-nWMO-template (''Protocol format
-      METC-LDD onderzoek met gegevens'').'
+    inhoud: 'Het protocol bouwt direct voort op je dataverzoek uit fase 2: populatie, inclusie- en exclusiecriteria,
+      operationalisatie en benodigde variabelen gaan er vrijwel ongewijzigd in.
+
+
+      Het template heet ''Protocol format METC-LDD onderzoek met gegevens'' en is te vinden via de ELAN-pagina
+      op de LUMC-website.'
+  - type: valkuil
+    kop: Gebruik uitsluitend het ELAN-nWMO-template
+    inhoud: 'Er zijn meerdere protocoltemplates in omloop: een generiek nWMO-template, een PHEG-template
+      en het ELAN-template. Alleen het ELAN-nWMO-template is bruikbaar voor onderzoek met ELAN-data.
+
+
+      Volgens de Startersgids is het in de praktijk al meerdere keren misgegaan: het verkeerde template
+      leidt tot extra werk en vertraagde goedkeuring.'
+  - type: inklap
+    stijl: note
+    kop: Voor wie schrijf je het protocol?
+    inhoud: 'Je protocol wordt gelezen door meerdere partijen met verschillende achtergronden: het ELAN-kernteam,
+      de wetenschapscommissie en de nWMO-commissie. Schrijf begrijpelijk voor een lezer buiten jouw vakgebied,
+      maar wees methodologisch precies.
+
+
+      Concreet betekent dat: geen impliciete kennis van jouw ziektebeeld veronderstellen, en tegelijk
+      je populatie, criteria en variabelen zo scherp opschrijven dat een methodoloog kan beoordelen of
+      het klopt.'
+  - type: inklap
+    stijl: info
+    kop: Welke commissies beoordelen wat?
+    inhoud: '| Commissie of orgaan | Rol | Waar ze naar kijken |
+
+      | --- | --- | --- |
+
+      | ELAN-kernteam | Inhoudelijke beoordeling van de aanvraag | Relevantie, haalbaarheid, databeschikbaarheid
+      |
+
+      | Wetenschapscommissie en stuurgroep | Wetenschappelijke toetsing | Methodologie en onderzoekskwaliteit
+      |
+
+      | nWMO-commissie (METC-LDD) | Formele nWMO-beoordeling en ethische toetsing | Valt het onderzoek
+      onder de WMO? Privacy, dataminimalisatie, patiëntveiligheid |
+
+
+      Goedkeuring van de niet-WMO-commissie volstaat in plaats van een niet-WMO-verklaring van de METC,
+      mits de wetenschapscommissie ook akkoord is.'
+- subtitel: Stap 3 — Dien je ticket in
+  blokken:
   - type: tekst
-    inhoud: '**3. Ticket indienen** — via elanresearch.nl. Het kernteam vergadert circa 2× per maand;
-      de wetenschapscommissie behandelt je ticket gelijktijdig.'
-  - type: tekst
-    inhoud: '**4. Ethische toetsing** — via de METC of de niet-WMO-commissie. Goedkeuring van de niet-WMO-commissie
-      volstaat, mits de wetenschapscommissie ook akkoord is.'
-  - type: tekst
-    inhoud: '**5. Externe databronnen** — zet je zelf in gang (zie de bronnentabel hieronder). De huisartsendata
-      wordt bij ticketindiening automatisch aangevraagd.'
-  - type: tekst
-    inhoud: '**6. CBS-RA-toegang** — na ELAN-akkoord regelt de datamanager je aanmelding voor de CBS-RA-omgeving
-      (circa twee weken).'
+    inhoud: 'Het ticket dien je in via elanresearch.nl. Het is geen protocol maar een pitch: het kernteam
+      moet eruit kunnen opmaken wat je wilt onderzoeken, met welke data, en of dat haalbaar is.
+
+
+      Eén ticket staat gelijk aan één protocol. Doe je meerdere onderzoeken, dien dan per onderzoek een
+      apart ticket in.'
   - type: tip
-    kop: Praktische tickettips
-    inhoud: '- Schrijf je aanvraag eerst in Word — het ticketformulier heeft geen opslaanknop.
+    kop: Schrijf je aanvraag eerst in Word
+    inhoud: 'Het ticketformulier heeft geen opslaanknop. Schrijf je aanvraag volledig uit in een Word-document
+      en kopieer die daarna pas in het formulier, zodat je bij een verbindingsprobleem niets kwijtraakt.
 
-      - Koppel je ticket aan het juiste project binnen CBS.
 
-      - Informeer de PI én de datamanagers.'
-- subtitel: Onder welk CBS-project val je?
+      Vraag daarnaast vooraf een voorbeeld van een goedgekeurd ticket op bij je ELAN-contactpersoon. Dat
+      geeft houvast bij titel, acroniem en beschrijving.'
+  - type: inklap
+    stijl: example
+    kop: Hoe gedetailleerd moet de beschrijving zijn?
+    inhoud: 'Reken op maximaal een halve A4. Beschrijf daarin: je onderzoeksvraag, je populatie, de benodigde
+      data zo specifiek mogelijk, en je beoogde analyse. Het volledige protocol volgt later.
+
+
+      De formuliertekst op elanresearch.nl is volgens de Startersgids beknopt voor grotere onderzoeken.
+      Wees in de beschrijving specifieker dan het formulier vraagt, en houd rekening met wie het leest.'
+  - type: inklap
+    stijl: note
+    kop: Wat wordt bedoeld met 'sponsor'?
+    inhoud: 'De sponsor is de organisatie die eindverantwoordelijk is voor het onderzoek, in de meeste
+      gevallen het LUMC of de afdeling waarbinnen het onderzoek loopt.
+
+
+      Dit is dus niet de financier van je onderzoek.'
+  - type: inklap
+    stijl: warning
+    kop: Werk je met CBS-microdata? Vermeld dat expliciet
+    inhoud: 'Gebruik je CBS-microdata, bijvoorbeeld inkomen, opleiding of huishoudsamenstelling, vermeld
+      dan expliciet in je ticket dát je die data nodig hebt én dat je in de CBS-RA-omgeving werkt.
+
+
+      Dit wordt niet automatisch aangenomen. Staat het er niet in, dan volgt een verduidelijkingsronde
+      en loopt je traject vertraging op.'
+  - type: inklap
+    stijl: note
+    kop: Koppel je ticket aan het juiste werkpakket
+    inhoud: 'Je ticket moet gekoppeld worden aan een bestaand werkpakket binnen ELAN. Zorg dat de principal
+      investigator van dat werkpakket op de hoogte is van je ticket.
+
+
+      **Klinische werkpakketten** — type 2 diabetes, cardiovasculair, infectieziekten, MDL, psychiatrie,
+      voeding en leefstijl, gedrag, ouderengeneeskunde, trombose en hemostase, reumatologie, women''s
+      health, en een categorie overig.
+
+
+      **Methodologische werkpakketten** — epidemiologie, e-health, advanced data science, mixed methods,
+      population health management, payment models.
+
+
+      Wie op dit moment PI is van welk werkpakket, staat op de contactpersonenpagina in het naslagdeel.
+      Controleer dat bij je contactpersoon voordat je iemand aanschrijft; PI-rollen wisselen.'
+- subtitel: Stap 4 — Vraag toestemming per externe databron
   blokken:
   - type: tekst
-    inhoud: Je onderzoek moet vallen onder een bestaand ELAN-CBS-project. Voor GGZ-onderzoek is dat bijvoorbeeld
-      project **9269**. Welke microdata per project is aangevraagd staat op de CBS-website (instellingen-en-projecten);
-      de datamanager helpt je bepalen onder welk project je valt.
-- subtitel: Externe databronnen aanvragen
-  blokken:
-  - type: tekst
-    inhoud: Vermeld altijd expliciet dat het om een **'ELAN'-data-aanvraag** gaat, en stuur de schriftelijke
-      toestemming naar de datamanager (F.H.Ardesch@lumc.nl).
-  - type: tabel
+    inhoud: 'De huisartsendata wordt automatisch aangevraagd zodra je je ticket indient; daar hoef je
+      niets voor te doen. Voor alle andere bronnen zet je de aanvraag zelf in gang.
+
+
+      Belangrijk om te begrijpen: de data is meestal al aanwezig binnen ELAN. Wat je aanvraagt is niet
+      de data zelf, maar toestemming van de bronhouder om die te gebruiken. Elke leverancier houdt zeggenschap
+      over de eigen data, dus elke bron benader je apart.'
+  - type: inklap
+    stijl: info
+    kop: Aanvraagadres per bron
     inhoud: '| Bron | Aanvraag via |
 
       | --- | --- |
 
-      | Huisartsen (ELAN-H) | Automatisch bij ticketindiening |
+      | Huisartsen (ELAN-H) | Automatisch bij ticketindiening via elanresearch.nl |
 
-      | HMC | Wetenschapsbureau via Castor |
+      | HMC | Wetenschapsbureau via Castor; bij aanvullend onderzoek ''addendum'' vermelden |
 
       | HagaZiekenhuis | Wetenschapscommissie via Castor |
 
-      | Parnassia (GGZ) | wetenschappelijkonderzoek@parnassiagroep.nl |
+      | Parnassia Groep (GGZ) | wetenschappelijkonderzoek@parnassiagroep.nl, met onderzoeksvraag en protocol
+      |
 
-      | Gemeente Den Haag (WMO) | olivier.vandervet@denhaag.nl |
+      | Gemeente Den Haag (Wmo) | olivier.vandervet@denhaag.nl, met F.H.Ardesch@lumc.nl in cc |
 
-      | GGD (COVID-19) | irene.vandermeer@ggdhaaglanden.nl |
+      | GGD (COVID-19) | irene.vandermeer@ggdhaaglanden.nl, met onderzoeksvraag en protocol |
 
-      | Perined | lbroeders@perined.nl |
+      | Perined | Aanvraagformulier naar lbroeders@perined.nl |
 
-      | Hadoks | S.van_bruggen@lumc.nl (nog niet beschikbaar) |'
-- subtitel: Wie beoordeelt je aanvraag?
+      | Hadoks | S.van_bruggen@lumc.nl — let op: data is nog niet beschikbaar |
+
+
+      Vermeld in elke aanvraag expliciet dat het om een **ELAN-data-aanvraag** gaat. Stuur de schriftelijke
+      toestemming daarna naar de datamanager (F.H.Ardesch@lumc.nl); die zet vervolgens een subset klaar
+      in jouw project.
+
+
+      Contactadressen wisselen. Controleer ze bij je contactpersoon voordat je een aanvraag verstuurt.'
+  - type: inklap
+    stijl: note
+    kop: De variabele die ik nodig heb, zit er nog niet in. Kan die erbij?
+    inhoud: 'Soms wel, maar de route verschilt per bron.
+
+
+      - Voor huisartsendata, Perined, Wmo, GGD, Hadoks en Parnassia kun je de datamanager mailen. Die
+      kan bij de volgende upload navragen of de data beschikbaar is en meegenomen kan worden.
+
+      - Voor HMC en HagaZiekenhuis ligt het complexer. Bij het opstellen van de contracten is een variabelenlijst
+      goedgekeurd door de raad van bestuur. Uitbreiding vereist opnieuw goedkeuring van de raad van bestuur,
+      en kost dus aanzienlijk meer tijd.
+
+
+      Praktisch gevolg: ontdek je in fase 5 dat een variabele ontbreekt, dan is dat vrijwel nooit binnen
+      je lopende planning op te lossen. Dit is precies waarom stap 4 van fase 2 grondig moet gebeuren.'
+  - type: inklap
+    stijl: note
+    kop: Wanneer wordt externe data bijgewerkt?
+    inhoud: 'Met de externe bronhouders is afgesproken dat er eenmaal per jaar een upload richting ELAN
+      plaatsvindt. Voor HMC, HagaZiekenhuis, de huisartsendata (via STIZON) en de Wmo-data starten die
+      gesprekken volgens het Guidance Document aan het begin van het kalenderjaar. Voor Perined, Parnassia,
+      de GGD en Hadoks is het moment nog niet vastgesteld. Reken op een marge van enkele maanden, omdat
+      ELAN afhankelijk is van de leversnelheid van de bronhouder.
+
+
+      CBS-microdata wordt ook jaarlijks bijgewerkt, maar het CBS is op zijn beurt afhankelijk van aanleverende
+      instanties: de ene dataset loopt een jaar achter, de andere twee jaar of meer. Welke jaren beschikbaar
+      zijn, staat in de CBS-microdatacatalogus.
+
+
+      Neem dit mee in je planning: de meest recente maanden zitten vrijwel nooit in de data die je krijgt.'
+- subtitel: Stap 5 — Volg je aanvraag actief op
   blokken:
   - type: tekst
-    inhoud: Je aanvraag wordt beoordeeld door het **kernteam** (relevantie, haalbaarheid), de **wetenschapscommissie/stuurgroep**
-      (wetenschappelijke kwaliteit) en de **nWMO-commissie (METC-LDD)** (ethische toetsing).
+    inhoud: 'Na indiening doorloopt je ticket een interne beoordelingsroute. De informele verwachting
+      is ongeveer een maand, maar bij complexere aanvragen kan dat oplopen tot meer dan drie maanden.
+
+
+      Houd zelf de regie. Check elanresearch.nl voor updates; opmerkingen van beoordelaars kun je daar
+      beantwoorden en verwerken. Heb je na twee weken niets gehoord, vraag dan om een statusupdate.'
+  - type: inklap
+    stijl: warning
+    kop: Vraag om een ondubbelzinnige status
+    inhoud: 'Krijg je geen duidelijk antwoord, stel de vraag dan expliciet: is mijn ticket goedgekeurd,
+      afgewezen, of wacht het op aanvullende informatie?
+
+
+      Vraag na goedkeuring ook expliciet of er nog vervolgstappen zijn. Aanvullende documenten voor de
+      METC worden volgens de Startersgids niet altijd proactief gecommuniceerd.'
+  - type: inklap
+    stijl: note
+    kop: Wat als mijn aanvraag stilvalt?
+    inhoud: 'In het knelpuntenrapport is een aanvraag beschreven die langer dan drie maanden op formele
+      goedkeuring wachtte, waarbij onduidelijk was wie de beslissing kon deblokkeren.
+
+
+      Praktisch: leg per contactmoment vast wat je hebt gestuurd, aan wie, en op welke datum. Loopt het
+      vast, bespreek dan met je betrokken LUMC-onderzoeker of contactpersoon wie formeel beslisbevoegd
+      is.'
+- subtitel: Stap 6 — Krijg toegang tot de omgeving
+  blokken:
+  - type: tekst
+    inhoud: 'Is ELAN akkoord, dan zet de datamanager je aanmelding voor de CBS-RA-omgeving in gang. Dat
+      duurt bij elkaar ongeveer twee weken.
+
+
+      Je krijgt standaard toegang tot de microdata die binnen jouw project is aangevraagd. Toegang tot
+      externe data volgt pas nadat de betreffende bronhouder toestemming heeft gegeven.'
+  - type: letop
+    kop: Data eerder dan goedkeuring? Wacht toch
+    inhoud: 'Data-uitgifte kan sneller gaan dan de nWMO-commissie haar goedkeuring afgeeft. Wacht met
+      analyseren tot alle benodigde goedkeuringen binnen zijn, ook als je de data technisch al kunt openen.
+
+
+      Wat je in de tussentijd wél kunt doen: je analyseplan afmaken, je scriptstructuur opzetten en je
+      codelijsten vastleggen.'
+  - type: inklap
+    stijl: note
+    kop: Wat gebeurt er verder met mijn dataset?
+    inhoud: 'Alle externe data komt binnen in een projectdatabase waar alleen de datamanager toegang toe
+      heeft. Daaruit wordt een subset klaargezet in het project waarin jij werkt.
+
+
+      Het koppelen van die subsets doe je zelf. Wat er praktisch nodig is om in de omgeving te werken
+      — inloggen, software, schijfindeling, de CBS-awarenesstest — staat in fase 4.'
+- subtitel: Stap 7 — Begroot de kosten
+  blokken:
+  - type: tekst
+    inhoud: De kosten komen vrijwel volledig voort uit het gebruik van de CBS-RA-infrastructuur. Ze worden
+      per kwartaal doorbelast aan de onderzoeker, dus regel vóór je aanvraag dat er budget is.
+  - type: inklap
+    stijl: info
+    kop: Rekenvoorbeeld uit het Guidance Document
+    inhoud: 'Voorbeeld van een onderzoeker die een jaar als actieve gebruiker is aangemeld, vier keer
+      output aanbiedt en geen eigen bestanden uploadt:
+
+
+      | Post | Aantal | Tarief | Totaal |
+
+      | --- | --- | --- | --- |
+
+      | Eenmalige aanmeldkosten | 1 | € 375,00 | € 375,00 |
+
+      | Actieve gebruiker per maand | 12 | € 135,00 | € 1.620,00 |
+
+      | Output aanbieden | 4 | € 250,00 | € 1.000,00 |
+
+      | Geheugenkosten per maand | 12 | € 25,00 | € 300,00 |
+
+      | Eigen bestanden importeren (op BSN) | 0 | € 250,00 | € 0,00 |
+
+      | Eigen bestanden importeren (waarschijnlijkheidskoppeling) | 0 | € 675,00 | € 0,00 |
+
+      | Nieuwe microdata aanvragen, per bestand | 0 | € 180,00 | € 0,00 |
+
+      | **Totaal** | | | **€ 3.295,00** |
+
+
+      Ondersteuning door de ELAN-datamanager wordt niet doorbelast.
+
+
+      Dit is een voorbeeld, geen tarief. Ben je zes maanden actief en bied je één keer output aan, dan
+      liggen de kosten ruim de helft lager. Het CBS past de vaste tarieven jaarlijks aan; kijk voor actuele
+      bedragen op de CBS-pagina over diensten en kosten.'
+  - type: inklap
+    stijl: note
+    kop: Wanneer krijg ik de factuur?
+    inhoud: 'Kosten worden per kwartaal doorberekend. Volgens het Guidance Document kun je de factuur
+      verwachten:
+
+
+      - over Q1: eind april of begin mei;
+
+      - over Q2: eind juli of begin augustus;
+
+      - over Q3: eind oktober of begin november;
+
+      - over Q4: eind januari of begin februari.
+
+
+      Twee manieren om te sturen op kosten: bundel je output in plaats van vaak kleine exports aanvragen,
+      en meld je af als actieve gebruiker als je een langere periode niet werkt. Zie fase 7.'
+- subtitel: Stap 8 — Controleer of je compleet bent
+  blokken:
+  - type: tekst
+    inhoud: 'Voordat je doorgaat naar fase 4, check of alles rond is:
+
+
+      1. aanstelling geregeld en LUMC-onderzoeker betrokken;
+
+      2. protocol op het ELAN-nWMO-template, goedgekeurd door de betrokken commissies;
+
+      3. ticket goedgekeurd, gekoppeld aan een werkpakket;
+
+      4. schriftelijke toestemming van elke externe bronhouder die je nodig hebt, doorgestuurd naar de
+      datamanager;
+
+      5. CBS-RA-toegang aangevraagd of verleend;
+
+      6. budget geregeld en de kostenpost bij de juiste projectcode ondergebracht.
+
+
+      Ontbreekt er iets, los dat nu op. In fase 4 kom je de omgeving in, en daar is een ontbrekende toestemming
+      een blokkade in plaats van een actiepunt.'
   - type: diagram
     inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wie
       beoordeelt je aanvraag: kernteam, wetenschapscommissie en nWMO-commissie">
@@ -210,13 +470,11 @@ subhoofdstukken:
 
       </svg>'
 naslag:
-- '**Aanvraagportaal** — elanresearch.nl (ticket indienen, statusopvolging)'
-- '**ELAN-nWMO-template** — op te vragen bij de ELAN-contactpersoon'
-- '**Guidance Document** — doorlooptijden per aanvraag + tien CBS-gedragsregels (bijlage 1)'
-- '**CBS-projecten** — CBS-website: instellingen-en-projecten (bv. 9269 GGZ)'
-- '**Diepte — juridisch kader** — AVG, grondslag datagebruik, dataminimalisatie'
-- '**Diepte — route externe onderzoekers** — 0-uren/stagecontract, CBS-overeenkomst eigen instelling'
-- '**Diepte — uitzonderingen** — extra variabelen bij HMC/Haga (raad-van-bestuur), addendum op bestaand
-  onderzoek'
-- '**Contact / datamanager** — F.H.Ardesch@lumc.nl; via elanresearch.nl'
+- '**ELAN-onderzoeksportaal** — elanresearch.nl (ticket indienen en opvolgen)'
+- '**Protocoltemplate** — LUMC-website, ELAN-pagina: ''Protocol format METC-LDD onderzoek met gegevens'''
+- '**CBS diensten en kosten** — actuele tarieven voor de CBS-RA-omgeving'
+- '**CBS-microdatacatalogus** — welke jaren per microdatabestand beschikbaar zijn'
+- '**CBS instellingen en projecten** — instellingen met CBS-overeenkomst, en microdata per ELAN-project'
+- '**Contactpersonen** — zie de contactpersonenpagina in het naslagdeel'
+- '**Contact / DCC** — elan.dcc@lumc.nl; datamanager F.H.Ardesch@lumc.nl'
 ---
