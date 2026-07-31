@@ -1,37 +1,38 @@
 ---
 volgorde: '02'
 menutitel: Fase 2 — Ontwikkeling
-titel: 'Fase 2 — Ontwikkelfase: van vraag naar dataprotocol'
+titel: 'Fase 2 — Ontwikkelfase: van vraag naar dataverzoek'
 toon_balk: true
-intro: 'Je vertaalt een onderzoeksvraag naar een concreet dataverzoek: welke variabelen, welke populatie,
-  welke periode. Hier leg je de basis voor een goede aanvraag.
+intro: 'Je vertaalt je onderzoeksvraag naar een concreet dataverzoek: welke definitie, welke tabellen,
+  welke variabelen, welke populatie, welke periode.
 
 
-  *Dit is de laatste fase die voor beleidsmedewerkers relevant is: de kern hieronder laat zien hoe een
-  idee een concreet onderzoek wordt. Vanaf ''De data begrijpen'' wordt het onderzoekersmateriaal.*'
+  Dit is de fase waarin de meeste latere problemen worden voorkomen of veroorzaakt. Werk de zes stappen
+  op volgorde door: eerst begrijpen hoe de data ontstaat, dan je concept vastleggen, en pas daarna kiezen
+  welke tabellen je nodig hebt.'
 benodigdheden:
-- De beschikbare databronnen (ELAN, CBS) en hun inhoud
-- 'Coderingen: ICPC (huisartsdiagnoses) en ATC (medicatie)'
-- 'Definities: hoe wordt een diagnose of uitkomst vastgesteld?'
-- De mogelijkheden en beperkingen van de koppeling ELAN–CBS
-- 'Operationalisatie: inclusie-/exclusiecriteria, tijdsvensters'
+- Een afgebakende onderzoeksvraag uit fase 1
+- Toegang tot het codeboek van de omgeving waarin je gaat werken
+- De ICPC-viewer en, bij medicatie, kennis van ATC-codering
+- Een concept-inclusie- en exclusiecriterium voor je populatie
 subhoofdstukken:
-- subtitel: 'In het kort: wat gebeurt er in deze fase?'
+- subtitel: In 30 seconden
   blokken:
   - type: tekst
-    inhoud: 'Je zet je onderzoeksvraag om in een concreet dataverzoek: welke variabelen heb je nodig,
-      over welke populatie, en over welke periode. Dit is de brug tussen een idee en een formele aanvraag.'
-  - type: letop
-    kop: Registratie ≠ waarheid
-    inhoud: 'ELAN-data komt uit de routinezorg. Het is vastgelegd voor de behandeling van patiënten, niet
-      voor onderzoek. Daardoor vereist het interpretatie: wat er geregistreerd is, is niet altijd wat
-      er feitelijk speelde.'
-  - type: tip
-    kop: Je hoeft dit niet alleen te doen
-    inhoud: De datamanager en de DCC helpen je bij het vertalen van je vraag naar data. Betrek hen vroeg.
-  - type: tekst
-    inhoud: '*Voor beleidslezers: hierna volgt het formele aanvraagtraject (fase 3). De rest van deze
-      pagina is technische verdieping voor onderzoekers.*'
+    inhoud: '- ELAN-data is registratiedata. Wat erin staat, is vastgelegd voor de zorg — niet voor jouw
+      vraag. Elke variabele vraagt dus interpretatie.
+
+      - Je werkt van concept (''depressie'') naar codeafspraak: welke ICPC-codes, welke ATC-codes, welk
+      tijdvenster, welke aanvullende eis.
+
+      - Een ICPC-code alleen is zelden genoeg. Combineren met medicatie, metingen of verwijzingen geeft
+      een betere benadering.
+
+      - Pas als je definitie staat, kies je tabellen. Huisartsdata bestaat uit een set tabellen (onder
+      meer PAT, EPS, JRN, MED, LAB, COR); externe bronnen dekken elk hun eigen jaren.
+
+      - Voor veelgebruikte concepten (SES, polyfarmacie, multimorbiditeit, kwetsbaarheid) bestaan al definities
+      en soms kant-en-klare syntax. Vraag ernaar voordat je zelf bouwt.'
   - type: diagram
     inhoud: '<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Van
       patiëntcontact naar onderzoeksvariabele: het vertaalproces van routinezorgdata">
@@ -78,38 +79,96 @@ subhoofdstukken:
       <text class="ets" x="320" y="368" text-anchor="middle">pas na jouw interpretatie en operationalisatie</text>
 
       </svg>'
-- subtitel: De huisartsendata begrijpen
+- subtitel: Stap 1 — Begrijp hoe de registratie ontstaat
   blokken:
   - type: tekst
-    inhoud: Huisartsen leggen gegevens vast in een Huisarts Informatie Systeem (HIS) volgens de **SOEP**-structuur
-      (Subjectief, Objectief, Evaluatie, Plan). De E-regel wordt gecodeerd met **ICPC**. Via episodegericht
-      registreren worden losse contacten gekoppeld aan zorgepisodes, waardoor het beloop van één gezondheidsprobleem
-      zichtbaar wordt.
-  - type: tekst
-    inhoud: De data wordt door de Trusted Third Party **STIZON** uit het EPD gehaald en bevat ook bewerkte
-      'derived' variabelen, herkenbaar aan de **d-prefix** (bv. dDatum, dEpisodeICPC).
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): schema HIS / SOEP / episodegericht registreren.'
-- subtitel: Het ICPC-codeersysteem
+    inhoud: 'Huisartsen leggen elk contact vast in een Huisarts Informatie Systeem (HIS) volgens de SOEP-structuur:
+      Subjectief (klachten), Objectief (bevindingen), Evaluatie (werkhypothese of (symptoom)diagnose),
+      Plan (behandeling). De E-regel wordt gecodeerd met ICPC.
+
+
+      Via episodegericht registreren worden losse contacten gekoppeld aan een zorgepisode. Één episode
+      beschrijft het beloop van één gezondheidsprobleem over de tijd. De tabellen Journaal (JRN) en Episoden
+      (EPS) zijn daardoor verbonden via het episodenummer.'
+  - type: inklap
+    stijl: example
+    kop: Hoe ziet een SOEP-registratie eruit?
+    inhoud: 'Voorbeeld uit de ELAN-documentatie:
+
+
+      - **S** — sinds 3 dagen hoofdpijn
+
+      - **O** — myalgie nek
+
+      - **E** — spierspanningshoofdpijn, met ICPC-code
+
+      - **P** — uitleg, oefeningen, verwijzing naar thuisarts.nl
+
+
+      Alleen de E-regel is gecodeerd. De rest is vrije tekst, en vrije tekst zit niet in de ELAN-data
+      die jij krijgt.'
+  - type: inklap
+    stijl: note
+    kop: Wat gebeurt er als de diagnose gedurende een episode verandert?
+    inhoud: 'Stelt de huisarts de diagnose bij — een ‘transitie van diagnose’ — dan wordt de E-regel meestal
+      aangepast, bijvoorbeeld van hoofdpijn naar hersentumor nadat de neuroloog dat bevestigt. Ga er niet
+      van uit dat dit altijd gebeurt.
+
+
+      Bij herdefiniëring worden bovendien niet alle historische diagnoses in de episode bewaard. Een journaalregel
+      ‘piepende ademhaling’ (R03) kan daardoor onder een episode ‘astma’ (R96) hangen.
+
+
+      Gevolg voor jouw definitie: de tabel JRN bevat twee ICPC-kolommen — die van de journaalregel zelf,
+      en die van de gekoppelde episode. Voor de historische opbouw van samenhangende codes geeft JRN vaak
+      een beter beeld dan EPS.'
+  - type: inklap
+    stijl: note
+    kop: Verschilt registratie tussen HIS-systemen?
+    inhoud: 'Ja. Episodegericht registreren werkt per HIS net anders, waardoor variabelen anders gevuld
+      zijn. Uit een controle van databestand 2018–2020:
+
+
+      | Variabele | Medicom | Microhis | Prom-ASP | Prom-VDF |
+
+      | --- | --- | --- | --- | --- |
+
+      | depisodetype | E / P | E / P | E / P | ontbreekt |
+
+      | dactief (status bij extractie) | J/N/V | ontbreekt | ontbreekt | J/N |
+
+      | dbegindatum | aanwezig | aanwezig | aanwezig | aanwezig |
+
+      | deinddatum | vaak leeg | sporadisch | aanwezig | vaak 0001-01-01 |
+
+
+      HIS-systeemcodes: 1 = Medicom, 3 = Promedico VDF, 5 = Microhis, 6 = Omnihis, 7 = Promedico ASP.
+
+
+      In sommige HIS''en (bijvoorbeeld Medicom) sluit een episode zonder probleemstatus automatisch na
+      een periode zonder contact, bijvoorbeeld 18 maanden. De einddatum is dan géén betrouwbare maat voor
+      ziekteduur. Het NIVEL gebruikt hiervoor het ‘ziektevrije interval’ (Nielen et al., 2019, JMIR Med
+      Inform).'
+- subtitel: Stap 2 — Leer de codestelsels lezen
   blokken:
+  - type: tekst
+    inhoud: 'Twee codestelsels bepalen vrijwel elke ELAN-definitie: ICPC voor wat de huisarts registreert,
+      en ATC voor medicatie.
+
+
+      Episodes worden grotendeels gecodeerd met de ICPC (International Classification for Primary Care),
+      een classificatie speciaal voor de huisartsgeneeskunde. Een code bestaat uit een letter-as (tractus,
+      A t/m Z) en een cijfer-as (component).'
   - type: tabel
     inhoud: '| Cijferreeks | Betekenis |
 
       | --- | --- |
 
-      | 01–29 | Symptomen / klachten |
+      | 01–29 | Symptomen en klachten |
 
-      | 30–69 | Verrichtingen |
+      | 30–69 | Verrichtingen (niet bedoeld voor episodes) |
 
       | 70–99 | Diagnoses |'
-  - type: letop
-    kop: Symptoom versus diagnose
-    inhoud: 'Huisartsen coderen ''niet hoger dan ze waar kunnen maken''. Een symptoomcode wordt pas later
-      een diagnosecode — als die zeker is. Dit is cruciaal bij het operationaliseren van uitkomsten: een
-      ICPC-code is niet automatisch een bevestigde diagnose.'
-  - type: tip
-    kop: Gebruik de ICPC-viewer
-    inhoud: 'Codes opzoeken kan via de NHG ICPC-viewer: viewers.nhg.org/icpcviewer'
   - type: diagram
     inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomie
       van een ICPC-code: letter-as en cijfer-as, met voorbeeld L76.5">
@@ -149,40 +208,397 @@ subhoofdstukken:
       <text class="ets" x="320" y="228" text-anchor="middle">L76.5 = fractuur rib</text>
 
       </svg>'
-- subtitel: Ziekenhuis- en specialismedata (waaronder GGZ)
+  - type: inklap
+    stijl: info
+    kop: Hoe werkt ATC-codering, en waarom is het niveau belangrijk?
+    inhoud: 'Medicatie is gecodeerd volgens de ATC-classificatie (Anatomical Therapeutic Chemical). Die
+      is hiërarchisch: hoe meer tekens, hoe specifieker. ATC-4 is de therapeutische subgroep, ATC-7 het
+      specifieke werkzame middel.
+
+
+      Het beschikbare niveau verschilt per bron, en dat bepaalt wat je kunt onderzoeken:
+
+
+      | Bron | Niveau | Wat je ermee kunt |
+
+      | --- | --- | --- |
+
+      | CBS-microdata (MEDICIJNTAB) | ATC-4 | Gedeclareerde medicatie binnen de basisverzekering, geaggregeerd
+      per jaar. Geen dosering, hoeveelheid of frequentie. |
+
+      | ELAN-huisartsendata (MED) | ATC-7 | Alle voorschriften per persoon, inclusief dosering en afleverhoeveelheid.
+      |
+
+
+      Praktisch gevolg: gaat je vraag over dosering, therapietrouw of duur van gebruik, dan heb je de
+      huisartsendata nodig. Gaat het om ruwer gebruik binnen een therapeutische groep, dan volstaat ATC-4
+      — en voorkom je dat wisselen tussen middelen binnen dezelfde groep als nieuw gebruik meetelt.
+
+
+      Let op: een voorschrift in de huisartsendata betekent niet dat het middel is opgehaald of ingenomen.
+      Een declaratie in CBS-microdata betekent dat het is verstrekt, niet dat het is gebruikt.'
+  - type: valkuil
+    kop: Een lege registratie betekent niet dat de aandoening afwezig is
+    inhoud: 'ICPC-codes worden vaker niet dan wel geregistreerd. Bij afwezigheid van informatie mag je
+      nooit concluderen dat een diagnose of determinant afwezig is.
+
+
+      Registratie verschilt bovendien sterk per huisarts: de één codeert keelpijn als ‘verkouden’, de
+      ander zet ‘keelpijn’ op de E-regel. Familieanamnese kan in de O-regel staan, in het contextuele
+      deel van het HIS (niet terug te vinden in ELAN), of als ICPC-code (wel terug te vinden).
+
+
+      Benoem dit expliciet in je methodesectie, en houd rekening met onderschatting van prevalenties.'
+  - type: inklap
+    stijl: note
+    kop: Waarom staat er soms een symptoomcode waar je een diagnose verwacht?
+    inhoud: 'Het advies aan huisartsen is: codeer niet hoger dan je waar kunt maken. Lagere nummers zijn
+      symptomen, hogere diagnoses. Buikpijn met verdenking appendicitis wordt vaak D01 (buikpijn) en pas
+      later D88 (appendicitis) — soms pas na de brief uit het ziekenhuis, soms helemaal niet.
+
+
+      Voor jouw operationalisatie betekent dit meestal: neem zowel symptoom- als diagnosecodes mee, of
+      onderbouw expliciet waarom je dat niet doet.'
+  - type: inklap
+    stijl: note
+    kop: Wat is het verschil tussen de probleemlijst en de episodelijst?
+    inhoud: 'Om de belangrijkste, vaak chronische aandoeningen te markeren worden episodes gelabeld als
+      ‘probleem’. Die selectie heet de probleemlijst — het rijtje dat bijvoorbeeld met een verwijsbrief
+      meegaat.
+
+
+      De meeste HIS''en (uitzondering: Promedico VDF) stellen bepaalde ICPC-codes automatisch voor als
+      probleem: een myocardinfarct wel, een zere teen niet.
+
+
+      Kies bewust: selecteer je op de probleemlijst, dan krijg je een schonere maar kleinere selectie
+      chronische aandoeningen. Selecteer je op alle episodes, dan krijg je meer ruis.'
+  - type: inklap
+    stijl: note
+    kop: Waarom staan er zoveel diagnoses op dezelfde begindatum?
+    inhoud: 'Bij de aanschaf van een nieuw HIS, of wanneer een patiënt naar een nieuwe praktijk overgaat,
+      werd de voorgeschiedenis handmatig ingevoerd. De begindatum werd daarbij vaak niet correct overgenomen;
+      je ziet dan veel diagnoses op één datum staan.
+
+
+      Sinds ongeveer 2023 zijn er afspraken tussen LHV, NHG en HIS-leveranciers om diagnoses automatisch
+      in hetzelfde format over te nemen, maar dat werkt volgens de documentatie nog niet foutloos.
+
+
+      Een patiënt met twintig jaar migraine die nieuw binnenkomt, kan dus een startdatum van vandaag krijgen,
+      van twintig jaar geleden, of een fictieve datum in een ver verleden. Wees daarom voorzichtig met
+      episodestartdatums als maat voor ziekteduur of incidentie.'
+- subtitel: Stap 3 — Operationaliseer je concept
   blokken:
   - type: tekst
-    inhoud: 'Naast de huisartsendata breidt ELAN uit met data van zorgverleners uit de regio (bv. HMC,
-      Alrijne, HAGA) en van de GGZ. Deze data verken je vooral via de **codeboeken** per aangesloten instantie:
-      daarin zie je welke variabelen beschikbaar zijn voor jouw onderzoek.'
-  - type: tekst
-    inhoud: Voor de GGZ is er een aparte upload vanuit de **Parnassia Groep**, met een eigen codeboek.
-      Raadpleeg dat codeboek om te bepalen wat je kunt onderzoeken.
+    inhoud: 'Operationaliseren is de vertaling van een abstract concept (‘depressie’, ‘multimorbiditeit’)
+      naar een regel die je op de data kunt loslaten. Leg per uitkomst en per determinant vast:
+
+
+      1. **Welke codes tellen mee** — welke ICPC-codes, welke ATC-codes, welke labbepalingen.
+
+      2. **Welke aanvullende eis geldt** — bijvoorbeeld: alleen tellen als er ook medicatie is voorgeschreven,
+      of alleen als de episode op de probleemlijst staat.
+
+      3. **Over welk tijdvenster je meet** — kalenderjaar, periode voor of na een indexdatum, of de hele
+      beschikbare historie.
+
+      4. **Wie in- en uitgesloten wordt** — leeftijd, inschrijfduur bij de praktijk, minimale follow-up.
+
+
+      Schrijf deze regels op voordat je data aanvraagt. Ze bepalen welke tabellen en variabelen je nodig
+      hebt, en ze gaan later ongewijzigd je protocol en methodesectie in.'
+  - type: inklap
+    stijl: example
+    kop: Waarom één ICPC-code zelden genoeg is
+    inhoud: 'Een ICPC-code registreert de reden van contact of een werkhypothese. Voor een betere benadering
+      van een aandoening combineer je codes doorgaans met andere signalen:
+
+
+      - **medicatie** — is er een bijpassend voorschrift, en hoe lang loopt dat door?
+
+      - **metingen of lab** — is er een bijpassende bepaling of waarde?
+
+      - **verwijzingen** — is de patiënt hiervoor doorverwezen?
+
+      - **herhaling** — komt de code meerdere keren voor, of in meerdere episodes?
+
+
+      Bespreek je validatiestrategie met de DCC, met de datamanager of met een onderzoeker die eerder
+      met dezelfde aandoening werkte.'
+  - type: inklap
+    stijl: note
+    kop: 'Waar komt het recept vandaan: huisarts of specialist?'
+    inhoud: 'In de data is niet altijd duidelijk of een recept of verwijzing van de huisarts komt of van
+      een medisch specialist. Voor onderzoek naar voorschrijfgedrag of verwijspatronen is dat een wezenlijk
+      verschil.
+
+
+      Controleer welke bron de registratie heeft gegenereerd voordat je hier conclusies aan verbindt.'
   - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN: uitklapbaar codeboek-overzicht per aangesloten instantie (huisarts, GGZ/Parnassia,
-      ziekenhuizen), zodat een onderzoeker per bron kan zien wat beschikbaar is. Inclusief korte uitleg
-      van het GGZ-codeboek.'
-- subtitel: Van concept naar meetbare variabele
+    inhoud: 'NOG-AAN-TE-VULLEN (visueel): schema van ruwe variabele naar uitkomstmaat, met per stap de
+      keuze die je vastlegt.'
+- subtitel: Stap 4 — Kies je tabellen en variabelen
   blokken:
   - type: tekst
-    inhoud: 'Operationalisatie is de stap waarin je een abstract concept (bv. ''depressie'' of ''multimorbiditeit'')
-      vertaalt naar concrete, meetbare variabelen: welke codes tellen mee, welke inclusie- en exclusiecriteria
-      gelden, en over welk tijdsvenster je meet.'
+    inhoud: Nu je definitie staat, bepaal je welke tabellen je daarvoor nodig hebt. Je vraagt aan wat
+      je nodig hebt, niet alles. Onderstaand overzicht komt uit het codeboek van de ELAN-GP-data (DWH).
+  - type: tabel
+    inhoud: '| Tabel | Inhoud |
+
+      | --- | --- |
+
+      | PAT | Patiëntgegevens |
+
+      | EPS | Episoden |
+
+      | JRN | Journaalregels |
+
+      | MED | Medicatie (voorschriften) |
+
+      | LAB | Laboratorium en diagnostiek |
+
+      | CIA | Contra-indicaties |
+
+      | RUI | Ruiters |
+
+      | COR | Correspondentie |
+
+      | ACT | Verrichtingen |
+
+      | JRN_Roken | Afgeleide tabel: rookstatus uit journaalregels |
+
+      | JRN_ZorgDomein | Afgeleide tabel: ZorgDomein-verwijzingen uit journaalregels |'
+  - type: inklap
+    stijl: info
+    kop: Hoe hangen de tabellen met elkaar samen?
+    inhoud: 'Je krijgt losse tabellen aangeleverd; het koppelen doe je zelf. Twee sleutels zijn daarbij
+      belangrijk.
+
+
+      - **Binnen de huisartsendata** koppel je journaalregels (JRN) aan episodes (EPS) via het episodenummer.
+      Eén episode beschrijft één gezondheidsprobleem over de tijd; daaronder hangen meerdere journaalregels.
+
+      - **Tussen ELAN-datasets onderling** — bijvoorbeeld huisartsdata, ziekenhuisdata en CBS-microdata
+      — koppel je op persoonsniveau via RINPERSOON en RINPERSOONS. Volgens de codeboeken gelden die samen
+      als koppelsleutel tussen de ELAN-datasets in de CBS-RA-omgeving.
+
+
+      Bedenk vooraf op welk niveau je analyse-eenheid ligt: persoon, episode, contact of voorschrift.
+      Koppelen van een tabel op contactniveau aan een tabel op persoonsniveau vermenigvuldigt rijen, en
+      dat is een veelgemaakte bron van dubbeltellingen.'
+  - type: letop
+    kop: Controleer variabelen op inhoud, niet op naam
+    inhoud: 'Variabelenamen in de data komen soms niet overeen met het codeboek, en kunnen verschillen
+      tussen de I-schijf en CBS-RA. Ook de structuur verschilt: op de I-schijf zijn inschrijvingen (INS)
+      en patiëntgegevens (PAT) gescheiden, terwijl ze in CBS-RA samengevoegd worden aangeleverd.
+
+
+      Controleer daarom altijd de wáárden van een variabele, niet alleen de naam.'
+  - type: inklap
+    stijl: info
+    kop: Welke externe bronnen zijn er, en over welke jaren?
+    inhoud: 'Naast de huisartsendata zijn er externe bronnen. Elke bron dekt zijn eigen periode; dat is
+      vaak bepalend voor de haalbaarheid van je onderzoeksperiode.
+
+
+      | Bron | Wat erin zit | Dekking volgens codeboek |
+
+      | --- | --- | --- |
+
+      | HagaZiekenhuis | Basisgegevens en DBC''s (specialisme, begindatum), anamnese roken | 2008–2023;
+      roken 2016–2023 |
+
+      | HMC | DBC''s met hoofddiagnose en specialisme, roken | 2007–2022; roken alleen 2019 |
+
+      | Wmo Den Haag | Kosten per dienstverlening: huishoudelijke hulp, begeleiding, dagbesteding, beschermd
+      wonen | Kosten 2017–2023; AWBZ-overgangsrecht 1994 tot medio 2021 |
+
+      | Perined | Zwangerschap en geboorte: zwangerschapsduur, Apgar, adverse outcomes | 2000–2018 |
+
+      | Parnassia Groep | GGZ-inschrijvingen, zorgtoewijzingen en DBC''s, met achtergrondkenmerken | 2011–2020
+      |
+
+      | GGD Haaglanden | Positieve COVID-19-tests en overlijdensdatum | Alleen 2020 |
+
+      | Wijkniveau (open data) | Leefbaarometer, geregistreerde criminaliteit, achterstandsscores, bevolkings-
+      en woningdichtheid, luchtkwaliteit | Wisselend per bron |
+
+
+      Twee dingen om mee te nemen. Ten eerste: toegang tot een externe bron regel je apart per bronhouder,
+      ook al zit de data al in ELAN — zie fase 3. Ten tweede: deze dekkingsperioden komen uit de codeboeken,
+      en die zijn niet volledig actueel. Verifieer de meest recente jaren bij de datamanager voordat je
+      je onderzoeksperiode vastlegt.'
+  - type: inklap
+    stijl: example
+    kop: Maak een mapping-tabel voordat je begint
+    inhoud: 'Advies uit de Startersgids: leg bij de start van elke analyse per variabele vast:
+
+
+      1. naam in de data;
+
+      2. naam in het codeboek;
+
+      3. verwachte waarden;
+
+      4. vulgraad;
+
+      5. tabel waar hij vandaan komt.
+
+
+      Dit voorkomt stille fouten, en je hebt het document later nodig voor je methodesectie en je ticket.'
+  - type: inklap
+    stijl: warning
+    kop: Onderzoek je verwijzingen? Lees dit eerst
+    inhoud: 'Verwijzingen staan op meerdere plekken, en geen enkele bron is volledig.
+
+
+      | Bron | Wat erin zit en de belangrijkste beperking |
+
+      | --- | --- |
+
+      | COR (correspondentie) | In- en uitgaande correspondentie vanuit de HIS-verwijsmodule. ZorgDomein-verwijzingen
+      komen hier niet in terecht; ook niet gevuld voor Promedico (systeem 3 of 7). |
+
+      | JRN_ZorgDomein | Afgeleide tabel met ZorgDomein-verwijzingen, door STIZON via tekstsearch uit
+      journaalregels gehaald (sinds begin 2024, voor data vanaf 2005). |
+
+      | ACT / verrichtingen | ZorgDomein-verwijzingen via Vektis-codes (14121, 14609, 14692) of verrichtingcode
+      9047. Geen informatie over specialisme, en het aantal records is laag. |
+
+      | Vektis / ziekenhuisdata | MSZPRESTATIESVEKTTAB bevat de (zelf)verwijzer voor een DBC-zorgtraject.
+      Vektis-bestanden lopen vaak twee jaar achter. |
+
+
+      Wie alleen COR gebruikt, mist een groot deel van de verwijzingen. Combineer COR met JRN_ZorgDomein.
+      Verwijzingen die intern, mondeling of via briefjes lopen, zitten in geen enkele tabel.
+
+
+      Vulgraad van COR-variabelen verschilt sterk: dDatum 100%, dEpisodeICPC 69%, dSpecialisme 58%, CorrespondentieICPC
+      slechts 2%. Belangrijke variabelen: dRichting (I = inkomend, U = uitgaand), dSpecialisme (gevalideerd
+      met NHG-tabel 12) en dEpisodeICPC.'
+  - type: inklap
+    stijl: info
+    kop: Welke codeboeken zijn er, en waarvoor?
+    inhoud: 'Elke omgeving en elke bron heeft een eigen codeboek.
+
+
+      - **Codeboek ELAN-GP (DWH)** — de huisartsentabellen hierboven, met per variabele type, betekenis,
+      vulgraad en verschillen tussen HIS-systemen.
+
+      - **Codeboek ELAN-CBS** — per bron een tabblad: CBS-microdata, huisartsen, HagaZiekenhuis, HMC,
+      Wmo, Perined, Parnassia Groep, GGD (COVID-19) en variabelen op wijkniveau.
+
+
+      Werk altijd met de nieuwste versie: github.com/elan-dcc/org/tree/main/codebooks. Verschillen tussen
+      de omgevingen staan op elan-dcc.github.io/researchers/environments_overview/.
+
+
+      Let op: codeboeken lopen achter op de data. Gebruik ze om te begrijpen wat een variabele betekent,
+      maar controleer aanwezigheid, vulgraad en meest recente jaar altijd in de data zelf.'
+- subtitel: Stap 5 — Gebruik bestaande definities waar die er zijn
+  blokken:
+  - type: tekst
+    inhoud: Voor een aantal veelgebruikte concepten liggen er binnen ELAN al keuzes en soms kant-en-klare
+      syntax. Zelf opnieuw beginnen kost tijd en maakt je resultaten slechter vergelijkbaar met eerder
+      ELAN-onderzoek.
   - type: tip
-    kop: Waar vind je wat
-    inhoud: Het codeboek (github.com/elan-dcc/org/tree/main/codebooks) geeft de variabelen en definities;
-      de ICPC-viewer helpt bij het kiezen van de juiste codes.
-  - type: todo
-    inhoud: 'NOG-AAN-TE-VULLEN (visueel): stappen van ruwe variabele naar uitkomstmaat.'
+    kop: Vraag eerst of de definitie al bestaat
+    inhoud: Voor SES, etniciteit, polyfarmacie, multimorbiditeit en kwetsbaarheid zijn definities beschreven
+      in de ELAN-documentatie. Syntaxen zijn opvraagbaar bij de datamanager (F.H.Ardesch@lumc.nl) of bij
+      de auteurs. Voor kwetsbaarheid staat er al een SPSS-syntax in de CBS-RA-omgeving.
+  - type: inklap
+    stijl: note
+    kop: Etniciteit en sociaaleconomische status
+    inhoud: '- **Etniciteit** — gebruik GBAHERKOMSTGROEPERING uit GBAPERSOONTAB. Omcoderen naar werelddelen
+      kan via de CBS-utility (referentiebestand LANDAKTUEEL). Let op: vanaf 2022 vervangt het CBS de generatie-indeling
+      geleidelijk door GBAGEBOORTELANDNL en GBAAANTALOUDERSBUITENLAND.
+
+      - **SES, keuze 1** — huishoudinkomen of persoonlijk inkomen? Huishoudinkomen geeft een betere afspiegeling;
+      bij voorkeur het gestandaardiseerde huishoudinkomen.
+
+      - **SES, veelgebruikte variabelen** — INHP100HGEST (gestandaardiseerd inkomen in percentielen) of
+      VEHP100WELVAART (inkomen plus vermogen). Na 2011 in INHATAB/INPATAB/VEHTAB, vóór 2011 in IHI/IPI.
+
+
+      Drie aandachtspunten uit de documentatie:
+
+
+      - Bij sterfte is het inkomen in het sterftejaar te laag: wie in januari overlijdt heeft maar een
+      twaalfde van het jaarinkomen. Koppel inkomen en vermogen daarom van het jaar vóór je baseline.
+
+      - Er bestaan negatieve inkomens, vooral bij zelfstandigen met verlies. Houd hier rekening mee bij
+      het maken van inkomensklassen.
+
+      - SES op wijk- of buurtniveau maskeert segregatie binnen een straat; in Den Haag kunnen hoge inkomens
+      en bestaansminima naast elkaar wonen. Voorkeur uit de documentatie: huishoudensniveau.
+
+      - Hoogst genoten opleiding heeft in oudere jaren veel missende waarden en is deels geïmputeerd.
+      Voor een historische periode vaak niet bruikbaar.'
+  - type: inklap
+    stijl: note
+    kop: Polyfarmacie
+    inhoud: 'Kies eerst je bron; die bepaalt wat je kunt onderzoeken.
+
+
+      - **CBS-microdata (MEDICIJNTAB)** — ATC-4, geaggregeerd per jaar, hele regio Haaglanden, alle binnen
+      de basisverzekering gedeclareerde medicatie. Géén dosering, hoeveelheid of frequentie.
+
+      - **ELAN-huisartsendata** — ATC-7, alle voorschriften per persoon inclusief dosering en afleverhoeveelheid.
+      Nodig als dosering onderdeel is van je vraag.
+
+
+      Veelgebruikte definities uit de documentatie: chronisch gebruik = meer dan 90 dagen van het onderzoeksjaar
+      en/of meer dan 3 voorschriften in het laatste halfjaar, toegepast op ATC-4-niveau zodat wisselen
+      binnen dezelfde therapeutische groep niet dubbel telt. Polyfarmacie = gelijktijdig chronisch gebruik
+      van vijf of meer geneesmiddelen, waarbij ATC-codes D, G01, V, Y en Z vaak worden uitgesloten (Oktora
+      et al. 2019; Alfian et al. 2019).'
+  - type: inklap
+    stijl: note
+    kop: Multimorbiditeit en kwetsbaarheid
+    inhoud: '- **Multimorbiditeit** — er zijn veel definities. Een veelgebruikte leidraad voor de Nederlandse
+      populatie, inclusief ICPC-codes, is Van Oostrom et al., BMC Public Health 2012.
+
+      - **Kwetsbaarheid, Frailty Phenotype** — gebaseerd op onder meer gewichtsverlies, uitputting, grijpkracht,
+      loopsnelheid en fysieke activiteit. Kan met de huidige ELAN-data niet bepaald worden.
+
+      - **Kwetsbaarheid, Frailty Index** — op basis van 50 deficits uit ICPC- en ATC-codes, score 0–1,
+      afkappunt meestal boven 0,20 en alleen voor personen boven de 60. Kan wél met de ELAN-huisartsendata;
+      er is een SPSS-syntax beschikbaar in CBS-RA.'
+- subtitel: Stap 6 — Leg je dataverzoek vast
+  blokken:
+  - type: tekst
+    inhoud: 'Sluit deze fase af met een document dat je in fase 3 vrijwel ongewijzigd kunt hergebruiken.
+      Daarin staat minimaal:
+
+
+      1. je onderzoeksvraag en beoogde analyse;
+
+      2. je populatie met inclusie- en exclusiecriteria;
+
+      3. je onderzoeksperiode;
+
+      4. per uitkomst en determinant: de operationalisatie uit stap 4;
+
+      5. de tabellen en variabelen die je daarvoor nodig hebt, met tabelnaam;
+
+      6. de omgeving waarin je gaat werken.
+
+
+      Vraag alleen aan wat je nodig hebt. Meer data betekent langere doorlooptijd, zwaardere governance
+      en hogere kosten.
+
+
+      Ga daarna door naar fase 3, waar dit document de basis vormt voor je protocol en je ticket.'
 naslag:
 - '**ELAN-DCC GP-data** — elan-dcc.github.io/researchers/internal/gp_data/ (huisartsendata, tabellen,
   opbouw)'
-- '**Codeboek ELAN** — github.com/elan-dcc/org/tree/main/codebooks (variabelen, definities, d-prefix)'
+- '**Verschillen tussen omgevingen** — elan-dcc.github.io/researchers/environments_overview/'
+- '**Codeboeken** — github.com/elan-dcc/org/tree/main/codebooks (gebruik altijd de nieuwste versie)'
 - '**ICPC-viewer (NHG)** — viewers.nhg.org/icpcviewer/'
-- '**Diepte — SOEP & episodegericht registreren** — volledige uitleg met klinisch voorbeeld (nog aan te
-  vullen)'
-- '**Diepte — ICPC-structuur & ICD-10 in CBS** — volledige codestructuur als naslag (ICPC-1 zoeker)'
-- '**Diepte — operationalisatie-voorbeelden** — voorbeeldpapers met links (nog aan te vullen)'
-- '**Diepte — koppeling ELAN–CBS** — wat wel/niet combineerbaar is en de technische randvoorwaarden'
+- '**Multimorbiditeit** — Van Oostrom et al., BMC Public Health 2012 (definitie met ICPC-codes voor de
+  Nederlandse populatie)'
+- '**Polyfarmacie** — Oktora et al. 2019; Alfian et al. 2019 (uitgesloten ATC-groepen)'
+- '**Ziektevrij interval** — Nielen et al., 2019, JMIR Med Inform'
 - '**Contact / DCC** — F.H.Ardesch@lumc.nl; elan.dcc@lumc.nl'
 ---
