@@ -3,13 +3,13 @@ volgorde: '02'
 menutitel: Fase 2 — Ontwikkeling
 titel: 'Fase 2 — Ontwikkelfase: van vraag naar dataverzoek'
 toon_balk: true
-intro: 'Je vertaalt je onderzoeksvraag naar een concreet dataverzoek: welke definitie, welke tabellen,
-  welke variabelen, welke populatie, welke periode.
+intro: 'ELAN geeft je toegang tot jarenlange, echte zorgdata van meer dan een miljoen inwoners — een schat
+  aan informatie om vragen over gezondheid en zorggebruik te beantwoorden die met kleinschalig onderzoek
+  niet te beantwoorden zijn.
 
 
-  Dit is de fase waarin de meeste latere problemen worden voorkomen of veroorzaakt. Werk de zes stappen
-  op volgorde door: eerst begrijpen hoe de data ontstaat, dan je concept vastleggen, en pas daarna kiezen
-  welke tabellen je nodig hebt.'
+  In deze fase vertaal je je onderzoeksvraag naar een concreet dataverzoek: welke definitie, welke tabellen,
+  welke variabelen, welke populatie, welke periode. Werk de zes stappen op volgorde door.'
 benodigdheden:
 - Een afgebakende onderzoeksvraag uit fase 1
 - Toegang tot het codeboek van de omgeving waarin je gaat werken
@@ -19,20 +19,20 @@ subhoofdstukken:
 - subtitel: In 30 seconden
   blokken:
   - type: tekst
-    inhoud: '- ELAN-data is registratiedata. Wat erin staat, is vastgelegd voor de zorg — niet voor jouw
-      vraag. Elke variabele vraagt dus interpretatie.
+    inhoud: '- ELAN-data is rijke, longitudinale registratiedata uit de dagelijkse zorgpraktijk — ideaal
+      voor vragen over populaties, zorggebruik, verwijzingen en het beloop van aandoeningen over jaren.
 
       - Je werkt van concept (''depressie'') naar codeafspraak: welke ICPC-codes, welke ATC-codes, welk
       tijdvenster, welke aanvullende eis.
 
-      - Een ICPC-code alleen is zelden genoeg. Combineren met medicatie, metingen of verwijzingen geeft
-      een betere benadering.
+      - Voor veel gebruikte concepten (SES, polyfarmacie, multimorbiditeit, kwetsbaarheid) bestaan al
+      definities en soms kant-en-klare syntax — vraag ernaar voordat je zelf bouwt.
+
+      - Combineren van signalen (bijvoorbeeld een ICPC-code met medicatie of metingen) maakt je definitie
+      doorgaans sterker.
 
       - Pas als je definitie staat, kies je tabellen. Huisartsdata bestaat uit een set tabellen (onder
-      meer PAT, EPS, JRN, MED, LAB, COR); externe bronnen dekken elk hun eigen jaren.
-
-      - Voor veelgebruikte concepten (SES, polyfarmacie, multimorbiditeit, kwetsbaarheid) bestaan al definities
-      en soms kant-en-klare syntax. Vraag ernaar voordat je zelf bouwt.'
+      meer PAT, EPS, JRN, MED, LAB, COR); externe bronnen dekken elk hun eigen jaren.'
   - type: diagram
     inhoud: '<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Van
       patiëntcontact naar onderzoeksvariabele: het vertaalproces van routinezorgdata">
@@ -87,9 +87,10 @@ subhoofdstukken:
       Plan (behandeling). De E-regel wordt gecodeerd met ICPC.
 
 
-      Via episodegericht registreren worden losse contacten gekoppeld aan een zorgepisode. Één episode
-      beschrijft het beloop van één gezondheidsprobleem over de tijd. De tabellen Journaal (JRN) en Episoden
-      (EPS) zijn daardoor verbonden via het episodenummer.'
+      Via episodegericht registreren worden losse contacten gekoppeld aan een zorgepisode. Eén episode
+      beschrijft het beloop van één gezondheidsprobleem over de tijd — dat is precies wat longitudinaal
+      onderzoek met ELAN zo waardevol maakt. De tabellen Journaal (JRN) en Episoden (EPS) zijn daardoor
+      verbonden via het episodenummer.'
   - type: inklap
     stijl: example
     kop: Hoe ziet een SOEP-registratie eruit?
@@ -125,8 +126,8 @@ subhoofdstukken:
   - type: inklap
     stijl: note
     kop: Verschilt registratie tussen HIS-systemen?
-    inhoud: 'Ja. Episodegericht registreren werkt per HIS net anders, waardoor variabelen anders gevuld
-      zijn. Uit een controle van databestand 2018–2020:
+    inhoud: 'Episodegericht registreren werkt per HIS net iets anders, waardoor sommige variabelen per
+      systeem verschillend gevuld zijn. Ter oriëntatie, uit een controle van databestand 2018–2020:
 
 
       | Variabele | Medicom | Microhis | Prom-ASP | Prom-VDF |
@@ -146,9 +147,8 @@ subhoofdstukken:
 
 
       In sommige HIS''en (bijvoorbeeld Medicom) sluit een episode zonder probleemstatus automatisch na
-      een periode zonder contact, bijvoorbeeld 18 maanden. De einddatum is dan géén betrouwbare maat voor
-      ziekteduur. Het NIVEL gebruikt hiervoor het ‘ziektevrije interval’ (Nielen et al., 2019, JMIR Med
-      Inform).'
+      een periode zonder contact, bijvoorbeeld 18 maanden. Voor ziekteduur is het daarom fijner om het
+      ''ziektevrije interval'' te gebruiken (Nielen et al., 2019, JMIR Med Inform) dan de einddatum zelf.'
 - subtitel: Stap 2 — Leer de codestelsels lezen
   blokken:
   - type: tekst
@@ -237,28 +237,29 @@ subhoofdstukken:
 
       Let op: een voorschrift in de huisartsendata betekent niet dat het middel is opgehaald of ingenomen.
       Een declaratie in CBS-microdata betekent dat het is verstrekt, niet dat het is gebruikt.'
-  - type: valkuil
-    kop: Een lege registratie betekent niet dat de aandoening afwezig is
-    inhoud: 'ICPC-codes worden vaker niet dan wel geregistreerd. Bij afwezigheid van informatie mag je
-      nooit concluderen dat een diagnose of determinant afwezig is.
+  - type: inklap
+    stijl: note
+    kop: Een lege registratie zegt niet automatisch dat iets afwezig is
+    inhoud: 'Niet elk ICPC-relevant gegeven wordt vastgelegd, en registratie verschilt van huisarts tot
+      huisarts: de één codeert keelpijn als ''verkouden'', de ander zet ''keelpijn'' op de E-regel.
 
 
-      Registratie verschilt bovendien sterk per huisarts: de één codeert keelpijn als ‘verkouden’, de
-      ander zet ‘keelpijn’ op de E-regel. Familieanamnese kan in de O-regel staan, in het contextuele
-      deel van het HIS (niet terug te vinden in ELAN), of als ICPC-code (wel terug te vinden).
+      Familieanamnese kan bijvoorbeeld in de O-regel staan, in het contextuele deel van het HIS (niet
+      terug te vinden in ELAN), of als ICPC-code (wel terug te vinden).
 
 
-      Benoem dit expliciet in je methodesectie, en houd rekening met onderschatting van prevalenties.'
+      Fijn om mee te nemen in je methodesectie: bij afwezigheid van een code is ''niet geregistreerd''
+      vaak een veiligere lezing dan ''niet aanwezig''.'
   - type: inklap
     stijl: note
     kop: Waarom staat er soms een symptoomcode waar je een diagnose verwacht?
     inhoud: 'Het advies aan huisartsen is: codeer niet hoger dan je waar kunt maken. Lagere nummers zijn
-      symptomen, hogere diagnoses. Buikpijn met verdenking appendicitis wordt vaak D01 (buikpijn) en pas
-      later D88 (appendicitis) — soms pas na de brief uit het ziekenhuis, soms helemaal niet.
+      symptomen, hogere diagnoses. Buikpijn met verdenking appendicitis wordt daarom vaak eerst D01 (buikpijn)
+      en later D88 (appendicitis), zodra dat zeker is.
 
 
-      Voor jouw operationalisatie betekent dit meestal: neem zowel symptoom- als diagnosecodes mee, of
-      onderbouw expliciet waarom je dat niet doet.'
+      Voor je operationalisatie betekent dit meestal: neem zowel symptoom- als diagnosecodes mee, of onderbouw
+      waarom je daarvoor niet kiest.'
   - type: inklap
     stijl: note
     kop: Wat is het verschil tussen de probleemlijst en de episodelijst?
@@ -277,17 +278,13 @@ subhoofdstukken:
     stijl: note
     kop: Waarom staan er zoveel diagnoses op dezelfde begindatum?
     inhoud: 'Bij de aanschaf van een nieuw HIS, of wanneer een patiënt naar een nieuwe praktijk overgaat,
-      werd de voorgeschiedenis handmatig ingevoerd. De begindatum werd daarbij vaak niet correct overgenomen;
-      je ziet dan veel diagnoses op één datum staan.
+      wordt de voorgeschiedenis vaak in één keer ingevoerd. De begindatum komt daarbij niet altijd exact
+      mee, dus je kunt clusters van diagnoses op dezelfde datum tegenkomen.
 
 
-      Sinds ongeveer 2023 zijn er afspraken tussen LHV, NHG en HIS-leveranciers om diagnoses automatisch
-      in hetzelfde format over te nemen, maar dat werkt volgens de documentatie nog niet foutloos.
-
-
-      Een patiënt met twintig jaar migraine die nieuw binnenkomt, kan dus een startdatum van vandaag krijgen,
-      van twintig jaar geleden, of een fictieve datum in een ver verleden. Wees daarom voorzichtig met
-      episodestartdatums als maat voor ziekteduur of incidentie.'
+      Sinds ongeveer 2023 bestaan er afspraken tussen LHV, NHG en HIS-leveranciers om dit consistenter
+      over te nemen. Tot die overgang volledig is doorgevoerd: gebruik episodestartdatums met enige voorzichtigheid
+      als maat voor ziekteduur of incidentie, zeker bij patiënten die van praktijk wisselden.'
 - subtitel: Stap 3 — Operationaliseer je concept
   blokken:
   - type: tekst
@@ -387,14 +384,15 @@ subhoofdstukken:
       Bedenk vooraf op welk niveau je analyse-eenheid ligt: persoon, episode, contact of voorschrift.
       Koppelen van een tabel op contactniveau aan een tabel op persoonsniveau vermenigvuldigt rijen, en
       dat is een veelgemaakte bron van dubbeltellingen.'
-  - type: letop
-    kop: Controleer variabelen op inhoud, niet op naam
-    inhoud: 'Variabelenamen in de data komen soms niet overeen met het codeboek, en kunnen verschillen
-      tussen de I-schijf en CBS-RA. Ook de structuur verschilt: op de I-schijf zijn inschrijvingen (INS)
-      en patiëntgegevens (PAT) gescheiden, terwijl ze in CBS-RA samengevoegd worden aangeleverd.
+  - type: inklap
+    stijl: note
+    kop: Controleer variabelen op inhoud, niet alleen op naam
+    inhoud: 'Variabelenamen in de data komen soms niet één-op-één overeen met het codeboek, en de indeling
+      kan verschillen tussen de I-schijf en CBS-RA — op de I-schijf zijn inschrijvingen (INS) en patiëntgegevens
+      (PAT) bijvoorbeeld apart, in CBS-RA samengevoegd.
 
 
-      Controleer daarom altijd de wáárden van een variabele, niet alleen de naam.'
+      Een korte controle van de wáárden naast de naam voorkomt verrassingen verderop.'
   - type: inklap
     stijl: info
     kop: Welke externe bronnen zijn er, en over welke jaren?
@@ -448,9 +446,9 @@ subhoofdstukken:
 
       Dit voorkomt stille fouten, en je hebt het document later nodig voor je methodesectie en je ticket.'
   - type: inklap
-    stijl: warning
-    kop: Onderzoek je verwijzingen? Lees dit eerst
-    inhoud: 'Verwijzingen staan op meerdere plekken, en geen enkele bron is volledig.
+    stijl: note
+    kop: Werk je met verwijzingen? Dit helpt bij het kiezen van je bron
+    inhoud: 'Verwijzingen staan op meerdere plekken, en elke bron heeft zijn eigen sterke kant.
 
 
       | Bron | Wat erin zit en de belangrijkste beperking |
@@ -470,8 +468,8 @@ subhoofdstukken:
       Vektis-bestanden lopen vaak twee jaar achter. |
 
 
-      Wie alleen COR gebruikt, mist een groot deel van de verwijzingen. Combineer COR met JRN_ZorgDomein.
-      Verwijzingen die intern, mondeling of via briefjes lopen, zitten in geen enkele tabel.
+      COR en JRN_ZorgDomein vullen elkaar mooi aan — combineren geeft het meest complete beeld. Verwijzingen
+      die intern, mondeling of via briefjes lopen, zitten in geen enkele tabel.
 
 
       Vulgraad van COR-variabelen verschilt sterk: dDatum 100%, dEpisodeICPC 69%, dSpecialisme 58%, CorrespondentieICPC
