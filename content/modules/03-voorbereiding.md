@@ -7,8 +7,8 @@ intro: 'Je regelt de formele toestemming en toegang: aanstelling, protocol, tick
   externe bronnen en toegang tot de omgeving.
 
 
-  Belangrijkste principe van deze fase: de sporen lopen parallel, niet achter elkaar. Wie wacht tot het
-  ene traject klaar is voordat hij het volgende start, verliest maanden.'
+  Deze trajecten lopen het handigst naast elkaar in plaats van na elkaar. Wie ze parallel opzet, is doorgaans
+  sneller klaar dan wie stap voor stap wacht.'
 benodigdheden:
 - 'Het dataverzoek uit fase 2: vraag, populatie, periode, variabelen'
 - Het ELAN-nWMO-protocoltemplate
@@ -25,15 +25,15 @@ subhoofdstukken:
       - Het ticket dien je in via elanresearch.nl. Het ELAN-kernteam vergadert ongeveer twee keer per
       maand; de wetenschapscommissie behandelt je ticket gelijktijdig.
 
-      - Gebruik uitsluitend het ELAN-nWMO-template. Een generiek template kost je een ronde extra.
+      - Gebruik het ELAN-nWMO-template — dat is het template dat op ELAN-onderzoek is toegesneden.
 
       - De huisartsendata wordt automatisch aangevraagd zodra je een ticket indient. Voor elke andere
       externe bron regel je zelf toestemming bij de bronhouder.
 
-      - Informeel is de doorlooptijd ongeveer een maand; in de praktijk kan die oplopen tot meer dan drie
-      maanden.
+      - Reken op enkele weken tot een aantal maanden doorlooptijd, afhankelijk van de complexiteit van
+      je aanvraag.
 
-      - Data kan er eerder zijn dan alle goedkeuringen. Begin pas met analyseren als alles rond is.'
+      - Data kan er soms eerder zijn dan alle goedkeuringen. Begin pas met analyseren als alles rond is.'
   - type: diagram
     inhoud: '<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Het
       aanvraagproces in zes stappen: instellingseis, protocol, ticket, ethische toetsing, externe bronnen,
@@ -121,13 +121,10 @@ subhoofdstukken:
       Het template heet ''Protocol format METC-LDD onderzoek met gegevens'' en is te vinden via de ELAN-pagina
       op de LUMC-website.'
   - type: valkuil
-    kop: Gebruik uitsluitend het ELAN-nWMO-template
+    kop: Gebruik het ELAN-nWMO-template
     inhoud: 'Er zijn meerdere protocoltemplates in omloop: een generiek nWMO-template, een PHEG-template
-      en het ELAN-template. Alleen het ELAN-nWMO-template is bruikbaar voor onderzoek met ELAN-data.
-
-
-      Volgens de Startersgids is het in de praktijk al meerdere keren misgegaan: het verkeerde template
-      leidt tot extra werk en vertraagde goedkeuring.'
+      en het ELAN-template. Gebruik voor ELAN-onderzoek het ELAN-nWMO-template — dat is toegesneden op
+      deze setting en voorkomt dat je later alsnog moet overzetten naar het juiste format.'
   - type: inklap
     stijl: note
     kop: Voor wie schrijf je het protocol?
@@ -193,14 +190,13 @@ subhoofdstukken:
 
       Dit is dus niet de financier van je onderzoek.'
   - type: inklap
-    stijl: warning
+    stijl: note
     kop: Werk je met CBS-microdata? Vermeld dat expliciet
     inhoud: 'Gebruik je CBS-microdata, bijvoorbeeld inkomen, opleiding of huishoudsamenstelling, vermeld
       dan expliciet in je ticket dát je die data nodig hebt én dat je in de CBS-RA-omgeving werkt.
 
 
-      Dit wordt niet automatisch aangenomen. Staat het er niet in, dan volgt een verduidelijkingsronde
-      en loopt je traject vertraging op.'
+      Dit wordt niet automatisch aangenomen, dus door het meteen te benoemen voorkom je een extra verduidelijkingsronde.'
   - type: inklap
     stijl: note
     kop: Koppel je ticket aan het juiste werkpakket
@@ -292,34 +288,24 @@ subhoofdstukken:
 
 
       Neem dit mee in je planning: de meest recente maanden zitten vrijwel nooit in de data die je krijgt.'
-- subtitel: Stap 5 — Volg je aanvraag actief op
+- subtitel: Stap 5 — Volg je aanvraag op
   blokken:
   - type: tekst
-    inhoud: 'Na indiening doorloopt je ticket een interne beoordelingsroute. De informele verwachting
-      is ongeveer een maand, maar bij complexere aanvragen kan dat oplopen tot meer dan drie maanden.
+    inhoud: 'Na indiening doorloopt je ticket een interne beoordelingsroute. Hoe actiever je zelf de status
+      volgt, hoe vlotter dat meestal verloopt.
 
 
-      Houd zelf de regie. Check elanresearch.nl voor updates; opmerkingen van beoordelaars kun je daar
-      beantwoorden en verwerken. Heb je na twee weken niets gehoord, vraag dan om een statusupdate.'
+      Check elanresearch.nl voor updates; opmerkingen van beoordelaars kun je daar beantwoorden en verwerken.
+      Heb je een tijdje niets gehoord, vraag dan gerust om een statusupdate.'
   - type: inklap
-    stijl: warning
-    kop: Vraag om een ondubbelzinnige status
-    inhoud: 'Krijg je geen duidelijk antwoord, stel de vraag dan expliciet: is mijn ticket goedgekeurd,
+    stijl: note
+    kop: Vraag gerust om een concrete status
+    inhoud: 'Krijg je geen duidelijk antwoord, stel de vraag dan gewoon direct: is mijn ticket goedgekeurd,
       afgewezen, of wacht het op aanvullende informatie?
 
 
-      Vraag na goedkeuring ook expliciet of er nog vervolgstappen zijn. Aanvullende documenten voor de
-      METC worden volgens de Startersgids niet altijd proactief gecommuniceerd.'
-  - type: inklap
-    stijl: note
-    kop: Wat als mijn aanvraag stilvalt?
-    inhoud: 'In het knelpuntenrapport is een aanvraag beschreven die langer dan drie maanden op formele
-      goedkeuring wachtte, waarbij onduidelijk was wie de beslissing kon deblokkeren.
-
-
-      Praktisch: leg per contactmoment vast wat je hebt gestuurd, aan wie, en op welke datum. Loopt het
-      vast, bespreek dan met je betrokken LUMC-onderzoeker of contactpersoon wie formeel beslisbevoegd
-      is.'
+      Vraag na goedkeuring ook even na of er nog vervolgstappen zijn, bijvoorbeeld aanvullende documenten
+      voor de METC. Dat scheelt een verrassing later.'
 - subtitel: Stap 6 — Krijg toegang tot de omgeving
   blokken:
   - type: tekst
@@ -330,13 +316,14 @@ subhoofdstukken:
       Je krijgt standaard toegang tot de microdata die binnen jouw project is aangevraagd. Toegang tot
       externe data volgt pas nadat de betreffende bronhouder toestemming heeft gegeven.'
   - type: letop
-    kop: Data eerder dan goedkeuring? Wacht toch
-    inhoud: 'Data-uitgifte kan sneller gaan dan de nWMO-commissie haar goedkeuring afgeeft. Wacht met
-      analyseren tot alle benodigde goedkeuringen binnen zijn, ook als je de data technisch al kunt openen.
+    kop: Wacht met analyseren tot alle goedkeuringen binnen zijn
+    inhoud: 'Data-uitgifte kan soms sneller gaan dan de nWMO-commissie haar goedkeuring afgeeft. Start
+      je analyses pas zodra alle benodigde goedkeuringen binnen zijn, ook als je de data technisch al
+      kunt openen.
 
 
-      Wat je in de tussentijd wél kunt doen: je analyseplan afmaken, je scriptstructuur opzetten en je
-      codelijsten vastleggen.'
+      Mooi moment om in de tussentijd je analyseplan af te maken, je scriptstructuur op te zetten en je
+      codelijsten vast te leggen.'
   - type: inklap
     stijl: note
     kop: Wat gebeurt er verder met mijn dataset?
@@ -349,42 +336,40 @@ subhoofdstukken:
 - subtitel: Stap 7 — Begroot de kosten
   blokken:
   - type: tekst
-    inhoud: De kosten komen vrijwel volledig voort uit het gebruik van de CBS-RA-infrastructuur. Ze worden
-      per kwartaal doorbelast aan de onderzoeker, dus regel vóór je aanvraag dat er budget is.
+    inhoud: De kosten voor het werken in CBS-RA worden per kwartaal doorbelast aan de onderzoeker. Handig
+      om vroeg te weten waar ze uit zijn opgebouwd, zodat je dit kunt meenemen in je begroting of subsidieaanvraag.
   - type: inklap
     stijl: info
-    kop: Rekenvoorbeeld uit het Guidance Document
-    inhoud: 'Voorbeeld van een onderzoeker die een jaar als actieve gebruiker is aangemeld, vier keer
-      output aanbiedt en geen eigen bestanden uploadt:
+    kop: Voorbeeld van een kostenopbouw
+    inhoud: 'Ter illustratie, uit het Guidance Document: een onderzoeker die een jaar als actieve gebruiker
+      is aangemeld, vier keer output aanbiedt en geen eigen bestanden uploadt.
 
 
-      | Post | Aantal | Tarief | Totaal |
+      | Post | Aantal | Tarief |
 
-      | --- | --- | --- | --- |
+      | --- | --- | --- |
 
-      | Eenmalige aanmeldkosten | 1 | € 375,00 | € 375,00 |
+      | Eenmalige aanmeldkosten | 1 | € 375,00 |
 
-      | Actieve gebruiker per maand | 12 | € 135,00 | € 1.620,00 |
+      | Actieve gebruiker per maand | 12 | € 135,00 |
 
-      | Output aanbieden | 4 | € 250,00 | € 1.000,00 |
+      | Output aanbieden | 4 | € 250,00 |
 
-      | Geheugenkosten per maand | 12 | € 25,00 | € 300,00 |
+      | Geheugenkosten per maand | 12 | € 25,00 |
 
-      | Eigen bestanden importeren (op BSN) | 0 | € 250,00 | € 0,00 |
+      | Eigen bestanden importeren (op BSN) | 0 | € 250,00 |
 
-      | Eigen bestanden importeren (waarschijnlijkheidskoppeling) | 0 | € 675,00 | € 0,00 |
+      | Eigen bestanden importeren (waarschijnlijkheidskoppeling) | 0 | € 675,00 |
 
-      | Nieuwe microdata aanvragen, per bestand | 0 | € 180,00 | € 0,00 |
-
-      | **Totaal** | | | **€ 3.295,00** |
+      | Nieuwe microdata aanvragen, per bestand | 0 | € 180,00 |
 
 
       Ondersteuning door de ELAN-datamanager wordt niet doorbelast.
 
 
-      Dit is een voorbeeld, geen tarief. Ben je zes maanden actief en bied je één keer output aan, dan
-      liggen de kosten ruim de helft lager. Het CBS past de vaste tarieven jaarlijks aan; kijk voor actuele
-      bedragen op de CBS-pagina over diensten en kosten.'
+      Dit is één voorbeeldscenario, geen vast tarief — ben je korter actief of bied je minder vaak output
+      aan, dan vallen de kosten navenant lager uit. Het CBS past de vaste tarieven jaarlijks aan; kijk
+      voor actuele bedragen op de CBS-pagina over diensten en kosten.'
   - type: inklap
     stijl: note
     kop: Wanneer krijg ik de factuur?
