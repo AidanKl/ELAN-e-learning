@@ -296,9 +296,13 @@
     return kaart;
   }
 
-  function subKaart(sub) {
+function subKaart(sub) {
     var kaart = el("div", { class: "sub-kaart" });
     var titelIn = tekstInvoer(sub.subtitel);
+    var kernIn = tekstInvoer(sub.kernzin);
+    var labelIn = tekstInvoer(sub.uitklap_label);
+    var openIn = el("input", { type: "checkbox" });
+    openIn.checked = !!sub.open;
     var blokken = el("div", {});
     (sub.blokken || []).forEach(function (b) { blokken.appendChild(blokKaart(b)); });
     var plus = el("button", { class: "icoonknop", text: "+ blok toevoegen", type: "button",
@@ -315,14 +319,24 @@
     kaart.appendChild(el("div", { class: "blok-kop" },
       [el("strong", { text: "Subhoofdstuk" }), el("span", { class: "spacer" }), omhoog, omlaag, weg]));
     kaart.appendChild(veld("Titel", titelIn));
+    kaart.appendChild(veld("Kernzin (altijd zichtbaar)", kernIn,
+      "Eén zin die de kern van dit subhoofdstuk samenvat. Blijft staan als de " +
+      "uitwerking is ingeklapt — laat dit veld dus niet leeg."));
+    kaart.appendChild(veld("Tekst op de uitklapknop", labelIn,
+      "Leeg = 'Uitwerking tonen'. Concreter werkt beter, bv. 'De 7 stappen bekijken'."));
+    kaart.appendChild(veld("Meteen opengeklapt tonen?", openIn));
     kaart.appendChild(blokken);
     kaart.appendChild(plus);
 
     kaart.lees = function () {
-      return { subtitel: titelIn.value,
-               blokken: Array.from(blokken.children)
-                 .filter(function (c) { return c.lees; })
-                 .map(function (c) { return c.lees(); }) };
+      var uit = { subtitel: titelIn.value };
+      if (kernIn.value.trim()) uit.kernzin = kernIn.value.trim();
+      if (labelIn.value.trim()) uit.uitklap_label = labelIn.value.trim();
+      if (openIn.checked) uit.open = true;
+      uit.blokken = Array.from(blokken.children)
+        .filter(function (c) { return c.lees; })
+        .map(function (c) { return c.lees(); });
+      return uit;
     };
     return kaart;
   }
