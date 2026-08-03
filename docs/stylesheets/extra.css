@@ -40,25 +40,195 @@
   color: #ffffff;
 }
 
-/* 'Fase-voortgang' balk bovenaan elke module (zie modulepagina's) */
+/* ============================================================
+   Fase-voortgang (stepper bovenaan elke module)
+   Status wordt gezet door docs/javascripts/fase-voortgang.js
+   ============================================================ */
 .fase-balk {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  margin: 0 0 1.2em 0;
-  font-size: 0.72rem;
+  align-items: flex-start;
+  gap: 0;
+  margin: 0 0 0.4em 0;
+  padding: 0;
+  font-size: 0.68rem;
+  line-height: 1.2;
 }
-.fase-balk span {
-  padding: 3px 9px;
-  border-radius: 3px;
+.fase-balk .fb-stap {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 62px;
+  text-align: center;
+  padding-top: 26px;
+  color: #6b6b6b;
+}
+/* verbindingslijn tussen de bolletjes */
+.fase-balk .fb-stap::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
   background: var(--lumc-grijs);
-  color: #555;
-  white-space: nowrap;
+  z-index: 0;
 }
-.fase-balk span.actief {
+.fase-balk .fb-stap:first-child::before { display: none; }
+
+.fase-balk .fb-bol {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--lumc-grijs);
+  background: var(--md-default-bg-color, #fff);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #6b6b6b;
+}
+.fase-balk .fb-label {
+  display: block;
+  padding: 0 2px;
+  word-break: break-word;
+}
+
+/* deels afgerond */
+.fase-balk .fb-stap.bezig .fb-bol {
+  border-color: var(--lumc-petrol);
+  color: var(--lumc-petrol);
+  background: var(--md-default-bg-color, #fff);
+}
+.fase-balk .fb-stap.bezig .fb-label { color: var(--lumc-petrol); }
+
+/* afgerond: vinkje in plaats van nummer */
+.fase-balk .fb-stap.af .fb-bol {
+  border-color: var(--lumc-petrol);
+  background: var(--lumc-petrol);
+  color: #fff;
+  font-size: 0;
+}
+.fase-balk .fb-stap.af .fb-bol::after {
+  content: "\2713";
+  font-size: 0.7rem;
+  line-height: 1;
+}
+.fase-balk .fb-stap.af::before { background: var(--lumc-petrol); }
+.fase-balk .fb-stap.af .fb-label { color: var(--lumc-petrol); }
+
+/* de fase waar je nu bent */
+.fase-balk .fb-stap.actief .fb-bol {
+  border-color: var(--lumc-donkerblauw);
   background: var(--lumc-donkerblauw);
   color: #fff;
+  box-shadow: 0 0 0 3px var(--lumc-lichtblauw);
+}
+.fase-balk .fb-stap.actief .fb-label {
+  color: var(--lumc-donkerblauw);
   font-weight: 700;
+}
+.fase-balk .fb-stap.actief.af .fb-bol { background: var(--lumc-donkerblauw); }
+
+/* teller onder de balk ("3 van 8 fasen afgerond") */
+.fase-teller {
+  margin: 0.2em 0 1.4em 0;
+  font-size: 0.7rem;
+  color: #6b6b6b;
+}
+
+@media screen and (max-width: 500px) {
+  .fase-balk .fb-label { display: none; }
+  .fase-balk .fb-stap { min-width: 32px; }
+  .fase-balk .fb-stap.actief .fb-label {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+}
+
+/* donkere modus */
+[data-md-color-scheme="slate"] .fase-balk .fb-stap { color: #b3b3b3; }
+[data-md-color-scheme="slate"] .fase-balk .fb-stap::before { background: #3a3a3a; }
+[data-md-color-scheme="slate"] .fase-balk .fb-bol {
+  border-color: #3a3a3a; color: #b3b3b3; background: transparent;
+}
+[data-md-color-scheme="slate"] .fase-balk .fb-stap.actief .fb-bol {
+  border-color: #7CA8E0; background: #7CA8E0; color: #06121F;
+  box-shadow: 0 0 0 3px rgba(124,168,224,.2);
+}
+[data-md-color-scheme="slate"] .fase-balk .fb-stap.actief .fb-label { color: #7CA8E0; }
+[data-md-color-scheme="slate"] .fase-teller { color: #b3b3b3; }
+
+/* ============================================================
+   Laag 2: subhoofdstuk met kernzin + uitklapbare uitwerking
+   ============================================================ */
+.md-typeset .sub-kern {
+  margin: -0.3em 0 0.8em 0;
+  font-size: 0.86rem;
+  color: #4a4a4a;
+}
+[data-md-color-scheme="slate"] .md-typeset .sub-kern { color: #c2c2c2; }
+
+.md-typeset details.sub-stap {
+  border: 1px solid var(--lumc-lichtblauw);
+  border-left: 4px solid var(--lumc-donkerblauw);
+  border-radius: 4px;
+  background: transparent;
+  box-shadow: none;
+  margin: 0.6em 0 1.6em 0;
+  padding: 0;
+  font-size: inherit;
+}
+.md-typeset details.sub-stap > summary {
+  background: var(--lumc-lichtblauw);
+  color: var(--lumc-donkerblauw);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.5em 0.8em 0.5em 2em;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+.md-typeset details.sub-stap > summary::marker,
+.md-typeset details.sub-stap > summary::-webkit-details-marker { display: none; }
+.md-typeset details.sub-stap > summary::before {
+  content: "\25B8";
+  position: absolute;
+  left: 0.8em;
+  transition: transform 0.15s;
+  background: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+  width: auto; height: auto;
+  color: var(--lumc-donkerblauw);
+}
+.md-typeset details.sub-stap[open] > summary::before { transform: rotate(90deg); }
+.md-typeset details.sub-stap[open] > summary { border-bottom: 1px solid var(--lumc-lichtblauw); }
+.md-typeset details.sub-stap > summary::after { display: none; }
+.md-typeset details.sub-stap > *:not(summary) { margin-left: 0.8em; margin-right: 0.8em; }
+.md-typeset details.sub-stap > *:last-child { margin-bottom: 0.8em; }
+
+[data-md-color-scheme="slate"] .md-typeset details.sub-stap {
+  border-color: #17324F;
+  border-left-color: #7CA8E0;
+}
+[data-md-color-scheme="slate"] .md-typeset details.sub-stap > summary {
+  background: #12283F;
+  color: #CFE1F7;
+}
+[data-md-color-scheme="slate"] .md-typeset details.sub-stap > summary::before { color: #CFE1F7; }
+[data-md-color-scheme="slate"] .md-typeset details.sub-stap[open] > summary {
+  border-bottom-color: #17324F;
 }
 
 /* 'nog aan te vullen' markering — duidelijk zichtbaar voor de beheerder */
@@ -153,7 +323,11 @@ a.md-button.knop-vergrendeld {
 .edia text { fill: currentColor; font-family: Arial, sans-serif; }
 .edia .et { font-size: 13px; font-weight: 700; }
 .edia .ets { font-size: 11px; }
-.edia .ebox-accent text, .edia .ebox-accent .et, .edia .ebox-accent .ets { fill: #ffffff; }
+.edia .ebox-accent text, .edia .ebox-accent .et, .edia .ebox-accent .ets {
+  fill: #ffffff; stroke: none;
+}
+/* Pijlpunt (marker) in diagrammen */
+.edia .epijlkop { fill: var(--lumc-blauw); stroke: none; }
 .edia .earr { stroke: var(--lumc-blauw); stroke-width: 1.5; fill: none; }
 [data-md-color-scheme="slate"] .edia .ebox { fill: #0A2A4D; }
 [data-md-color-scheme="slate"] .edia .ebox-groen { fill: #1E3A20; }
