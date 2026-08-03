@@ -44,11 +44,26 @@ def read_frontmatter(path):
     return {"_body": txt}
 
 def fase_balk(active_volgorde):
+    """Voortgangs-stepper bovenaan elke module.
+
+    Elke stap krijgt data-volgorde mee. Het script
+    docs/javascripts/fase-voortgang.js zet daar de status op
+    (open / bezig / af) op basis van de afgevinkte checklists."""
     items = []
     for v, label in BALK:
-        cls = ' class="actief"' if v == active_volgorde else ""
-        items.append(f"<span{cls}>{label}</span>")
-    return '<div class="fase-balk">\n' + "\n".join(items) + "\n</div>\n"
+        # Label "1 Oriëntatie" -> nummer "1" + naam "Oriëntatie"
+        nummer, _, naam = label.partition(" ")
+        if not naam:
+            nummer, naam = "", label
+        cls = "fb-stap actief" if v == active_volgorde else "fb-stap"
+        items.append(
+            f'<span class="{cls}" data-volgorde="{v}">'
+            f'<span class="fb-bol">{nummer}</span>'
+            f'<span class="fb-label">{naam}</span>'
+            f'</span>'
+        )
+    return ('<div class="fase-balk" data-actief="%s">\n' % active_volgorde
+            + "\n".join(items) + "\n</div>\n")
 
 def render_blok(blok):
     t = blok.get("type")
@@ -102,10 +117,30 @@ def build_module(data):
         for punt in data["benodigdheden"]:
             out.append(f"- {punt}")
         out.append("")
-    for sub in data.get("subhoofdstukken", []) or []:
-        out.append(f'## {sub.get("subtitel","")}\n')
-        for blok in sub.get("blokken", []) or []:
-            out.append(render_blok(blok))
+   # Subhoofdstukken (laag 2). De kop en de kernzin blijven altijd
+    # zichtbaar; de uitwerking zit achter een klik. Zo blijft de pagina
+    # scanbaar voor wie alleen de hoofdlijn zoekt.
+    # Uitzondering: de welkompagina (00) klapt niet in.
+    inklappen = volgorde != "00"
+    for i, sub in enumerate(data.get("subhoofdstukken", []) or [], start=1):
+        subtitel = sub.get("subtitel", "")
+        out.append(f'## {i}. {subtitel}\n')
+        if sub.get("kernzin"):
+            out.append('<p class="sub-kern">%s</p>\n' % sub["kernzin"].strip())
+        blokken = [render_blok(b) for b in (sub.get("blokken", []) or [])]
+        blokken = [b for b in blokken if b.strip()]
+        if not blokken:
+            continue
+        if not inklappen:
+            out.extend(blokken)
+            continue
+        open_attr = " open" if sub.get("open") else ""
+        label = sub.get("uitklap_label") or "Uitwerking tonen"
+        out.append(f'<details class="sub-stap" markdown{open_attr}>')
+        out.append(f'<summary>{label}</summary>')
+        out.append("")
+        out.extend(blokken)
+        out.append("</details>\n")
     if data.get("naslag"):
         out.append('<div class="naslag" markdown>')
         out.append("**Naslag bij deze fase**\n")
