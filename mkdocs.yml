@@ -58,7 +58,11 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
-
+      
+extra_javascript:
+  - javascripts/checklist-data.js
+  - javascripts/checklist.js
+  - javascripts/fase-voortgang.js
 # ============================================================
 #  MENU (lineaire volgorde van de e-learning)
 #  De titel links is wat in het menu verschijnt.
