@@ -135,7 +135,7 @@ def build_module(data):
             out.extend(blokken)
             continue
         open_attr = " open" if sub.get("open") else ""
-        label = sub.get("uitklap_label") or "Uitwerking tonen"
+        label = sub.get("uitklap_label") or "Lees meer"
         out.append(f'<details class="sub-stap" markdown{open_attr}>')
         out.append(f'<summary>{label}</summary>')
         out.append("")
