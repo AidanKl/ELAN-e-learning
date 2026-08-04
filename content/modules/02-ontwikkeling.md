@@ -18,6 +18,9 @@ benodigdheden:
   - Een concept-inclusie- en exclusiecriterium voor je populatie
 subhoofdstukken:
   - subtitel: In 30 seconden
+    kernzin: >-
+      Het vertaalproces in het kort: van onderzoeksconcept naar ICPC/ATC-codes, tijdvenster en
+      tabellen.
     open: true
     blokken:
       - type: tekst
@@ -95,6 +98,9 @@ subhoofdstukken:
 
           </svg>
   - subtitel: Stap 1 — Begrijp hoe de registratie ontstaat
+    kernzin: >-
+      Huisartsen registreren volgens de SOEP-structuur; de gecodeerde E-regel vormt de basis van de
+      ELAN-data.
     blokken:
       - type: tekst
         inhoud: >-
@@ -176,6 +182,9 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 2 — Leer de codestelsels lezen
+    kernzin: >-
+      ICPC codeert wat de huisarts vastlegt, ATC codeert medicatie — ken de opbouw van beide voordat
+      je een definitie bouwt.
     blokken:
       - type: tekst
         inhoud: >-
@@ -325,6 +334,9 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 3 — Operationaliseer je concept
+    kernzin: >-
+      Leg per uitkomst en determinant vast welke codes, eisen, tijdvenster en in-/exclusie gelden,
+      vóór je data aanvraagt.
     blokken:
       - type: tekst
         inhoud: >-
@@ -384,6 +396,7 @@ subhoofdstukken:
           NOG-AAN-TE-VULLEN (visueel): schema van ruwe variabele naar uitkomstmaat, met per stap de
           keuze die je vastlegt.
   - subtitel: Stap 4 — Kies je tabellen en variabelen
+    kernzin: Bepaal aan de hand van je definitie precies welke tabellen en variabelen je nodig hebt.
     blokken:
       - type: tekst
         inhoud: >-
@@ -554,6 +567,9 @@ subhoofdstukken:
         stijl: info
         open: false
   - subtitel: Stap 5 — Gebruik bestaande definities waar die er zijn
+    kernzin: >-
+      Voor SES, etniciteit, polyfarmacie, multimorbiditeit en kwetsbaarheid bestaan al
+      ELAN-definities die je als startpunt kunt gebruiken.
     blokken:
       - type: tekst
         inhoud: >-
@@ -640,6 +656,9 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 6 — Leg je dataverzoek vast
+    kernzin: >-
+      Sluit af met een document dat je vraag, populatie, periode en operationalisatie vastlegt — dat
+      gebruik je in fase 3 vrijwel ongewijzigd.
     blokken:
       - type: tekst
         inhoud: >-
