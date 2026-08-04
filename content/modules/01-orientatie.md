@@ -19,6 +19,7 @@ benodigdheden:
   - Zicht op je aanstelling en op budget voor datakosten
 subhoofdstukken:
   - subtitel: In 30 seconden
+    kernzin: De belangrijkste feiten over ELAN en deze fase, in vijf punten.
     open: true
     blokken:
       - type: tekst
@@ -100,6 +101,9 @@ subhoofdstukken:
 
           </svg>
   - subtitel: Stap 1 — Begrijp wat ELAN is
+    kernzin: >-
+      ELAN koppelt bestaande zorgdata uit meerdere bronnen tot een rijke, privacybestendige
+      onderzoeksbasis.
     blokken:
       - type: tekst
         inhoud: >-
@@ -178,6 +182,9 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 2 — Past je vraag bij routinezorgdata?
+    kernzin: >-
+      Routinezorgdata is sterk voor onderzoek naar populaties, risicofactoren en zorggebruik — deze
+      indeling helpt je vraag daarop te toetsen.
     blokken:
       - type: tekst
         inhoud: >-
@@ -233,6 +240,7 @@ subhoofdstukken:
           NOG-AAN-TE-VULLEN: concrete voorbeeldpapers per categorie (recente publicaties met
           ELAN-data), zodat zichtbaar wordt wat in de praktijk mogelijk blijkt.
   - subtitel: Stap 3 — Toets je vraag op de data
+    kernzin: Toets in drie stappen of je populatie, variabelen en periode goed aansluiten bij de data.
     blokken:
       - type: tekst
         inhoud: >-
@@ -341,6 +349,9 @@ subhoofdstukken:
           aantal deelnemende praktijken en instellingen, en de omvang van de populatie. Zonder die
           cijfers blijft stap 3 lastig zelfstandig uit te voeren.
   - subtitel: Stap 4 — Mag jij bij de data?
+    kernzin: >-
+      Een CBS-overeenkomst en een betrokken LUMC-onderzoeker regel je het handigst vroeg in het
+      traject.
     blokken:
       - type: tekst
         inhoud: >-
@@ -372,6 +383,7 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 5 — Past je vraag onder een bestaand ELAN-project?
+    kernzin: Ontdek onder welk bestaand ELAN-project in CBS-RA jouw onderzoek het beste past.
     blokken:
       - type: tekst
         inhoud: >-
@@ -415,14 +427,16 @@ subhoofdstukken:
         kop: Wat als mijn vraag nergens onder past?
         stijl: note
         open: false
-  - subtitel: Stap 6 — Wat kost het en hoe lang duurt het?
+  - subtitel: Dit overzicht van kosten en doorlooptijd helpt je vroeg budget en planning in te richten.
     blokken:
       - type: tekst
         inhoud: >-
           Werken in de CBS-RA-omgeving kost geld. Het gaat om eenmalige aanmeldkosten, kosten per
           maand dat je als actieve gebruiker staat aangemeld, en kosten per keer dat je output uit
           de omgeving laat halen. Voor een onderzoeker die een jaar actief is, komt dat volgens het
-          Guidance Document in de orde van enkele duizenden euro's per jaar uit.
+          Guidance Document in de orde van enkele duizenden euro's per jaar uit. Recentelijk is ELAN
+          aangesloten bij ODISSEI waardoor de kosten verminderd zouden zijn. Vraag dit na bij ELAN
+          DCC of dit inderdaad is doorgezet. 
 
 
           Kosten worden per kwartaal doorbelast aan de onderzoeker. Regel dus vóór je aanvraag dat
@@ -470,6 +484,7 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 7 — Leg je idee voor
+    kernzin: Bespreek je idee met de ELAN-DCC of de datamanager vóórdat je aan protocol en ticket begint.
     blokken:
       - type: tekst
         inhoud: >-
