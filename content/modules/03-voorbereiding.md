@@ -18,6 +18,7 @@ benodigdheden:
   - Budget voor de datakosten
 subhoofdstukken:
   - subtitel: In 30 seconden
+    kernzin: Vier trajecten — aanstelling, protocol, ticket en toestemming per bron lopen gelijktijdig.
     open: true
     blokken:
       - type: tekst
@@ -103,6 +104,9 @@ subhoofdstukken:
 
           </svg>
   - subtitel: Stap 1 — Regel je aanstelling en je LUMC-verankering
+    kernzin: >-
+      Regel je aanstelling en LUMC-betrokkenheid vroeg in het traject, parallel aan je andere
+      stappen.
     blokken:
       - type: tekst
         inhoud: >-
@@ -128,6 +132,7 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 2 — Schrijf je onderzoeksprotocol
+    kernzin: Gebruik het ELAN-nWMO-template en bouw voort op je dataverzoek uit fase 2.
     blokken:
       - type: tekst
         inhoud: >-
@@ -180,6 +185,7 @@ subhoofdstukken:
         stijl: info
         open: false
   - subtitel: Stap 3 — Dien je ticket in
+    kernzin: Het ticket is een korte pitch, geen protocol — dien 'm in via elanresearch.nl.
     blokken:
       - type: tekst
         inhoud: >-
@@ -237,7 +243,7 @@ subhoofdstukken:
         open: false
       - type: inklap
         inhoud: >-
-          Je ticket moet gekoppeld worden aan een bestaand werkpakket binnen ELAN. Zorg dat de
+          Je ticket moet gekoppeld worden aan een bestaand werkpakket binnen CBS. Zorg dat de
           principal investigator van dat werkpakket op de hoogte is van je ticket.
 
 
@@ -253,10 +259,13 @@ subhoofdstukken:
           Wie op dit moment PI is van welk werkpakket, staat op de contactpersonenpagina in het
           naslagdeel. Controleer dat bij je contactpersoon voordat je iemand aanschrijft; PI-rollen
           wisselen.
-        kop: Koppel je ticket aan het juiste werkpakket
+        kop: Koppel je ticket aan het juiste werkpakket (voor CBS-RA)
         stijl: note
         open: false
   - subtitel: Stap 4 — Vraag toestemming per externe databron
+    kernzin: >-
+      Huisartsendata wordt automatisch aangevraagd; voor elke andere bron regel je zelf toestemming
+      bij de bronhouder.
     blokken:
       - type: tekst
         inhoud: >-
@@ -342,6 +351,7 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 5 — Volg je aanvraag op
+    kernzin: Volg je ticket actief op via elanresearch.nl en vraag gerust om een concrete status.
     blokken:
       - type: tekst
         inhoud: >-
@@ -350,7 +360,8 @@ subhoofdstukken:
 
 
           Check elanresearch.nl voor updates; opmerkingen van beoordelaars kun je daar beantwoorden
-          en verwerken. Heb je een tijdje niets gehoord, vraag dan gerust om een statusupdate.
+          en verwerken. Heb je een tijdje niets gehoord, vraag dan gerust om een statusupdate je
+          ticket.
       - type: inklap
         inhoud: >-
           Krijg je geen duidelijk antwoord, stel de vraag dan gewoon direct: is mijn ticket
@@ -363,11 +374,14 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 6 — Krijg toegang tot de omgeving
+    kernzin: >-
+      Na goedkeuring regelt de datamanager je I-schijf of CBS-RA-toegang, klaar om mee te starten
+      zodra alles rond is.
     blokken:
       - type: tekst
         inhoud: >-
-          Is ELAN akkoord, dan zet de datamanager je aanmelding voor de CBS-RA-omgeving in gang. Dat
-          duurt bij elkaar ongeveer twee weken.
+          Is ELAN akkoord, dan zet de datamanager je aanmelding voor de CBS-RA-omgeving in gang of
+          de I-schijf. Dat duurt bij elkaar ongeveer twee weken.
 
 
           Je krijgt standaard toegang tot de microdata die binnen jouw project is aangevraagd.
@@ -395,6 +409,9 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 7 — Begroot de kosten
+    kernzin: >-
+      Dit overzicht van de kosten per kwartaal helpt je vroeg budget te reserveren en slim te
+      plannen.
     blokken:
       - type: tekst
         inhoud: >-
@@ -457,6 +474,9 @@ subhoofdstukken:
         stijl: note
         open: false
   - subtitel: Stap 8 — Controleer of je compleet bent
+    kernzin: >-
+      Check vóór fase 4 of aanstelling, protocol, ticket, toestemmingen, toegang en budget allemaal
+      rond zijn.
     blokken:
       - type: tekst
         inhoud: >-
